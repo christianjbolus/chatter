@@ -1,5 +1,6 @@
 class RepliesController < ApplicationController
   before_action :set_reply, only: [:show, :update, :destroy]
+  before_action :authorize_request, only: [:create, :update, :destroy]
 
   # GET /replies/1
   def show
@@ -9,6 +10,8 @@ class RepliesController < ApplicationController
   # POST /replies
   def create
     @reply = Reply.new(reply_params)
+    @reply.chat = Chat.find(params[:chat_id])
+    @reply.user = @current_user
 
     if @reply.save
       render json: @reply, status: :created

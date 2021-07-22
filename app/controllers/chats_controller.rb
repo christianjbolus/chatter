@@ -1,5 +1,6 @@
 class ChatsController < ApplicationController
   before_action :set_chat, only: [:show, :update, :destroy]
+  before_action :authorize_request, only: [:create, :update, :destroy]
 
   # GET /chats
   def index
@@ -10,15 +11,16 @@ class ChatsController < ApplicationController
 
   # GET /chats/1
   def show
-    render json: @chat, include: :replies
+    render json: @chat, include: { replies: { include: { user: { except: [:password_digest, :bio] } } } }
   end
 
   # POST /chats
   def create
     @chat = Chat.new(chat_params)
+    @chat.user = @current_user
 
     if @chat.save
-      render json: @chat, status: :created, location: @chat
+      render json: @chat, status: :created
     else
       render json: @chat.errors, status: :unprocessable_entity
     end
