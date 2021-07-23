@@ -92,6 +92,7 @@ GEM
     nokogiri (1.11.7-x86_64-darwin)
       racc (~> 1.4)
     pg (1.2.3)
+    prettier (1.6.1)
     pry (0.14.1)
       coderay (~> 1.1)
       method_source (~> 1.0)
@@ -161,6 +162,7 @@ DEPENDENCIES
   jwt
   listen (~> 3.3)
   pg (~> 1.1)
+  prettier
   pry-rails
   puma (~> 5.0)
   rack-cors

@@ -1,20 +1,28 @@
-import { useState, useEffect } from 'react'
-import { Route, Switch, useHistory } from 'react-router-dom'
-import { registerUser, loginUser, verifyUser, removeToken } from './services/auth'  
+import { useState, useEffect } from 'react';
+import { Route, Switch, useHistory } from 'react-router-dom';
+
+import ChatContainer from './containers/ChatContainer';
+import { Login, Register } from './screens'
+import {
+  registerUser,
+  loginUser,
+  verifyUser,
+  removeToken,
+} from './services/auth';
 
 import './App.css';
 
 function App() {
-  const [currentUser, setCurrentUser] = useState(null)
-  const history = useHistory
+  const [currentUser, setCurrentUser] = useState(null);
+  const history = useHistory;
 
   useEffect(() => {
     const handleVerify = async () => {
-      const userData = await verifyUser()
-      setCurrentUser(userData)
-    }
-    handleVerify()
-  }, [])
+      const userData = await verifyUser();
+      setCurrentUser(userData);
+    };
+    handleVerify();
+  }, []);
 
   const handleLogin = async formData => {
     const userData = await loginUser(formData);
@@ -34,10 +42,20 @@ function App() {
     removeToken();
     history.push('/');
   };
-  
+
   return (
     <div className="App">
-
+      <Switch>
+        <Route path="/register">
+          <Register />
+        </Route>
+        <Route path="/login">
+          <Login />
+        </Route>
+        <Route path="/">
+          <ChatContainer />
+        </Route>
+      </Switch>
     </div>
   );
 }

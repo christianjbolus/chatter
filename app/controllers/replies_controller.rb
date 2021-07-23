@@ -1,6 +1,6 @@
 class RepliesController < ApplicationController
-  before_action :set_reply, only: [:show, :update, :destroy]
-  before_action :authorize_request, only: [:create, :update, :destroy]
+  before_action :set_reply, only: %i[show update destroy]
+  before_action :authorize_request, only: %i[create update destroy]
 
   # GET /replies/1
   def show
@@ -35,13 +35,14 @@ class RepliesController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_reply
-      @reply = Reply.find(params[:id])
-    end
 
-    # Only allow a list of trusted parameters through.
-    def reply_params
-      params.require(:reply).permit(:content, :user_id, :chat_id)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_reply
+    @reply = Reply.find(params[:id])
+  end
+
+  # Only allow a list of trusted parameters through.
+  def reply_params
+    params.require(:reply).permit(:content, :user_id, :chat_id)
+  end
 end

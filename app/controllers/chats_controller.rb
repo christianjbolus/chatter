@@ -1,17 +1,31 @@
 class ChatsController < ApplicationController
-  before_action :set_chat, only: [:show, :update, :destroy]
-  before_action :authorize_request, only: [:create, :update, :destroy]
+  before_action :set_chat, only: %i[show update destroy]
+  before_action :authorize_request, only: %i[create update destroy]
 
   # GET /chats
   def index
     @chats = Chat.all
 
-    render json: @chats
+    render json: @chats,
+           include: {
+             user: {
+               only: %i[id username display_name profile_pic],
+             },
+           }
   end
 
   # GET /chats/1
   def show
-    render json: @chat, include: { replies: { include: { user: { except: [:password_digest, :bio] } } } }
+    render json: @chat,
+           include: {
+             replies: {
+               include: {
+                 user: {
+                   only: %i[id username display_name profile_pic],
+                 },
+               },
+             },
+           }
   end
 
   # POST /chats
@@ -41,13 +55,14 @@ class ChatsController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_chat
-      @chat = Chat.find(params[:id])
-    end
 
-    # Only allow a list of trusted parameters through.
-    def chat_params
-      params.require(:chat).permit(:content, :likes, :reposts, :user_id)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_chat
+    @chat = Chat.find(params[:id])
+  end
+
+  # Only allow a list of trusted parameters through.
+  def chat_params
+    params.require(:chat).permit(:content, :likes, :reposts, :user_id)
+  end
 end
