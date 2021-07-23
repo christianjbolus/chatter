@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { Redirect, Route, Switch, useHistory } from 'react-router-dom';
-import { ChatCreate, Chats } from '../screens';
+import { ChatCreate, ChatDetail, Chats } from '../screens';
 import { getAllChats, postChat } from '../services/chats';
 
 export default function ChatContainer({ currentUser }) {
@@ -30,6 +30,9 @@ export default function ChatContainer({ currentUser }) {
           ) : (
             <Redirect to="/login" />
           )}
+        </Route>
+        <Route path="/chats/:id">
+          <ChatDetail />
         </Route>
         <Route path="/chats">
           <Chats allChats={allChats} />

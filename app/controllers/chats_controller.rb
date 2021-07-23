@@ -18,14 +18,19 @@ class ChatsController < ApplicationController
   def show
     render json: @chat,
            include: {
-             replies: {
-               include: {
-                 user: {
-                   only: %i[id username display_name profile_pic],
-                 },
-               },
+             user: {
+               only: %i[id username display_name profile_pic],
              },
            }
+    #  include: {
+    #    replies: {
+    #      include: {
+    #        user: {
+    #          only: %i[id username display_name profile_pic],
+    #        },
+    #      },
+    #    },
+    #  }
   end
 
   # POST /chats
@@ -72,3 +77,5 @@ class ChatsController < ApplicationController
     params.require(:chat).permit(:content, :likes, :reposts, :user_id)
   end
 end
+
+# include: { :user, replies: { include: { user: { only: %i[id username display_name profile_pic] } } } }

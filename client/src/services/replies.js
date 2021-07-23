@@ -1,5 +1,14 @@
 import api from './apiConfig';
 
+export const getAllReplies = async (chatId) => {
+  try {
+    const res = await api.get(`/chats/${chatId}/replies`)
+    return res.data
+  } catch (error) {
+    throw error;
+  }
+}
+
 export const postReply = async (chatId, replyData) => {
   try {
     const res = await api.post(`/chats/${chatId}/replies`, { reply: replyData });

@@ -2,6 +2,16 @@ class RepliesController < ApplicationController
   before_action :set_reply, only: %i[show update destroy]
   before_action :authorize_request, only: %i[create update destroy]
 
+  def index
+    @replies = Reply.where(chat_id: params[:chat_id])
+    render json: @replies,
+           include: {
+             user: {
+               only: %i[id username display_name profile_pic],
+             },
+           }
+  end
+
   # GET /replies/1
   def show
     render json: @reply

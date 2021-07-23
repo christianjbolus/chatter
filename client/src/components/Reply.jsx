@@ -1,18 +1,16 @@
 import React from 'react';
-import { useHistory } from 'react-router-dom';
 import {Engagement} from '../components';
 
-export default function Chat({ chat }) {
-  const history = useHistory();
+export default function Reply({ reply }) {
 
-  const { user, content, reply_count, repost_count, like_count } = chat;
+  const { user, content } = reply;
 
   return (
     <div className="chat-container">
       <div className="user-img">
         <img className="user-profile-pic" src={user.profile_pic} />
       </div>
-      <div className="chat-card" onClick={() => history.push(`/chats/${chat.id}`)}>
+      <div className="chat-card" >
         <div className="chat-content">
           <div className="user-identifiers">
             <p className="chat-display_name">{user.display_name}</p>
@@ -20,11 +18,7 @@ export default function Chat({ chat }) {
           </div>
           <p className="chat-text">{content}</p>
         </div>
-        <Engagement
-          replies={reply_count}
-          reposts={repost_count}
-          likes={like_count}
-        />
+        <Engagement />
       </div>
     </div>
   );
