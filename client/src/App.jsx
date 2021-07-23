@@ -14,7 +14,7 @@ import './App.css';
 
 function App() {
   const [currentUser, setCurrentUser] = useState(null);
-  const history = useHistory;
+  const history = useHistory();
 
   useEffect(() => {
     const handleVerify = async () => {

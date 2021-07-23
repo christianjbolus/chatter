@@ -1,0 +1,15 @@
+.btn {
+  border: none;
+  background-color: #FF7F00;
+  color: #fff
+}
+
+.btn-round {
+  height: 70px;
+  width: 70px;
+  border-radius: 50%
+}
+
+.btn-icon {
+  font-size: 3rem
+}
