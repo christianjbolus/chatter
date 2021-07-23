@@ -1,4 +1,3 @@
-import axios from 'axios';
 import api from './apiConfig';
 
 export const postReply = async (chatId, replyData) => {
@@ -21,9 +20,9 @@ export const putReply = async (chatId, replyId, replyData) => {
 
 export const deleteReply = async (chatId, replyId) => {
   try {
-    const res = await api.delete(`/chats/${chatId}/replies/${replyId}`)
-    return res
+    const res = await api.delete(`/chats/${chatId}/replies/${replyId}`);
+    return res;
   } catch (error) {
-    throw error
+    throw error;
   }
-}
+};
