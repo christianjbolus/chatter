@@ -1,29 +1,36 @@
-import { useState, useEffect } from 'react'
-import { Route, Switch } from 'react-router-dom'
-import { ChatCreate, Chats } from '../screens'
-import {getAllChats} from '../services/chats'
+import { useState, useEffect } from 'react';
+import { Route, Switch, useHistory } from 'react-router-dom';
+import { ChatCreate, Chats } from '../screens';
+import { getAllChats, postChat } from '../services/chats';
 
 export default function ChatContainer() {
-  const [allChats, setAllChats] = useState([])
+  const [allChats, setAllChats] = useState([]);
+  const history = useHistory();
 
   useEffect(() => {
     const fetchChats = async () => {
-      const chats = await getAllChats()
-      setAllChats(chats)
-    }
-    fetchChats()
-  }, [])
+      const chats = await getAllChats();
+      setAllChats(chats);
+    };
+    fetchChats();
+  }, []);
+
+  const handleCreate = async chatData => {
+    const newChat = await postChat(chatData);
+    setAllChats(prevState => [newChat, ...prevState]);
+    useHistory.push('/chats')
+  };
 
   return (
     <div>
       <Switch>
-        <Route path="/chats">
-          <Chats allChats={allChats}/>
-        </Route>
         <Route path="/chats/new">
-          <ChatCreate />
+          <ChatCreate handleCreate={handleCreate}/>
+        </Route>
+        <Route path="/chats">
+          <Chats allChats={allChats} />
         </Route>
       </Switch>
     </div>
-  )
+  );
 }
