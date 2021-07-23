@@ -27,7 +27,7 @@ function App() {
   const handleLogin = async formData => {
     const userData = await loginUser(formData);
     setCurrentUser(userData);
-    history.push('/');
+    history.push('/chats');
   };
 
   const handleRegister = async formData => {
@@ -50,10 +50,10 @@ function App() {
           <Register />
         </Route>
         <Route path="/login">
-          <Login />
+          <Login handleLogin={handleLogin}/>
         </Route>
         <Route path="/">
-          <ChatContainer />
+          <ChatContainer currentUser={currentUser}/>
         </Route>
       </Switch>
     </div>

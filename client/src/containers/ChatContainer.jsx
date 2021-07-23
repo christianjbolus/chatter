@@ -1,9 +1,9 @@
 import { useState, useEffect } from 'react';
-import { Route, Switch, useHistory } from 'react-router-dom';
+import { Redirect, Route, Switch, useHistory } from 'react-router-dom';
 import { ChatCreate, Chats } from '../screens';
 import { getAllChats, postChat } from '../services/chats';
 
-export default function ChatContainer() {
+export default function ChatContainer({ currentUser }) {
   const [allChats, setAllChats] = useState([]);
   const history = useHistory();
 
@@ -18,14 +18,18 @@ export default function ChatContainer() {
   const handleCreate = async chatData => {
     const newChat = await postChat(chatData);
     setAllChats(prevState => [newChat, ...prevState]);
-    useHistory.push('/chats')
+    history.push('/chats');
   };
 
   return (
     <div>
       <Switch>
         <Route path="/chats/new">
-          <ChatCreate handleCreate={handleCreate}/>
+          {currentUser ? (
+            <ChatCreate handleCreate={handleCreate} />
+          ) : (
+            <Redirect to="/login" />
+          )}
         </Route>
         <Route path="/chats">
           <Chats allChats={allChats} />

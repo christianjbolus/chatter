@@ -4,7 +4,7 @@ class ChatsController < ApplicationController
 
   # GET /chats
   def index
-    @chats = Chat.all
+    @chats = Chat.order(created_at: :desc)
 
     render json: @chats,
            include: {
@@ -34,7 +34,13 @@ class ChatsController < ApplicationController
     @chat.user = @current_user
 
     if @chat.save
-      render json: @chat, status: :created
+      render json: @chat,
+             include: {
+               user: {
+                 only: %i[id username display_name profile_pic],
+               },
+             },
+             status: :created
     else
       render json: @chat.errors, status: :unprocessable_entity
     end
