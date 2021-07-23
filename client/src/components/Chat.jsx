@@ -13,7 +13,7 @@ export default function Chat({ chat }) {
           <p className="chat-username">@{chat.user.username}</p>
         </div>
         <p className="chat-text">{chat.content}</p>
-        <Engagement />
+        <Engagement replies={chat.replies}/>
       </div>
     </div>
   );
