@@ -6,15 +6,21 @@ import {
   FiEdit,
 } from 'react-icons/all';
 
-export default function Engagement() {
+export default function Engagement({ replies, reposts, likes }) {
   return (
     <div className="engagement-container">
-      <div>
+      <div className="engagement-group">
         <IoChatbubbleOutline className="engagement-icon" />
-        <p className="engaement-metric"></p>
+        <p className="engaement-metric">{replies}</p>
       </div>
-      <AiOutlineRedo className="engagement-icon" />
-      <BsHeart className="engagement-icon" />
+      <div>
+        <AiOutlineRedo className="engagement-icon" />
+        <p className="engaement-metric">{reposts}</p>
+      </div>
+      <div>
+        <BsHeart className="engagement-icon" />
+        <p className="engaement-metric">{likes}</p>
+      </div>
       <FiEdit className="engagement-icon" />
     </div>
   );
