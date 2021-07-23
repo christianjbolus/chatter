@@ -47,7 +47,7 @@ function App() {
     <div className="App">
       <Switch>
         <Route path="/register">
-          <Register />
+          <Register handleRegister={handleRegister}/>
         </Route>
         <Route path="/login">
           <Login handleLogin={handleLogin}/>
