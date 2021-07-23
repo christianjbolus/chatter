@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react'
 import { Route, Switch } from 'react-router-dom'
-import { Chats } from '../screens'
+import { ChatCreate, Chats } from '../screens'
 import {getAllChats} from '../services/chats'
 
 export default function ChatContainer() {
@@ -19,6 +19,9 @@ export default function ChatContainer() {
       <Switch>
         <Route path="/chats">
           <Chats allChats={allChats}/>
+        </Route>
+        <Route path="/chats/new">
+          <ChatCreate />
         </Route>
       </Switch>
     </div>

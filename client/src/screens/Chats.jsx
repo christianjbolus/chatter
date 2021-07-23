@@ -1,6 +1,6 @@
 import React from 'react';
-import Button from '../components/Button';
-import Chat from '../components/Chat';
+import { Link } from 'react-router-dom'
+import { Button, Chat } from '../components';
 import { BiPlus } from 'react-icons/all';
 
 export default function Chats({ allChats }) {
@@ -11,9 +11,11 @@ export default function Chats({ allChats }) {
           <Chat key={chat.id} chat={chat} />
         ))}
       </div>
-      <Button className="btn btn-round">
-        <BiPlus className="btn-icon" />
-      </Button>
+      <Link to="/chats/new">
+        <Button className="btn btn-round">
+          <BiPlus className="btn-icon" />
+        </Button>
+      </Link>
     </>
   );
 }
