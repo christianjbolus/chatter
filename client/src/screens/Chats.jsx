@@ -1,14 +1,11 @@
 import React from 'react';
+import Chat from '../components/Chat';
 
 export default function Chats({ allChats }) {
   return (
     <div>
       {allChats.map(chat => (
-        <>
-          <p>{chat.user.display_name}</p>
-          <p>{chat.user.username}</p>
-          <p>{chat.content}</p>
-        </>
+        <Chat chat={chat} />
       ))}
     </div>
   );
