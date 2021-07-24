@@ -6,7 +6,7 @@ import { Button } from '../components';
 import { IoArrowBackOutline } from 'react-icons/all';
 import '../assets/css/screens/ChatCreate.css';
 
-export default function ReplyCreate({ handleCreate }) {
+export default function ReplyCreate() {
   const [reply, setReply] = useState({
     content: '',
   });

@@ -1,13 +1,19 @@
-import { useState, useEffect,useContext } from 'react';
+import { useState, useEffect, useContext } from 'react';
 import { Redirect, Route, Switch, useHistory } from 'react-router-dom';
-import { ChatCreate, ChatDetail, ChatEdit, Chats, ReplyCreate } from '../screens';
-import { getAllChats, postChat, putChat } from '../services/chats';
+import {
+  ChatCreate,
+  ChatDetail,
+  ChatEdit,
+  Chats,
+  ReplyCreate,
+} from '../screens';
+import { deleteChat, getAllChats, postChat, putChat } from '../services/chats';
 import { UserContext } from '../contexts/UserContext';
 
 export default function ChatContainer() {
   const [allChats, setAllChats] = useState([]);
   const history = useHistory();
-  const currentUser = useContext(UserContext)
+  const currentUser = useContext(UserContext);
 
   useEffect(() => {
     const fetchChats = async () => {
@@ -31,6 +37,12 @@ export default function ChatContainer() {
     history.push('/chats');
   };
 
+  const handleDelete = async id => {
+    await deleteChat(id);
+    setAllChats(prevState => prevState.filter(chat => chat.id !== Number(id)));
+    history.push('/chats')
+  };
+
   return (
     <div>
       <Switch>
@@ -38,7 +50,11 @@ export default function ChatContainer() {
           <ReplyCreate />
         </Route>
         <Route path="/chats/:id/edit">
-          <ChatEdit allChats={allChats} handleUpdate={handleUpdate} />
+          <ChatEdit
+            allChats={allChats}
+            handleUpdate={handleUpdate}
+            handleDelete={handleDelete}
+          />
         </Route>
         <Route path="/chats/new">
           <ChatCreate handleCreate={handleCreate} />

@@ -1,14 +1,15 @@
 import { useState, useEffect, useContext } from 'react';
 import { Link, useHistory, useParams } from 'react-router-dom';
 import { Button } from '../components';
-import { IoArrowBackOutline } from 'react-icons/all';
+import { IoArrowBackOutline, BsTrash } from 'react-icons/all';
 import { UserContext } from '../contexts/UserContext';
+import '../assets/css/screens/ChatEdit.css';
 
-export default function ChatEdit({ allChats, handleUpdate }) {
+export default function ChatEdit({ allChats, handleUpdate, handleDelete }) {
   const [chat, setChat] = useState({
     content: '',
   });
-  const currentUser = useContext(UserContext)
+  const currentUser = useContext(UserContext);
   const { id } = useParams();
   const history = useHistory();
 
@@ -37,7 +38,7 @@ export default function ChatEdit({ allChats, handleUpdate }) {
       </div>
       <div className="chat-form-group">
         <div className="user-img">
-          <img className="user-profile-pic" src={currentUser.profile_pic} />
+          <img className="user-profile-pic" src={currentUser?.profile_pic} />
         </div>
         <form className="chat-form">
           <textarea
@@ -55,6 +56,7 @@ export default function ChatEdit({ allChats, handleUpdate }) {
           text="Update"
           onClick={() => handleUpdate(id, chat)}
         />
+        <BsTrash className="chat-delete" onClick={() => handleDelete(id)} />
       </div>
     </div>
   );
