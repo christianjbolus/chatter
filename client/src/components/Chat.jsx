@@ -1,6 +1,7 @@
 import React from 'react';
 import { useHistory } from 'react-router-dom';
 import {Engagement} from '../components';
+import '../assets/css/components/Chat.css'
 
 export default function Chat({ chat }) {
   const history = useHistory();

@@ -13,11 +13,11 @@ export default function Engagement({ replies, reposts, likes }) {
         <IoChatbubbleOutline className="engagement-icon" />
         <p className="engaement-metric">{replies}</p>
       </div>
-      <div>
+      <div className="engagement-group">
         <AiOutlineRedo className="engagement-icon" />
         <p className="engaement-metric">{reposts}</p>
       </div>
-      <div>
+      <div className="engagement-group">
         <BsHeart className="engagement-icon" />
         <p className="engaement-metric">{likes}</p>
       </div>

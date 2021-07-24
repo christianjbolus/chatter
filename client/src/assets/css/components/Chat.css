@@ -1,0 +1,20 @@
+.user-profile-pic {
+  height: 50px;
+  width: 50px;
+  border-radius: 50%;
+  object-fit: cover;
+  object-position: top;
+}
+
+.chat-card {
+  cursor: pointer;
+}
+
+.engagement-container {
+  display: flex;
+  justify-content: center;
+}
+
+.engagement-group {
+  display: flex;
+}

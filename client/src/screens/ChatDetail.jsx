@@ -4,6 +4,8 @@ import { getOneChat } from '../services/chats';
 import { getAllReplies } from '../services/replies';
 import { Engagement, Chat } from '../components';
 
+import '../assets/css/screens/ChatDetail.css'
+
 export default function ChatDetail() {
   const [chat, setChat] = useState(null);
   const [replies, setReplies] = useState(null);
@@ -26,7 +28,7 @@ export default function ChatDetail() {
     <>
       <div className="chat-detail-container">
         <div className="chat-detail-user">
-          <img src={chat?.user.profile_pic} />
+          <img className="chat-detail-user-profile-pic" src={chat?.user.profile_pic} />
           <div className="chat-detail-user-indetifiers">
             <p>{chat?.user.display_name}</p>
             <p>{chat?.user.username}</p>
