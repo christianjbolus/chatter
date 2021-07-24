@@ -1,12 +1,14 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useContext } from 'react';
 import { Link, useHistory, useParams } from 'react-router-dom';
 import { Button } from '../components';
 import { IoArrowBackOutline } from 'react-icons/all';
+import { UserContext } from '../contexts/UserContext';
 
 export default function ChatEdit({ allChats, handleUpdate }) {
   const [chat, setChat] = useState({
     content: '',
   });
+  const currentUser = useContext(UserContext)
   const { id } = useParams();
   const history = useHistory();
 
@@ -35,7 +37,7 @@ export default function ChatEdit({ allChats, handleUpdate }) {
       </div>
       <div className="chat-form-group">
         <div className="user-img">
-          <img className="user-profile-pic" src="" />
+          <img className="user-profile-pic" src={currentUser.profile_pic} />
         </div>
         <form className="chat-form">
           <textarea

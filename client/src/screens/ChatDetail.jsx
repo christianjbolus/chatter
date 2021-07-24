@@ -1,9 +1,9 @@
 import { useState, useEffect } from 'react';
-import { useHistory, useParams } from 'react-router-dom';
+import { Link, useHistory, useParams } from 'react-router-dom';
 import { getOneChat } from '../services/chats';
 import { getAllReplies } from '../services/replies';
-import { Engagement, Chat } from '../components';
-import { IoArrowBackOutline } from 'react-icons/all';
+import { Button, Chat, Engagement } from '../components';
+import { IoArrowBackOutline, IoChatbubbleOutline } from 'react-icons/all';
 
 import '../assets/css/screens/ChatDetail.css';
 
@@ -55,6 +55,11 @@ export default function ChatDetail() {
           <Chat chat={reply} key={reply.id} />
         ))}
       </div>
+      <Link to={`/chats/${chat?.id}replies/new`}>
+        <Button className="btn btn-round">
+          <IoChatbubbleOutline className="btn-icon" />
+        </Button>
+      </Link>
     </>
   );
 }

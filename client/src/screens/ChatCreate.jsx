@@ -1,14 +1,15 @@
-import { useState } from 'react';
+import { useContext, useState } from 'react';
 import { useHistory } from 'react-router-dom';
-import { Button, TextArea } from '../components';
+import { Button } from '../components';
 import { IoArrowBackOutline } from 'react-icons/all';
 import '../assets/css/screens/ChatCreate.css';
+import { UserContext } from '../contexts/UserContext';
 
 export default function ChatCreate({ handleCreate }) {
   const [chat, setChat] = useState({
     content: '',
   });
-
+  const currentUser = useContext(UserContext)
   const history = useHistory();
 
   const { content } = chat;
@@ -28,7 +29,7 @@ export default function ChatCreate({ handleCreate }) {
       </div>
       <div className="chat-form-group">
         <div className="user-img">
-          <img className="user-profile-pic" src="" />
+          <img className="user-profile-pic" src={currentUser.profile_pic} />
         </div>
         <form className="chat-form">
           <textarea

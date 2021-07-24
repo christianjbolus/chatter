@@ -1,11 +1,13 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect,useContext } from 'react';
 import { Redirect, Route, Switch, useHistory } from 'react-router-dom';
 import { ChatCreate, ChatDetail, ChatEdit, Chats } from '../screens';
 import { getAllChats, postChat, putChat } from '../services/chats';
+import { UserContext } from '../contexts/UserContext';
 
-export default function ChatContainer({ currentUser }) {
+export default function ChatContainer() {
   const [allChats, setAllChats] = useState([]);
   const history = useHistory();
+  const currentUser = useContext(UserContext)
 
   useEffect(() => {
     const fetchChats = async () => {

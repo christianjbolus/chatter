@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import { Route, Switch, useHistory } from 'react-router-dom';
 
 import ChatContainer from './containers/ChatContainer';
-import { Login, Register } from './screens'
+import { Login, Register } from './screens';
 import {
   registerUser,
   loginUser,
@@ -11,6 +11,7 @@ import {
 } from './services/auth';
 
 import './App.css';
+import { UserContext } from './contexts/UserContext';
 
 function App() {
   const [currentUser, setCurrentUser] = useState(null);
@@ -47,13 +48,15 @@ function App() {
     <div className="App">
       <Switch>
         <Route path="/register">
-          <Register handleRegister={handleRegister}/>
+          <Register handleRegister={handleRegister} />
         </Route>
         <Route path="/login">
-          <Login handleLogin={handleLogin}/>
+          <Login handleLogin={handleLogin} />
         </Route>
         <Route path="/">
-          <ChatContainer currentUser={currentUser}/>
+          <UserContext.Provider value={currentUser}>
+            <ChatContainer />
+          </UserContext.Provider>
         </Route>
       </Switch>
     </div>
