@@ -1,4 +1,5 @@
 import React from 'react';
+import { useHistory } from 'react-router-dom'
 import {
   IoChatbubbleOutline,
   AiOutlineRedo,
@@ -6,7 +7,10 @@ import {
   FiEdit,
 } from 'react-icons/all';
 
-export default function Engagement({ replies, reposts, likes }) {
+export default function Engagement({chatId, replies, reposts, likes }) {
+
+  const history = useHistory()
+
   return (
     <div className="engagement-container">
       <div className="engagement-group">
@@ -21,7 +25,7 @@ export default function Engagement({ replies, reposts, likes }) {
         <BsHeart className="engagement-icon" />
         <p className="engaement-metric">{likes}</p>
       </div>
-      <FiEdit className="engagement-icon" />
+      <FiEdit className="engagement-icon" onClick={() => history.push(`/chats/${chatId}/edit`)}/>
     </div>
   );
 }
