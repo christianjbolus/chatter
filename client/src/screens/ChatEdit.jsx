@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { Link, useParams } from 'react-router-dom';
+import { Link, useHistory, useParams } from 'react-router-dom';
 import { Button } from '../components';
 import { IoArrowBackOutline } from 'react-icons/all';
 
@@ -7,8 +7,8 @@ export default function ChatEdit({ allChats, handleUpdate }) {
   const [chat, setChat] = useState({
     content: '',
   });
-
   const { id } = useParams();
+  const history = useHistory();
 
   useEffect(() => {
     const preFillFormData = () => {
@@ -26,19 +26,34 @@ export default function ChatEdit({ allChats, handleUpdate }) {
   };
 
   return (
-    <div className="create-chat-container">
-      <Link to="/chats">
-        <IoArrowBackOutline />
-      </Link>
-      <form
-        onSubmit={e => {
-          e.preventDefault();
-          handleUpdate(id, chat);
-        }}
-      >
-        <textarea name="content" value={chat.content} onChange={handleChange} />
-        <Button className="btn btn-chat" text="Update" />
-      </form>
+    <div className="chat-detail-container">
+      <div className="chat-nav">
+        <IoArrowBackOutline
+          className="back-arrow"
+          onClick={() => history.push('/chats')}
+        />
+      </div>
+      <div className="chat-form-group">
+        <div className="user-img">
+          <img className="user-profile-pic" src="" />
+        </div>
+        <form className="chat-form">
+          <textarea
+            name="content"
+            value={chat.content}
+            onChange={handleChange}
+            placeholder="What's up?"
+            rows="4"
+          />
+        </form>
+      </div>
+      <div className="chat-form-submit">
+        <Button
+          className="btn btn-chat"
+          text="Update"
+          onClick={() => handleUpdate(id, chat)}
+        />
+      </div>
     </div>
   );
 }

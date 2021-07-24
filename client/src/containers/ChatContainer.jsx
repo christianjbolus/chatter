@@ -26,21 +26,17 @@ export default function ChatContainer({ currentUser }) {
     setAllChats(prevState =>
       prevState.map(chat => (chat.id === Number(id) ? updatedChat : chat))
     );
-    history.push('/chats')
+    history.push('/chats');
   };
 
   return (
     <div>
       <Switch>
         <Route path="/chats/:id/edit">
-          <ChatEdit allChats={allChats} handleUpdate={handleUpdate}/>
+          <ChatEdit allChats={allChats} handleUpdate={handleUpdate} />
         </Route>
         <Route path="/chats/new">
-          {currentUser ? (
-            <ChatCreate handleCreate={handleCreate} />
-          ) : (
-            <Redirect to="/login" />
-          )}
+          <ChatCreate handleCreate={handleCreate} />
         </Route>
         <Route path="/chats/:id">
           <ChatDetail />

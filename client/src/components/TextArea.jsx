@@ -6,6 +6,7 @@ export default function TextArea({
   value,
   rows,
   col,
+  placeholder,
   handleChange,
 }) {
   return (
@@ -17,6 +18,7 @@ export default function TextArea({
         value={value}
         rows={rows}
         col={col}
+        placeholder={placeholder}
         onChange={handleChange}
       />
     </div>

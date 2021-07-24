@@ -1,0 +1,22 @@
+.chat-form-group {
+  display: grid;
+  grid-template-columns: 1fr 5fr;
+}
+
+.chat-form {
+  display: flex;
+  flex-direction: column;
+}
+
+.chat-form textarea {
+  font-family:  'Oxygen',
+  'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+  sans-serif;
+  font-size: 18px;
+  border: none;
+}
+
+.chat-form-submit {
+  display: flex;
+  justify-content: center;
+}
