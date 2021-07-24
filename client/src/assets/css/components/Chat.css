@@ -33,19 +33,20 @@
 
 .user-identifiers {
   display: flex;
-  margin-bottom: 10px;
+  margin-bottom: 5px;
 }
 
 .chat-display-name {
   font-size: 14px;
   font-weight: 700;
-  margin-right: 10px;
+  margin-bottom: 5px;
 }
 
 .chat-username {
   color: #9F9F9F;
   font-weight: 500;
   font-size: 14px;
+  padding: 0 10px;
 }
 
 .chat-text {
@@ -67,10 +68,10 @@
 }
 
 .engagement-icon {
-  margin-right: 5px;
   cursor: pointer;
 }
 
 .engagement-metric {
   font-size: 13px;
+  padding: 0 5px;
 }
