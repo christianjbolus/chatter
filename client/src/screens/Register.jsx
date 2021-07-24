@@ -68,12 +68,13 @@ export default function Register({ handleRegister }) {
               label="Bio"
               name="bio"
               value={bio}
+              rows="5"
               handleChange={handleChange}
             />
             <Button className="btn btn-auth" text="Create account" />
           </form>
-          <p>
-            Already have an account? <Link to="/login">Sign in</Link>
+          <p className="redirect-text">
+            Already have an account? <Link className="redirect-link" to="/login">Sign in</Link>
           </p>
         </div>
       </div>

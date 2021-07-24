@@ -19,7 +19,8 @@ export default function Login({ handleLogin }) {
     <div>
       <div className="background-stripe"></div>
       <div className="form-container">
-        <h2>Sign in to your account</h2>
+        <div className="form">
+        <h2 className="form-heading">Sign in to your account</h2>
         <form
           onSubmit={e => {
             e.preventDefault();
@@ -41,9 +42,10 @@ export default function Login({ handleLogin }) {
           />
           <Button className="btn btn-auth" text="Sign in" />
         </form>
-        <p>
-          Don't have an account? <Link to="/register">Sign up</Link>
+        <p className="redirect-text">
+          Don't have an account? <Link className="redirect-link" to="/register">Sign up</Link>
         </p>
+        </div>
       </div>
     </div>
   );

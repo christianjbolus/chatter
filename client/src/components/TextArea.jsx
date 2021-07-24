@@ -4,7 +4,7 @@ export default function TextArea({
   label,
   name,
   value,
-  row,
+  rows,
   col,
   handleChange,
 }) {
@@ -15,7 +15,7 @@ export default function TextArea({
         id={name}
         name={name}
         value={value}
-        row={row}
+        rows={rows}
         col={col}
         onChange={handleChange}
       />
