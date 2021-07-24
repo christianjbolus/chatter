@@ -54,7 +54,12 @@ class ChatsController < ApplicationController
   # PATCH/PUT /chats/1
   def update
     if @chat.update(chat_params)
-      render json: @chat
+      render json: @chat,
+             include: {
+               user: {
+                 only: %i[id username display_name profile_pic],
+               },
+             }
     else
       render json: @chat.errors, status: :unprocessable_entity
     end
