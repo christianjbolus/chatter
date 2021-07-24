@@ -2,7 +2,7 @@ import React from 'react';
 
 export default function FormInput({ type, label, name, value, handleChange }) {
   return (
-    <div>
+    <div className="form-field">
       <label htmlFor={name}>{label}</label>
       <input
         id={name}

@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Button, FormInput, TextArea } from '../components';
+import '../assets/css/screens/AuthForm.css';
 
 export default function Register({ handleRegister }) {
   const [formData, setFormData] = useState({
@@ -12,7 +13,8 @@ export default function Register({ handleRegister }) {
     bio: '',
   });
 
-  const { email, username, password, display_name, profile_pic, bio } = formData;
+  const { email, username, password, display_name, profile_pic, bio } =
+    formData;
 
   const handleChange = e => {
     const { name, value } = e.target;
@@ -23,55 +25,57 @@ export default function Register({ handleRegister }) {
     <div>
       <div className="background-stripe"></div>
       <div className="form-container">
-        <h2>Create your Chatter account</h2>
-        <form
-          onSubmit={e => {
-            e.preventDefault();
-            handleRegister(formData);
-          }}
-        >
-          <FormInput
-            label="Email"
-            name="email"
-            value={email}
-            handleChange={handleChange}
-          />
-          <FormInput
-            label="Username"
-            name="username"
-            value={username}
-            handleChange={handleChange}
-          />
-          <FormInput
-            type="password"
-            label="Password"
-            name="password"
-            value={password}
-            handleChange={handleChange}
-          />
-          <FormInput
-            label="Display name"
-            name="display_name"
-            value={display_name}
-            handleChange={handleChange}
-          />
-          <FormInput
-            label="Profile pic"
-            name="profile_pic"
-            value={profile_pic}
-            handleChange={handleChange}
-          />
-          <TextArea
-            label="Bio"
-            name="bio"
-            value={bio}
-            handleChange={handleChange}
-          />
-          <Button className="btn btn-auth" text="Create account" />
-        </form>
-        <p>
-          Already have an account? <Link to="/login">Sign in</Link>
-        </p>
+        <div className="form">
+          <h2 className="form-heading">Create your Chatter account</h2>
+          <form
+            onSubmit={e => {
+              e.preventDefault();
+              handleRegister(formData);
+            }}
+          >
+            <FormInput
+              label="Email"
+              name="email"
+              value={email}
+              handleChange={handleChange}
+            />
+            <FormInput
+              label="Username"
+              name="username"
+              value={username}
+              handleChange={handleChange}
+            />
+            <FormInput
+              type="password"
+              label="Password"
+              name="password"
+              value={password}
+              handleChange={handleChange}
+            />
+            <FormInput
+              label="Display name"
+              name="display_name"
+              value={display_name}
+              handleChange={handleChange}
+            />
+            <FormInput
+              label="Profile pic"
+              name="profile_pic"
+              value={profile_pic}
+              handleChange={handleChange}
+            />
+            <TextArea
+              label="Bio"
+              name="bio"
+              value={bio}
+              handleChange={handleChange}
+            />
+            <Button className="btn btn-auth" text="Create account" />
+          </form>
+          <p>
+            Already have an account? <Link to="/login">Sign in</Link>
+          </p>
+        </div>
       </div>
     </div>
   );

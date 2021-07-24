@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { Link, useParams } from 'react-router-dom'
+import { Link, useParams } from 'react-router-dom';
 import { Button } from '../components';
 import { IoArrowBackOutline } from 'react-icons/all';
 
@@ -8,16 +8,17 @@ export default function ChatEdit({ allChats, handleUpdate }) {
     content: '',
   });
 
-  const {id} = useParams()
+  const { id } = useParams();
 
   useEffect(() => {
     const preFillFormData = () => {
-      const oneChat = allChats.find(chat => chat.id === Number(id))
-      setChat(oneChat)
+      const oneChat = allChats.find(chat => chat.id === Number(id));
+      setChat({ content: oneChat.content });
+    };
+    if (allChats.length) {
+      preFillFormData();
     }
-    preFillFormData()
-  }, [])
-
+  }, []);
 
   const handleChange = e => {
     const { value } = e.target;
@@ -32,14 +33,10 @@ export default function ChatEdit({ allChats, handleUpdate }) {
       <form
         onSubmit={e => {
           e.preventDefault();
-          handleUpdate(chat);
+          handleUpdate(id, chat);
         }}
       >
-        <textarea
-          name="content"
-          value={chat.content}
-          onChange={handleChange}
-        />
+        <textarea name="content" value={chat.content} onChange={handleChange} />
         <Button className="btn btn-chat" text="Update" />
       </form>
     </div>

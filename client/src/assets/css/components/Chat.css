@@ -1,3 +1,18 @@
+.chat-list {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.chat-container {
+  display: grid;
+  grid-template-columns: 1fr 5fr;
+  align-content: start;
+  width: 90%;
+  margin-top: 8px;
+  margin-bottom: 8px;
+}
+
 .user-profile-pic {
   height: 50px;
   width: 50px;
@@ -7,14 +22,55 @@
 }
 
 .chat-card {
+  background-color: #fff;
+  border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.08);
   cursor: pointer;
+}
+
+.user-identifiers {
+  display: flex;
+  margin-bottom: 10px;
+}
+
+.chat-display-name {
+  font-size: 14px;
+  font-weight: 700;
+  margin-right: 10px;
+}
+
+.chat-username {
+  color: #9F9F9F;
+  font-weight: 500;
+  font-size: 14px;
+}
+
+.chat-text {
+  text-align: left;
+  margin-bottom: 20px;
+  font-size: 15px;
+  line-height: 18px
 }
 
 .engagement-container {
   display: flex;
-  justify-content: center;
+  justify-content: space-around;
 }
 
 .engagement-group {
+  color: #9F9F9F;
   display: flex;
+  align-items: center;
+}
+
+.engagement-icon {
+  margin-right: 5px;
+  cursor: pointer;
+}
+
+.engagement-metric {
+  font-size: 13px;
 }

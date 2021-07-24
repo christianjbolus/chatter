@@ -6,16 +6,16 @@ import { BiPlus } from 'react-icons/all';
 export default function Chats({ allChats }) {
   return (
     <>
-      <div className="chats-container">
+      <div className="chat-list">
         {allChats.map(chat => (
           <Chat key={chat.id} chat={chat} />
         ))}
-        <Link to="/chats/new">
-          <Button className="btn btn-round">
-            <BiPlus className="btn-icon" />
-          </Button>
-        </Link>
       </div>
+      <Link to="/chats/new">
+        <Button className="btn btn-round">
+          <BiPlus className="btn-icon" />
+        </Button>
+      </Link>
     </>
   );
 }

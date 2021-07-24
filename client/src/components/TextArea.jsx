@@ -9,7 +9,7 @@ export default function TextArea({
   handleChange,
 }) {
   return (
-    <div>
+    <div className="form-field">
       <label htmlFor={name}>{label}</label>
       <textarea
         id={name}

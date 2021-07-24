@@ -11,7 +11,7 @@ export default function Chat({ chat }) {
   return (
     <div className="chat-container">
       <div className="user-img">
-        <img className="user-profile-pic" src={user.profile_pic} />
+        <img className="user-profile-pic" src={user?.profile_pic} />
       </div>
       <div
         className="chat-card"
@@ -19,8 +19,8 @@ export default function Chat({ chat }) {
       >
         <div className="chat-content">
           <div className="user-identifiers">
-            <p className="chat-display_name">{user.display_name}</p>
-            <p className="chat-username">@{user.username}</p>
+            <p className="chat-display-name">{user?.display_name}</p>
+            <p className="chat-username">@{user?.username}</p>
           </div>
           <p className="chat-text">{content}</p>
         </div>
