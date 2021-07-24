@@ -29,7 +29,7 @@ export default function ChatCreate({ handleCreate }) {
       </div>
       <div className="chat-form-group">
         <div className="user-img">
-          <img className="user-profile-pic" src={currentUser.profile_pic} />
+          <img className="user-profile-pic" src={currentUser?.profile_pic} />
         </div>
         <form className="chat-form">
           <textarea

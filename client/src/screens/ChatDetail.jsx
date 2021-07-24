@@ -55,7 +55,7 @@ export default function ChatDetail() {
           <Chat chat={reply} key={reply.id} />
         ))}
       </div>
-      <Link to={`/chats/${chat?.id}replies/new`}>
+      <Link to={`/chats/${chat?.id}/replies/new`}>
         <Button className="btn btn-round">
           <IoChatbubbleOutline className="btn-icon" />
         </Button>

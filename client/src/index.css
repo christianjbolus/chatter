@@ -56,3 +56,17 @@ body {
   -moz-osx-font-smoothing: grayscale;
 	background-color: #f7f7f7
 }
+
+::-webkit-input-placeholder { 
+  color: #9f9f9f
+}
+
+::-moz-placeholder {
+  color: #9f9f9f;
+}
+:-ms-input-placeholder {
+  color: #9f9f9f;
+}
+:-moz-placeholder {
+  color: #9f9f9f;
+}

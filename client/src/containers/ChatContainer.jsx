@@ -1,6 +1,6 @@
 import { useState, useEffect,useContext } from 'react';
 import { Redirect, Route, Switch, useHistory } from 'react-router-dom';
-import { ChatCreate, ChatDetail, ChatEdit, Chats } from '../screens';
+import { ChatCreate, ChatDetail, ChatEdit, Chats, ReplyCreate } from '../screens';
 import { getAllChats, postChat, putChat } from '../services/chats';
 import { UserContext } from '../contexts/UserContext';
 
@@ -34,6 +34,9 @@ export default function ChatContainer() {
   return (
     <div>
       <Switch>
+        <Route path="/chats/:id/replies/new">
+          <ReplyCreate />
+        </Route>
         <Route path="/chats/:id/edit">
           <ChatEdit allChats={allChats} handleUpdate={handleUpdate} />
         </Route>
