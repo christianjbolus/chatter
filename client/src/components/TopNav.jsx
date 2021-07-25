@@ -1,10 +1,11 @@
-import { useContext } from 'react';
+import { useState, useContext } from 'react';
 import { UserContext } from '../contexts/UserContext';
 import { BsChatDotsFill } from 'react-icons/bs';
 import '../assets/css/components/TopNav.css';
 import PopoutNav from './PopoutNav';
 
 export default function TopNav({location}) {
+  const [show, setShow] = useState(false)
   const currentUser = useContext(UserContext);
   return (
     <>

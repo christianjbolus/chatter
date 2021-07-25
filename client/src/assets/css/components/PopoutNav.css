@@ -19,13 +19,20 @@
 
 .popout-nav-header {
   height: 80px;
-  display: flex;
-  justify-content: center;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
   align-items: center;
+}
+
+.popout-nav-close {
+  color: #FF7F00;
+  font-size: 1.75rem;
+  margin-left: 20px;
 }
 
 .popout-nav-header-text {
   font-weight: 700;
+  text-align: center;
 }
 
 .popout-nav-user-profile {
@@ -37,6 +44,7 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
+  margin-bottom: 25px;
 }
 
 .popout-nav-user {
@@ -61,4 +69,20 @@
 
 .popout-nav-username {
   font-size: 15px;
+}
+
+.popout-nav-user-metrics {
+  display: flex;
+  justify-content: space-between;
+  padding: 0 10px;
+}
+
+.popout-nav-metric {
+  font-size: 0.85rem;
+  color:rgba(255, 255, 255, 0.5);
+  margin-bottom: 5px;
+}
+
+.popout-nav-metric-count {
+  font-weight: 500;
 }
