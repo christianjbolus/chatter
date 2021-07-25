@@ -6,6 +6,7 @@ import Modal from './Modal';
 import PopoutNav from './PopoutNav';
 import TextArea from './TextArea';
 import TopNav from './TopNav';
+import UserMetrics from './UserMetrics';
 
 export {
   Button,
@@ -16,4 +17,5 @@ export {
   PopoutNav,
   TextArea,
   TopNav,
+  UserMetrics,
 };

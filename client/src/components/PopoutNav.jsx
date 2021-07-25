@@ -4,6 +4,7 @@ import { UserContext } from '../contexts/UserContext';
 import Button from './Button';
 import { BiPlus, IoClose } from 'react-icons/all';
 import '../assets/css/components/PopoutNav.css';
+import UserMetrics from './UserMetrics';
 
 export default function PopoutNav() {
   const currentUser = useContext(UserContext);
@@ -35,20 +36,7 @@ export default function PopoutNav() {
               </Button>
             </Link>
           </div>
-          <div className="popout-nav-user-metrics">
-            <div className="popout-nav-metric-group">
-              <p className="popout-nav-metric">Chats</p>
-              <p className="popout-nav-metric-count">12</p>
-            </div>
-            <div className="popout-nav-metric-group">
-              <p className="popout-nav-metric">Followers</p>
-              <p className="popout-nav-metric-count">105</p>
-            </div>
-            <div className="popout-nav-metric-group">
-              <p className="popout-nav-metric">Following</p>
-              <p className="popout-nav-metric-count">89</p>
-            </div>
-          </div>
+          <UserMetrics />
         </div>
       </div>
     </div>
