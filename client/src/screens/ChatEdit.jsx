@@ -1,6 +1,6 @@
 import { useState, useEffect, useContext } from 'react';
 import { useHistory, useParams } from 'react-router-dom';
-import { Button, Modal } from '../components';
+import { Button, Modal, TextArea } from '../components';
 import { IoArrowBackOutline, BsTrash } from 'react-icons/all';
 import { UserContext } from '../contexts/UserContext';
 import '../assets/css/screens/ChatEdit.css';
@@ -53,12 +53,12 @@ export default function ChatEdit({ allChats, handleUpdate, handleDelete }) {
             <img className="user-profile-pic" src={currentUser?.profile_pic} />
           </div>
           <form className="chat-form">
-            <textarea
-              name="content"
-              value={chat.content}
-              onChange={handleChange}
-              rows="4"
-            />
+          <TextArea
+            name="content"
+            value={chat.content}
+            onChange={handleChange}
+            rows="4"
+          />
           </form>
         </div>
         <div className="chat-form-submit">

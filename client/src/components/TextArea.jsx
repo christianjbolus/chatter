@@ -11,7 +11,7 @@ export default function TextArea({
 }) {
   return (
     <div className="form-field">
-      <label htmlFor={name}>{label}</label>
+      {label && <label htmlFor={name}>{label}</label>}
       <textarea
         id={name}
         name={name}

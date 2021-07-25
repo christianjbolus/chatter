@@ -2,7 +2,7 @@ import { useState, useContext } from 'react';
 import { UserContext } from '../contexts/UserContext';
 import { useParams, useHistory } from 'react-router-dom';
 import { postReply } from '../services/replies';
-import { Button } from '../components';
+import { Button, TextArea } from '../components';
 import { IoArrowBackOutline } from 'react-icons/all';
 import '../assets/css/screens/ChatCreate.css';
 
@@ -39,7 +39,7 @@ export default function ReplyCreate() {
           <img className="user-profile-pic" src={currentUser?.profile_pic} />
         </div>
         <form className="chat-form">
-          <textarea
+        <TextArea
             name="content"
             value={content}
             onChange={handleChange}
