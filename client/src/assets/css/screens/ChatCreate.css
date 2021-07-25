@@ -21,6 +21,17 @@
   outline: none;
 }
 
+.chat-form-footer {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  align-items: center;
+}
+
+.character-counter {
+  color: #9f9f9f;
+  padding: 0 10px;
+}
+
 .chat-form-submit {
   display: flex;
   justify-content: center;

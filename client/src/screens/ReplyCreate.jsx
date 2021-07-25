@@ -10,6 +10,7 @@ export default function ReplyCreate() {
   const [reply, setReply] = useState({
     content: '',
   });
+  const [characters, setCharacters] = useState(0);
   const currentUser = useContext(UserContext);
   const { id } = useParams();
   const history = useHistory();
@@ -39,22 +40,26 @@ export default function ReplyCreate() {
           <img className="user-profile-pic" src={currentUser?.profile_pic} />
         </div>
         <form className="chat-form">
-        <TextArea
+          <TextArea
             name="content"
             value={content}
             handleChange={handleChange}
             placeholder="What do you think?"
             rows="4"
+            maxLength="280"
           />
         </form>
       </div>
-      <div className="chat-form-submit">
-        <Button
-          className={!content ? "btn btn-disabled" : "btn btn-chat"}
-          text="Reply"
-          onClick={createReply}
-          disabled={!content}
-        />
+      <div className="chat-form-footer">
+        <p className="character-counter">{characters + content.length}/280</p>
+        <div className="chat-form-submit">
+          <Button
+            className={!content ? 'btn btn-disabled' : 'btn btn-chat'}
+            text="Reply"
+            onClick={createReply}
+            disabled={!content}
+          />
+        </div>
       </div>
     </div>
   );
