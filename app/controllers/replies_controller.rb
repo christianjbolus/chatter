@@ -12,7 +12,6 @@ class RepliesController < ApplicationController
            }
   end
 
-  # GET /replies/1
   def show
     render json: @reply
   end

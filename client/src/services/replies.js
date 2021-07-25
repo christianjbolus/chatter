@@ -9,6 +9,15 @@ export const getAllReplies = async (chatId) => {
   }
 }
 
+export const getOneReply = async (chatId, replyId) => {
+  try {
+    const res = await api.get(`/chats/${chatId}/replies/${replyId}`)
+    return res.data
+  } catch (error) {
+    throw error
+  }
+}
+
 export const postReply = async (chatId, replyData) => {
   try {
     const res = await api.post(`/chats/${chatId}/replies`, { reply: replyData });

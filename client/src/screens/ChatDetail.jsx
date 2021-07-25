@@ -11,7 +11,7 @@ export default function ChatDetail() {
   const [chat, setChat] = useState(null);
   const [replies, setReplies] = useState(null);
   const { id } = useParams();
-  const history = useHistory()
+  const history = useHistory();
 
   useEffect(() => {
     const fetchChat = async () => {
@@ -30,7 +30,10 @@ export default function ChatDetail() {
     <>
       <div className="chat-detail-container">
         <div className="chat-nav">
-          <IoArrowBackOutline className="back-arrow" onClick={() => history.push('/chats')}/>
+          <IoArrowBackOutline
+            className="back-arrow"
+            onClick={() => history.push('/chats')}
+          />
         </div>
         <div className="chat-detail-user">
           <img
@@ -38,7 +41,9 @@ export default function ChatDetail() {
             src={chat?.user.profile_pic}
           />
           <div className="chat-detail-user-indetifiers">
-            <p className="chat-detail-display-name">{chat?.user.display_name}</p>
+            <p className="chat-detail-display-name">
+              {chat?.user.display_name}
+            </p>
             <p className="chat-detail-username">@{chat?.user.username}</p>
           </div>
         </div>
@@ -52,7 +57,11 @@ export default function ChatDetail() {
       </div>
       <div className="chat-list">
         {replies?.map(reply => (
-          <Chat chat={reply} key={reply.id} />
+          <Chat
+            chat={reply}
+            key={reply.id}
+            url={`/chats/${id}/replies/${reply.id}`}
+          />
         ))}
       </div>
       <Link to={`/chats/${chat?.id}/replies/new`}>

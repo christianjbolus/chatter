@@ -45,7 +45,6 @@ export default function ChatEdit({ allChats, handleUpdate, handleDelete }) {
             name="content"
             value={chat.content}
             onChange={handleChange}
-            placeholder="What's up?"
             rows="4"
           />
         </form>

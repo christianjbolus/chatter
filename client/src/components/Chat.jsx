@@ -3,7 +3,7 @@ import { useHistory } from 'react-router-dom';
 import { Engagement } from '../components';
 import '../assets/css/components/Chat.css';
 
-export default function Chat({ chat }) {
+export default function Chat({ chat, url }) {
   const history = useHistory();
 
   const { user, id, content, reply_count, repost_count, like_count } = chat;
@@ -15,7 +15,7 @@ export default function Chat({ chat }) {
       </div>
       <div
         className="chat-card"
-        onClick={() => history.push(`/chats/${chat.id}`)}
+        onClick={() => history.push(url)}
       >
         <div className="chat-content">
           <div className="user-identifiers">

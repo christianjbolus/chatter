@@ -8,7 +8,7 @@ export default function Chats({ allChats }) {
     <>
       <div className="chat-list">
         {allChats.map(chat => (
-          <Chat key={chat.id} chat={chat} />
+          <Chat key={chat.id} chat={chat} url={`/chats/${chat.id}`} />
         ))}
       </div>
       <Link to="/chats/new">

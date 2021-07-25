@@ -6,6 +6,7 @@ import {
   ChatEdit,
   Chats,
   ReplyCreate,
+  ReplyEdit
 } from '../screens';
 import { deleteChat, getAllChats, postChat, putChat } from '../services/chats';
 import { UserContext } from '../contexts/UserContext';
@@ -48,6 +49,9 @@ export default function ChatContainer() {
       <Switch>
         <Route path="/chats/:id/replies/new">
           <ReplyCreate />
+        </Route>
+        <Route path="/chats/:chat_id/replies/:id">
+          <ReplyEdit />
         </Route>
         <Route path="/chats/:id/edit">
           <ChatEdit
