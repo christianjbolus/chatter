@@ -3,7 +3,17 @@ import Chat from './Chat';
 import Engagement from './Engagement';
 import FormInput from './FormInput';
 import Modal from './Modal';
+import PopoutNav from './PopoutNav';
 import TextArea from './TextArea';
 import TopNav from './TopNav';
 
-export { Button, Chat, Engagement, FormInput, Modal, TextArea, TopNav };
+export {
+  Button,
+  Chat,
+  Engagement,
+  FormInput,
+  Modal,
+  PopoutNav,
+  TextArea,
+  TopNav,
+};

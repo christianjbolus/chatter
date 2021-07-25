@@ -39,6 +39,12 @@
   box-shadow: 0 3px 3px rgba(0, 0, 0, 0.1);
 }
 
+.btn-round-sm {
+  height: 40px;
+  width: 40px;
+  border-radius: 50%;
+}
+
 .btn-cancel {
   border: none;
   background-color: #9f9f9f;
@@ -64,9 +70,13 @@
 .btn-disabled {
   border-radius: 15px;
   padding: 7px 25px;
-  opacity: 0.5
+  opacity: 0.5;
 }
 
 .btn-icon {
-  font-size: 2.5rem
+  font-size: 2.5rem;
+}
+
+.btn-icon-sm {
+  font-size: 1.75rem;
 }

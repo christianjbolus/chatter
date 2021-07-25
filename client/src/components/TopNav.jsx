@@ -2,10 +2,13 @@ import { useContext } from 'react';
 import { UserContext } from '../contexts/UserContext';
 import { BsChatDotsFill } from 'react-icons/bs';
 import '../assets/css/components/TopNav.css';
+import PopoutNav from './PopoutNav';
 
 export default function TopNav({location}) {
   const currentUser = useContext(UserContext);
   return (
+    <>
+    <PopoutNav />
     <div className="navbar-container">
       <nav className="navbar">
         <div className="navbar-pic">
@@ -19,5 +22,6 @@ export default function TopNav({location}) {
         </div>
       </nav>
     </div>
+    </>
   );
 }
