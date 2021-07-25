@@ -42,7 +42,7 @@ export default function ReplyCreate() {
         <TextArea
             name="content"
             value={content}
-            onChange={handleChange}
+            handleChange={handleChange}
             placeholder="What do you think?"
             rows="4"
           />
@@ -50,7 +50,7 @@ export default function ReplyCreate() {
       </div>
       <div className="chat-form-submit">
         <Button
-          className="btn btn-chat"
+          className={!content ? "btn btn-disabled" : "btn btn-chat"}
           text="Reply"
           onClick={createReply}
           disabled={!content}

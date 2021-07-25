@@ -26,7 +26,7 @@
 
 .btn-chat {
   border-radius: 15px;
-  padding: 5px 20px;
+  padding: 7px 25px;
 }
 
 .btn-round {
@@ -45,7 +45,7 @@
   color: #fff;
   font-weight: 500;
   border-radius: 15px;
-  padding: 5px 20px;
+  padding: 7px 25px;
   cursor: pointer;
   margin-right: 10px;
 }
@@ -56,9 +56,15 @@
   color: #fff;
   font-weight: 500;
   border-radius: 15px;
-  padding: 5px 20px;
+  padding: 7px 25px;
   cursor: pointer;
   margin-left: 10px;
+}
+
+.btn-disabled {
+  border-radius: 15px;
+  padding: 7px 25px;
+  opacity: 0.5
 }
 
 .btn-icon {

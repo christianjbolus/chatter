@@ -56,16 +56,17 @@ export default function ChatEdit({ allChats, handleUpdate, handleDelete }) {
           <TextArea
             name="content"
             value={chat.content}
-            onChange={handleChange}
+            handleChange={handleChange}
             rows="4"
           />
           </form>
         </div>
         <div className="chat-form-submit">
           <Button
-            className="btn btn-chat"
+            className={!chat.content ? "btn btn-disabled" : "btn btn-chat"}
             text="Update"
             onClick={() => handleUpdate(id, chat)}
+            disabled={!chat.content}
           />
           <BsTrash className="chat-delete" onClick={() => setShow(true)} />
         </div>

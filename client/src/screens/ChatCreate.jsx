@@ -35,7 +35,7 @@ export default function ChatCreate({ handleCreate }) {
           <TextArea
             name="content"
             value={content}
-            onChange={handleChange}
+            handleChange={handleChange}
             placeholder="What's up?"
             rows="4"
           />
@@ -43,7 +43,7 @@ export default function ChatCreate({ handleCreate }) {
       </div>
       <div className="chat-form-submit">
         <Button
-          className="btn btn-chat"
+          className={!content ? "btn btn-disabled" : "btn btn-chat"}
           text="Chat"
           onClick={() => handleCreate(chat)}
           disabled={!content}

@@ -61,16 +61,17 @@ export default function ReplyEdit() {
           <TextArea
             name="content"
             value={reply.content}
-            onChange={handleChange}
+            handleChange={handleChange}
             rows="4"
           />
           </form>
         </div>
         <div className="chat-form-submit">
           <Button
-            className="btn btn-chat"
+            className={!reply.content ? "btn btn-disabled" : "btn btn-chat"}
             text="Update"
             onClick={updateReply}
+            disabled={!reply.content}
           />
           <BsTrash className="chat-delete" onClick={() => setShow(true)} />
         </div>
