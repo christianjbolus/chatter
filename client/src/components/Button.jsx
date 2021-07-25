@@ -1,9 +1,9 @@
 import React from 'react';
 import '../assets/css/components/Button.css';
 
-export default function Button({ className, text, children, onClick }) {
+export default function Button({ className, text, children, onClick, disabled }) {
   return (
-    <button className={className} onClick={onClick}>
+    <button className={className} onClick={onClick} disabled={disabled}>
       {text}
       {children}
     </button>
@@ -12,4 +12,5 @@ export default function Button({ className, text, children, onClick }) {
 
 Button.defaultProps = {
   onClick: null,
+  disabled: false,
 };

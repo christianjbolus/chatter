@@ -49,7 +49,12 @@ export default function ReplyCreate() {
         </form>
       </div>
       <div className="chat-form-submit">
-        <Button className="btn btn-chat" text="Reply" onClick={createReply} />
+        <Button
+          className="btn btn-chat"
+          text="Reply"
+          onClick={createReply}
+          disabled={!content}
+        />
       </div>
     </div>
   );

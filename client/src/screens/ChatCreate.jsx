@@ -46,6 +46,7 @@ export default function ChatCreate({ handleCreate }) {
         className="btn btn-chat"
         text="Chat"
         onClick={() => handleCreate(chat)}
+        disabled={!content}
       />
       </div>
     </div>
