@@ -1,5 +1,5 @@
 import { useState, useEffect, useContext } from 'react';
-import { Link, useHistory, useParams } from 'react-router-dom';
+import { useHistory, useParams } from 'react-router-dom';
 import { Button, Modal } from '../components';
 import { IoArrowBackOutline, BsTrash } from 'react-icons/all';
 import { UserContext } from '../contexts/UserContext';
@@ -29,11 +29,14 @@ export default function ChatEdit({ allChats, handleUpdate, handleDelete }) {
     setChat({ content: value });
   };
 
+  const removeChat = () => {
+    handleDelete(id)
+  }
+
   return (
     <>
       <Modal
-        id={id}
-        handleDelete={handleDelete}
+        handleDelete={removeChat}
         setShow={setShow}
         message="Are you sure?"
         className={show ? 'modal-container active' : 'modal-container'}
