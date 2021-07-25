@@ -1,0 +1,48 @@
+.landing-container {
+  background-color: #fff;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.landing-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  text-align: center;
+  width: 80%;
+  height: 450px;
+}
+
+.logo {
+  color: #FF7F00;
+  font-size: 3.5rem;
+  margin-bottom: 30px;
+}
+
+.welcome-message {
+  font-size: 1.75rem;
+  font-weight: 500;
+  line-height: 35px;
+}
+
+.tag-line {
+  font-weight: 500;
+  padding: 3px;
+}
+
+hr {
+  border-top: 0.5px solid #9f9f9f
+}
+
+.brand {
+  color: #FF7F00;
+  display: block;
+  font-weight: 700;
+}
+
+.landing-control {
+  margin-top: 40px;
+}

@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import { Route, Switch, useHistory } from 'react-router-dom';
 
 import ChatContainer from './containers/ChatContainer';
-import { Login, Register } from './screens';
+import { Landing, Login, Register } from './screens';
 import {
   registerUser,
   loginUser,
@@ -53,10 +53,13 @@ function App() {
         <Route path="/login">
           <Login handleLogin={handleLogin} />
         </Route>
-        <Route path="/">
+        <Route path="/chats">
           <UserContext.Provider value={currentUser}>
             <ChatContainer />
           </UserContext.Provider>
+        </Route>
+        <Route>
+          <Landing />
         </Route>
       </Switch>
     </div>

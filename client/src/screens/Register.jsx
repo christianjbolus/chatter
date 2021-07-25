@@ -71,10 +71,15 @@ export default function Register({ handleRegister }) {
               rows="5"
               handleChange={handleChange}
             />
-            <Button className="btn btn-auth" text="Create account" />
+            <div className="form-submit">
+              <Button className="btn btn-auth" text="Create account" />
+            </div>
           </form>
           <p className="redirect-text">
-            Already have an account? <Link className="redirect-link" to="/login">Sign in</Link>
+            Already have an account?{' '}
+            <Link className="redirect-link" to="/login">
+              Sign in
+            </Link>
           </p>
         </div>
       </div>
