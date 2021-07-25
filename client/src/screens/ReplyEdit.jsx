@@ -4,7 +4,7 @@ import { Button } from '../components';
 import { IoArrowBackOutline, BsTrash } from 'react-icons/all';
 import { UserContext } from '../contexts/UserContext';
 import '../assets/css/screens/ChatEdit.css';
-import { getOneReply, putReply } from '../services/replies';
+import { deleteReply, getOneReply, putReply } from '../services/replies';
 
 export default function ReplyEdit() {
   const [reply, setReply] = useState({
@@ -29,6 +29,11 @@ export default function ReplyEdit() {
 
   const updateReply = async () => {
     await putReply(chat_id, id, reply)
+    history.push(`/chats/${chat_id}`)
+  }
+
+  const removeReply = async () => {
+    await deleteReply(chat_id, id)
     history.push(`/chats/${chat_id}`)
   }
 
@@ -59,7 +64,7 @@ export default function ReplyEdit() {
           text="Update"
           onClick={updateReply}
         />
-        {/* <BsTrash className="chat-delete" onClick={() => handleDelete(id)} /> */}
+        <BsTrash className="chat-delete" onClick={removeReply} />
       </div>
     </div>
   );
