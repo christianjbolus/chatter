@@ -31,7 +31,7 @@ export default function ReplyCreate() {
       <div className="chat-nav">
         <IoArrowBackOutline
           className="back-arrow"
-          onClick={() => history.push('/chats')}
+          onClick={() => history.goBack()}
         />
       </div>
       <div className="chat-form-group">
