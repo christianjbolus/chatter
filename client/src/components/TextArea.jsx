@@ -6,6 +6,7 @@ export default function TextArea({
   value,
   rows,
   col,
+  maxLength,
   placeholder,
   handleChange,
 }) {
@@ -18,6 +19,7 @@ export default function TextArea({
         value={value}
         rows={rows}
         col={col}
+        maxLength={maxLength}
         placeholder={placeholder}
         onChange={handleChange}
       />

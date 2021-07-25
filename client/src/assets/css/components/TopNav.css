@@ -1,0 +1,42 @@
+.navbar-container {
+  padding-bottom: 60px;
+}
+
+.navbar {
+  background-color: #fff;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  padding: 10px 20px;
+  position: fixed;
+  left: 0;
+  right: 0;
+}
+
+.navbar-profile-pic {
+  height: 30px;
+  width: 30px;
+  border-radius: 50%;
+  object-fit: cover;
+  object-position: top;
+}
+
+.navbar-location-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.navbar-location-text {
+  font-weight: 700
+}
+
+.navbar-logo-container {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.navbar-logo {
+  color: #FF7F00;
+  font-size: 1.25rem;
+}
