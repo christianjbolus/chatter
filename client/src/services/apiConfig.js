@@ -3,7 +3,7 @@ import axios from 'axios';
 const api = axios.create({
   baseURL:
     process.env.NODE_ENV === 'production'
-      ? 'deployed url'
+      ? 'https://chatter-app-server.herokuapp.com/'
       : 'http://localhost:3000',
 });
 
