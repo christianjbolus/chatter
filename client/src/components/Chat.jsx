@@ -11,7 +11,7 @@ export default function Chat({ chat, url }) {
   return (
     <div className="chat-container">
       <div className="user-img">
-        <img className="user-profile-pic" src={user.profile_pic} />
+        <img className="user-profile-pic" src={user.profile_pic} alt={user.username}/>
       </div>
       <div className="chat-card">
         <div className="chat-content" onClick={() => history.push(url)}>

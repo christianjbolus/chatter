@@ -36,7 +36,11 @@ export default function ReplyCreate() {
       </div>
       <div className="chat-form-group">
         <div className="user-img">
-          <img className="user-profile-pic" src={currentUser?.profile_pic} />
+          <img
+            className="user-profile-pic"
+            src={currentUser?.profile_pic}
+            alt={currentUser?.username}
+          />
         </div>
         <form className="chat-form">
           <TextArea

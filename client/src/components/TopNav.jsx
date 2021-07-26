@@ -17,6 +17,7 @@ export default function TopNav({ location }) {
               className="navbar-profile-pic"
               src={currentUser?.profile_pic}
               onClick={() => setShow(true)}
+              alt={currentUser?.username}
             />
           </div>
           <div className="navbar-location-container">

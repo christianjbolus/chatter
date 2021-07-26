@@ -3,7 +3,7 @@ import { Button } from '../components';
 import { BsChatDotsFill } from 'react-icons/bs';
 import '../assets/css/screens/Landing.css';
 
-export default function () {
+export default function Landing () {
   return (
     <div className="landing-container">
       <div className="landing-content">

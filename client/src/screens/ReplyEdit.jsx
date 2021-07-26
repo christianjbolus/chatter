@@ -21,6 +21,7 @@ export default function ReplyEdit() {
       setReply({ content: oneReply.content });
     };
     fetchReply();
+    // eslint-disable-next-line
   }, []);
 
   const handleChange = e => {
@@ -55,7 +56,7 @@ export default function ReplyEdit() {
         </div>
         <div className="chat-form-group">
           <div className="user-img">
-            <img className="user-profile-pic" src={currentUser?.profile_pic} />
+            <img className="user-profile-pic" src={currentUser?.profile_pic} alt={currentUser?.username} />
           </div>
           <form className="chat-form">
           <TextArea

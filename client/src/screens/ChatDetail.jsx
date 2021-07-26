@@ -24,6 +24,7 @@ export default function ChatDetail() {
     };
     fetchChat();
     fetchReplies();
+    // eslint-disable-next-line
   }, []);
 
   return (
@@ -39,6 +40,7 @@ export default function ChatDetail() {
           <img
             className="chat-detail-user-profile-pic"
             src={chat?.user.profile_pic}
+            alt={chat?.user.username}
           />
           <div className="chat-detail-user-indetifiers">
             <p className="chat-detail-display-name">

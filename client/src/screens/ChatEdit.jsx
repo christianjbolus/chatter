@@ -22,6 +22,7 @@ export default function ChatEdit({ allChats, handleUpdate, handleDelete }) {
     if (allChats.length) {
       preFillFormData();
     }
+    // eslint-disable-next-line
   }, []);
 
   const handleChange = e => {
@@ -30,8 +31,8 @@ export default function ChatEdit({ allChats, handleUpdate, handleDelete }) {
   };
 
   const removeChat = () => {
-    handleDelete(id)
-  }
+    handleDelete(id);
+  };
 
   return (
     <>
@@ -50,20 +51,24 @@ export default function ChatEdit({ allChats, handleUpdate, handleDelete }) {
         </div>
         <div className="chat-form-group">
           <div className="user-img">
-            <img className="user-profile-pic" src={currentUser?.profile_pic} />
+            <img
+              className="user-profile-pic"
+              src={currentUser?.profile_pic}
+              alt={currentUser?.username}
+            />
           </div>
           <form className="chat-form">
-          <TextArea
-            name="content"
-            value={chat.content}
-            handleChange={handleChange}
-            rows="4"
-          />
+            <TextArea
+              name="content"
+              value={chat.content}
+              handleChange={handleChange}
+              rows="4"
+            />
           </form>
         </div>
         <div className="chat-form-submit">
           <Button
-            className={!chat.content ? "btn btn-disabled" : "btn btn-chat"}
+            className={!chat.content ? 'btn btn-disabled' : 'btn btn-chat'}
             text="Update"
             onClick={() => handleUpdate(id, chat)}
             disabled={!chat.content}

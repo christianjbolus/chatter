@@ -23,6 +23,7 @@ export default function PopoutNav({show, setShow}) {
               <img
                 className="popout-nav-profile-pic"
                 src={currentUser?.profile_pic}
+                alt={currentUser?.username}
               />
               <div className="popout-nav-user-identifiers">
                 <p className="popout-nav-display-name">
