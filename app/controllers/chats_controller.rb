@@ -22,22 +22,13 @@ class ChatsController < ApplicationController
                only: %i[id username display_name profile_pic],
              },
            }
-    #  include: {
-    #    replies: {
-    #      include: {
-    #        user: {
-    #          only: %i[id username display_name profile_pic],
-    #        },
-    #      },
-    #    },
-    #  }
   end
 
   # POST /chats
   def create
     @chat = Chat.new(chat_params)
     @chat.user = @current_user
-
+    
     if @chat.save
       render json: @chat,
              include: {

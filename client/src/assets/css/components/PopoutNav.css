@@ -17,7 +17,7 @@
 .popout-nav {
   height: 100%;
   width: 80%;
-  background-color: #535353;
+  background-color: #505253;
   border-top-right-radius: 20px;
   border-bottom-right-radius: 20px;
 }
@@ -42,7 +42,7 @@
 }
 
 .popout-nav-user-profile {
-  background-color: #333333;
+  background-color: #353636;
   padding: 15px 20px;
 }
 
