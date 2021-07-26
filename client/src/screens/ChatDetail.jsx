@@ -60,7 +60,7 @@ export default function ChatDetail() {
           <Chat
             chat={reply}
             key={reply.id}
-            // url={`/chats/${id}/replies/${reply.id}`}
+            url={`/chats/${id}/replies/${reply.id}`}
           />
         ))}
       </div>

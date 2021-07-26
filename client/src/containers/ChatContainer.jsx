@@ -11,7 +11,7 @@ import {
 import { deleteChat, getAllChats, postChat, putChat } from '../services/chats';
 import { UserContext } from '../contexts/UserContext';
 
-export default function ChatContainer() {
+export default function ChatContainer({ incrementChatCounter, decrementChatCounter }) {
   const [allChats, setAllChats] = useState([]);
   const history = useHistory();
   const currentUser = useContext(UserContext);
@@ -27,6 +27,7 @@ export default function ChatContainer() {
   const handleCreate = async chatData => {
     const newChat = await postChat(chatData);
     setAllChats(prevState => [newChat, ...prevState]);
+    incrementChatCounter()
     history.push('/chats');
   };
 
@@ -41,6 +42,7 @@ export default function ChatContainer() {
   const handleDelete = async id => {
     await deleteChat(id);
     setAllChats(prevState => prevState.filter(chat => chat.id !== Number(id)));
+    decrementChatCounter()
     history.push('/chats')
   };
 

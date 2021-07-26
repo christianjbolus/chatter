@@ -28,17 +28,18 @@ class ChatsController < ApplicationController
   def create
     @chat = Chat.new(chat_params)
     @chat.user = @current_user
-    @current_user.chat_count = @current_user.chats.length
+    @current_user.chat_count += 1
     if @chat.save && @current_user.save
       render json: @chat,
              include: {
                user: {
                  only: %i[id username display_name profile_pic],
+                 methods: :chat_total
                },
              },
              status: :created
     else
-      render json: @chat.errors, status: :unprocessable_entity
+      render json: [@chat.errors, @current_user.errors], status: :unprocessable_entity
     end
   end
 
@@ -59,7 +60,7 @@ class ChatsController < ApplicationController
   # DELETE /chats/1
   def destroy
     @chat.destroy
-    @current_user.chat_count = @current_user.chats.length
+    @current_user.chat_count -= 1
     @current_user.save
   end
 

@@ -44,6 +44,21 @@ function App() {
     history.push('/');
   };
 
+  //! Revisit this solution
+  const incrementChatCounter = () => {
+    setCurrentUser(prevState => ({
+      ...prevState,
+      chat_count: prevState.chat_count + 1
+    }))
+  }
+
+  const decrementChatCounter = () => {
+    setCurrentUser(prevState => ({
+      ...prevState,
+      chat_count: prevState.chat_count - 1
+    }))
+  }
+
   return (
     <div className="App">
       <Switch>
@@ -55,7 +70,7 @@ function App() {
         </Route>
         <Route path="/chats">
           <UserContext.Provider value={currentUser}>
-            <ChatContainer />
+            <ChatContainer incrementChatCounter={incrementChatCounter} decrementChatCounter={decrementChatCounter} />
           </UserContext.Provider>
         </Route>
         <Route>
