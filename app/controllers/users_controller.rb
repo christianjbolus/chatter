@@ -1,4 +1,9 @@
 class UsersController < ApplicationController
+
+  def show
+    @user = User.where(username: params[:username])
+    render json: @user, include: :chats
+  end
   # POST /users
   def create
     @user = User.new(user_params)
