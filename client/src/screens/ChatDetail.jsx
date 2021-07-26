@@ -52,6 +52,7 @@ export default function ChatDetail() {
         <p className="chat-detail-text">{chat?.content}</p>
         <Engagement
           chatId={chat?.id}
+          userId={chat?.user_id}
           replies={chat?.reply_count}
           reposts={chat?.repost_count}
           likes={chat?.like_count}

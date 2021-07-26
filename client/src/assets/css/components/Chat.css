@@ -71,6 +71,12 @@
   cursor: pointer;
 }
 
+.edit-icon {
+  color: #FF7F00;
+  font-size: 1.25rem;
+  cursor: pointer;
+}
+
 .engagement-metric {
   font-size: 13px;
   padding: 0 5px;
