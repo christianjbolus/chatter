@@ -28,8 +28,8 @@ class ChatsController < ApplicationController
   def create
     @chat = Chat.new(chat_params)
     @chat.user = @current_user
-    
-    if @chat.save
+    @current_user.chat_count = @current_user.chats.length
+    if @chat.save && @current_user.save
       render json: @chat,
              include: {
                user: {
@@ -59,6 +59,8 @@ class ChatsController < ApplicationController
   # DELETE /chats/1
   def destroy
     @chat.destroy
+    @current_user.chat_count = @current_user.chats.length
+    @current_user.save
   end
 
   private
@@ -73,5 +75,3 @@ class ChatsController < ApplicationController
     params.require(:chat).permit(:content, :likes, :reposts, :user_id)
   end
 end
-
-# include: { :user, replies: { include: { user: { only: %i[id username display_name profile_pic] } } } }
