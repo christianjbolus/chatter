@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import { Route, Switch, useHistory } from 'react-router-dom';
 
 import ChatContainer from './containers/ChatContainer';
-import { Landing, Login, Register } from './screens';
+import { Landing, Login, Profile, Register } from './screens';
 import {
   registerUser,
   loginUser,
@@ -78,7 +78,10 @@ function App() {
             </LogoutContext.Provider>
           </UserContext.Provider>
         </Route>
-        <Route>
+        <Route path="/users/:username">
+          <Profile />
+        </Route>
+        <Route to="/">
           <Landing />
         </Route>
       </Switch>
