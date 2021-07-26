@@ -66,7 +66,7 @@ export default function ChatContainer({
           />
         </Route>
         <Route path="/chats/new">
-          <ChatCreate handleCreate={handleCreate} />
+          {currentUser ?  <ChatCreate handleCreate={handleCreate} /> : <Redirect to="/login" />}
         </Route>
         <Route path="/chats/:id">
           <ChatDetail />
