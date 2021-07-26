@@ -2,7 +2,7 @@ class UsersController < ApplicationController
 
   def show
     @user = User.where(username: params[:username])
-    render json: @user, include: :chats
+    render json: @user, except: :password_digest, include: :chats
   end
   # POST /users
   def create
