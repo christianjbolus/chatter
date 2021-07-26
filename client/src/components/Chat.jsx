@@ -1,5 +1,5 @@
 import React from 'react';
-import { useHistory } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 import { Engagement } from '../components';
 import '../assets/css/components/Chat.css';
 
@@ -11,15 +11,21 @@ export default function Chat({ chat, url }) {
   return (
     <div className="chat-container">
       <div className="user-img">
-        <img className="user-profile-pic" src={user.profile_pic} alt={user.username}/>
+        <Link to={`users/${user.username}`}>
+          <img
+            className="user-profile-pic"
+            src={user.profile_pic}
+            alt={user.username}
+          />
+        </Link>
       </div>
       <div className="chat-card">
-        <div className="chat-content" onClick={() => history.push(url)}>
-          <div className="user-identifiers">
+        <div className="chat-content">
+          <Link className="user-identifiers" to={`users/${user.username}`}>
             <p className="chat-display-name">{user.display_name}</p>
             <p className="chat-username">@{user.username}</p>
-          </div>
-          <p className="chat-text">{content}</p>
+          </Link>
+          <p className="chat-text" onClick={() => history.push(url)}>{content}</p>
         </div>
         <Engagement
           chatId={id}

@@ -12,11 +12,11 @@ export default function Profile() {
 
   useEffect(() => {
     const fetchUser = async () => {
-      const [oneUser] = await getOneUser(username);
+      const oneUser = await getOneUser(username);
       setUser(oneUser);
     };
     fetchUser();
-  }, []);
+  }, [username]);
 
   return (
     <>
@@ -25,7 +25,7 @@ export default function Profile() {
         <div className="profile-edit">
           <img className="profile-profile-pic" src={user?.profile_pic} />
           <div>
-            {currentUser?.id === user.id ? (
+            {currentUser?.id === user?.id ? (
               <Button className="btn btn-auth" text="Edit Profile" />
             ) : (
               <Button className="btn btn-auth" text="Follow" />
@@ -40,7 +40,7 @@ export default function Profile() {
         <UserMetrics user={user} mode="light" />
       </div>
       <div className="chat-list">
-        {user.chats?.map(chat => (
+        {user?.chats?.map(chat => (
           <Chat chat={chat} key={chat.id} url={`/chats/${chat.id}`} />
         ))}
       </div>

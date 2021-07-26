@@ -41,7 +41,7 @@ export default function PopoutNav({show, setShow}) {
           <UserMetrics user={currentUser} mode="dark"/>
         </div>
         <div className="popout-nav-links">
-          <Link className="link-group" to={`/${currentUser?.username}`}>
+          <Link className="link-group" to={`/users/${currentUser?.username}`}>
             <BsFillPersonFill className="nav-link-icon"/>
             <p className="nav-link-text">My Profile</p>
           </Link>

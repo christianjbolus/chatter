@@ -81,7 +81,7 @@ function App() {
             <Profile />
           </Route>
         </UserContext.Provider>
-        <Route to="/">
+        <Route path="/">
           <Landing />
         </Route>
       </Switch>

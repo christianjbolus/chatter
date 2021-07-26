@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
   def show
-    @user = User.where(username: params[:username])
+    @user = User.find_by(username: params[:username])
     render json: @user,
            except: :password_digest,
            include: {
