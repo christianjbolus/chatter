@@ -6,12 +6,15 @@ import {
   ChatEdit,
   Chats,
   ReplyCreate,
-  ReplyEdit
+  ReplyEdit,
 } from '../screens';
 import { deleteChat, getAllChats, postChat, putChat } from '../services/chats';
-import { UserContext } from '../contexts/UserContext';
+import { UserContext } from '../contexts';
 
-export default function ChatContainer({ incrementChatCounter, decrementChatCounter }) {
+export default function ChatContainer({
+  incrementChatCounter,
+  decrementChatCounter,
+}) {
   const [allChats, setAllChats] = useState([]);
   const history = useHistory();
   const currentUser = useContext(UserContext);
@@ -27,7 +30,7 @@ export default function ChatContainer({ incrementChatCounter, decrementChatCount
   const handleCreate = async chatData => {
     const newChat = await postChat(chatData);
     setAllChats(prevState => [newChat, ...prevState]);
-    incrementChatCounter()
+    incrementChatCounter();
     history.push('/chats');
   };
 
@@ -42,8 +45,8 @@ export default function ChatContainer({ incrementChatCounter, decrementChatCount
   const handleDelete = async id => {
     await deleteChat(id);
     setAllChats(prevState => prevState.filter(chat => chat.id !== Number(id)));
-    decrementChatCounter()
-    history.push('/chats')
+    decrementChatCounter();
+    history.push('/chats');
   };
 
   return (

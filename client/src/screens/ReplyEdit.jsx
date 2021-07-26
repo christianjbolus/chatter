@@ -2,7 +2,7 @@ import { useState, useEffect, useContext } from 'react';
 import { useHistory, useParams } from 'react-router-dom';
 import { Button, Modal, TextArea } from '../components';
 import { IoArrowBackOutline, BsTrash } from 'react-icons/all';
-import { UserContext } from '../contexts/UserContext';
+import { UserContext } from '../contexts';
 import '../assets/css/screens/ChatEdit.css';
 import { deleteReply, getOneReply, putReply } from '../services/replies';
 

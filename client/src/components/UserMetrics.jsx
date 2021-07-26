@@ -1,5 +1,5 @@
 import { useContext } from 'react'
-import { UserContext } from '../contexts/UserContext';
+import { UserContext } from '../contexts';
 import '../assets/css/components/UserMetrics.css'
 
 export default function UserMetrics() {

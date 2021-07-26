@@ -1,6 +1,6 @@
 import { useContext } from 'react';
 import { Link } from 'react-router-dom';
-import { UserContext } from '../contexts/UserContext';
+import { LogoutContext, UserContext } from '../contexts';
 import Button from './Button';
 import { BiPlus, BsFillPersonFill, FiPower, FaHeart, IoClose } from 'react-icons/all';
 import '../assets/css/components/PopoutNav.css';
@@ -8,6 +8,7 @@ import UserMetrics from './UserMetrics';
 
 export default function PopoutNav({show, setShow}) {
   const currentUser = useContext(UserContext);
+  const handleLogout = useContext(LogoutContext)
 
   return (
     <div className={show ? "popout-nav-container show" : "popout-nav-container"}>
@@ -47,7 +48,7 @@ export default function PopoutNav({show, setShow}) {
             <FaHeart className="nav-link-icon"/>
             <p className="nav-link-text">Likes</p>
           </Link>
-          <Link className="link-group" to="#">
+          <Link className="link-group" to="#" onClick={handleLogout}>
             <FiPower className="nav-link-icon"/>
             <p className="nav-link-text">Logout</p>
           </Link>

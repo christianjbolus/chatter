@@ -3,7 +3,7 @@ import { useHistory } from 'react-router-dom';
 import { Button, TextArea } from '../components';
 import { IoArrowBackOutline } from 'react-icons/all';
 import '../assets/css/screens/ChatCreate.css';
-import { UserContext } from '../contexts/UserContext';
+import { UserContext } from '../contexts';
 
 export default function ChatCreate({ handleCreate }) {
   const [chat, setChat] = useState({

@@ -6,7 +6,7 @@ import { BiPlus } from 'react-icons/all';
 export default function Chats({ allChats }) {
   return (
     <>
-    <TopNav location="Home"/>
+    <TopNav location="Home" />
       <div className="chat-list">
         {allChats.map(chat => (
           <Chat key={chat.id} chat={chat} url={`/chats/${chat.id}`} />

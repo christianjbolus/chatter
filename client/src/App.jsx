@@ -11,7 +11,7 @@ import {
 } from './services/auth';
 
 import './App.css';
-import { UserContext } from './contexts/UserContext';
+import { LogoutContext, UserContext } from './contexts';
 
 function App() {
   const [currentUser, setCurrentUser] = useState(null);
@@ -48,16 +48,16 @@ function App() {
   const incrementChatCounter = () => {
     setCurrentUser(prevState => ({
       ...prevState,
-      chat_count: prevState.chat_count + 1
-    }))
-  }
+      chat_count: prevState.chat_count + 1,
+    }));
+  };
 
   const decrementChatCounter = () => {
     setCurrentUser(prevState => ({
       ...prevState,
-      chat_count: prevState.chat_count - 1
-    }))
-  }
+      chat_count: prevState.chat_count - 1,
+    }));
+  };
 
   return (
     <div className="App">
@@ -70,7 +70,12 @@ function App() {
         </Route>
         <Route path="/chats">
           <UserContext.Provider value={currentUser}>
-            <ChatContainer incrementChatCounter={incrementChatCounter} decrementChatCounter={decrementChatCounter} />
+            <LogoutContext.Provider value={handleLogout}>
+            <ChatContainer
+              incrementChatCounter={incrementChatCounter}
+              decrementChatCounter={decrementChatCounter}
+            />
+            </LogoutContext.Provider>
           </UserContext.Provider>
         </Route>
         <Route>

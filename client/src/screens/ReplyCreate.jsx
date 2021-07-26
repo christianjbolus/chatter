@@ -1,5 +1,5 @@
 import { useState, useContext } from 'react';
-import { UserContext } from '../contexts/UserContext';
+import { UserContext } from '../contexts';
 import { useParams, useHistory } from 'react-router-dom';
 import { postReply } from '../services/replies';
 import { Button, TextArea } from '../components';
