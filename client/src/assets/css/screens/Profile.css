@@ -1,7 +1,34 @@
+.profile {
+  background-color: #fff;
+  padding: 20px;
+}
+
+.profile-edit {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
 .profile-profile-pic {
   height: 90px;
   width: 90px;
   border-radius: 50%;
   object-fit: cover;
   object-position: top;
+}
+
+.profile-user-identifiers {
+  margin-bottom: 20px;
+}
+
+.profile-display-name {
+  font-size: 1.1rem;
+  font-weight: 900;
+  margin-bottom: 5px;
+}
+
+.profile-username {
+  color: #9f9f9f;
+  font-weight: 500;
 }

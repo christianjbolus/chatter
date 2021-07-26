@@ -68,19 +68,19 @@ function App() {
         <Route path="/login">
           <Login handleLogin={handleLogin} />
         </Route>
-        <Route path="/chats">
-          <UserContext.Provider value={currentUser}>
+        <UserContext.Provider value={currentUser}>
+          <Route path="/chats">
             <LogoutContext.Provider value={handleLogout}>
-            <ChatContainer
-              incrementChatCounter={incrementChatCounter}
-              decrementChatCounter={decrementChatCounter}
-            />
+              <ChatContainer
+                incrementChatCounter={incrementChatCounter}
+                decrementChatCounter={decrementChatCounter}
+              />
             </LogoutContext.Provider>
-          </UserContext.Provider>
-        </Route>
-        <Route path="/users/:username">
-          <Profile />
-        </Route>
+          </Route>
+          <Route path="/users/:username">
+            <Profile />
+          </Route>
+        </UserContext.Provider>
         <Route to="/">
           <Landing />
         </Route>

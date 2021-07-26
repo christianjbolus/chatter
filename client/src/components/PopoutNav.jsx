@@ -38,7 +38,7 @@ export default function PopoutNav({show, setShow}) {
               </Button>
             </Link>
           </div>
-          <UserMetrics />
+          <UserMetrics user={currentUser} mode="dark"/>
         </div>
         <div className="popout-nav-links">
           <Link className="link-group" to={`/${currentUser?.username}`}>

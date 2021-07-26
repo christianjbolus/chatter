@@ -6,7 +6,7 @@
 
 .metric {
   font-size: 0.85rem;
-  color:rgba(255, 255, 255, 0.5);
+  opacity: 0.5;
   margin-bottom: 5px;
 }
 
