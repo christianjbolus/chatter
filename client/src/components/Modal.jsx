@@ -11,7 +11,7 @@ export default function Modal({ className, message, setShow, handleDelete }) {
         <p className="modal-message">{message}</p>
         <div className="modal-control">
           <Button className="btn-cancel" text="Cancel" onClick={() => setShow(false)} />
-          <Button className="btn-delete" text="Delete" onClick={handleDelete} />
+          <Button className="btn btn-chat" text="Delete" onClick={handleDelete} />
         </div>
       </div>
     </div>

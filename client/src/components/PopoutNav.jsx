@@ -2,18 +2,18 @@ import { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import { UserContext } from '../contexts/UserContext';
 import Button from './Button';
-import { BiPlus, IoClose } from 'react-icons/all';
+import { BiPlus, BsFillPersonFill, FiPower, FaHeart, IoClose } from 'react-icons/all';
 import '../assets/css/components/PopoutNav.css';
 import UserMetrics from './UserMetrics';
 
-export default function PopoutNav() {
+export default function PopoutNav({show, setShow}) {
   const currentUser = useContext(UserContext);
 
   return (
-    <div className="popout-nav-container">
+    <div className={show ? "popout-nav-container show" : "popout-nav-container"}>
       <div className="popout-nav">
         <div className="popout-nav-header">
-          <IoClose className="popout-nav-close" />
+          <IoClose className="popout-nav-close" onClick={() => setShow(false)}/>
           <h2 className="popout-nav-header-text">Chatter</h2>
         </div>
         <div className="popout-nav-user-profile">
@@ -37,6 +37,20 @@ export default function PopoutNav() {
             </Link>
           </div>
           <UserMetrics />
+        </div>
+        <div className="popout-nav-links">
+          <Link className="link-group" to={`/${currentUser?.username}`}>
+            <BsFillPersonFill className="nav-link-icon"/>
+            <p className="nav-link-text">My Profile</p>
+          </Link>
+          <Link className="link-group" to={`/${currentUser?.username}/likes`}>
+            <FaHeart className="nav-link-icon"/>
+            <p className="nav-link-text">Likes</p>
+          </Link>
+          <Link className="link-group" to="#">
+            <FiPower className="nav-link-icon"/>
+            <p className="nav-link-text">Logout</p>
+          </Link>
         </div>
       </div>
     </div>
