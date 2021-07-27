@@ -24,11 +24,15 @@ function App() {
     handleVerify();
   }, []);
 
-  const handleLogin = async formData => {
-    const userData = await loginUser(formData);
-    setCurrentUser(userData);
-    history.push('/chats');
-  };
+  // const handleLogin = async formData => {
+  //   try {
+  //     const userData = await loginUser(formData);
+  //     setCurrentUser(userData);
+  //     history.push('/chats');
+  //   } catch (error) {
+
+  //   }
+  // };
 
   const handleRegister = async formData => {
     const userData = await registerUser(formData);
@@ -66,7 +70,7 @@ function App() {
             <Register handleRegister={handleRegister} />
           </Route>
           <Route path="/login">
-            <Login handleLogin={handleLogin} />
+            <Login setCurrentUser={setCurrentUser} />
           </Route>
           <Route path="/chats">
             <LogoutContext.Provider value={handleLogout}>

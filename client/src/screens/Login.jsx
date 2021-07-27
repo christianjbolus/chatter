@@ -1,18 +1,31 @@
 import { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 import { Button, FormInput } from '../components';
+import { loginUser } from '../services/auth'
 
-export default function Login({ handleLogin }) {
+export default function Login({ setCurrentUser }) {
   const [formData, setFormData] = useState({
     username: '',
     password: '',
   });
+  const [errorMessage, setErrorMessage] = useState('')
+  const history = useHistory()
 
   const { username, password } = formData;
 
   const handleChange = e => {
     const { name, value } = e.target;
     setFormData(prevState => ({ ...prevState, [name]: value }));
+  };
+
+  const handleLogin = async () => {
+    try {
+      const userData = await loginUser(formData);
+      setCurrentUser(userData);
+      history.push('/chats');
+    } catch (error) {
+      setErrorMessage('Invalid credentials')
+    }
   };
 
   return (
@@ -24,7 +37,7 @@ export default function Login({ handleLogin }) {
           <form
             onSubmit={e => {
               e.preventDefault();
-              handleLogin(formData);
+              handleLogin();
             }}
           >
             <FormInput
@@ -40,6 +53,7 @@ export default function Login({ handleLogin }) {
               value={password}
               handleChange={handleChange}
             />
+            <p className="error-message">{errorMessage}</p>
             <div className="form-submit">
               <Button className="btn btn-auth" text="Sign in" />
             </div>

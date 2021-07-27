@@ -66,6 +66,10 @@
   border: #FF7F00;
 }
 
+.error-message {
+  color: #ff0000
+}
+
 .form-submit {
   padding-top: 20px;
 }
