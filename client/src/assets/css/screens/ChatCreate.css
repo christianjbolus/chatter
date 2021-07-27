@@ -19,6 +19,7 @@
 
 .chat-form textarea:focus {
   outline: none;
+  box-shadow: none;
 }
 
 .chat-form-footer {

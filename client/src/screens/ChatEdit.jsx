@@ -40,6 +40,7 @@ export default function ChatEdit({ allChats, handleUpdate, handleDelete }) {
         handleDelete={removeChat}
         setShow={setShow}
         message="Are you sure?"
+        subMessage="This action can't be undone."
         className={show ? 'modal-container active' : 'modal-container'}
       />
       <div className="chat-detail-container">

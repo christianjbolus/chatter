@@ -2,7 +2,7 @@
   border: none;
   background-color: #FF7F00;
   color: #fff;
-  font-weight: 500;
+  font-weight: 700;
   cursor: pointer;
 }
 
@@ -51,32 +51,26 @@
   align-items: center;
 }
 
-.btn-cancel {
-  border: none;
-  background-color: #9f9f9f;
-  color: #fff;
-  font-weight: 500;
-  border-radius: 15px;
-  padding: 7px 25px;
-  cursor: pointer;
-  margin-right: 10px;
-}
-
-.btn-delete {
-  border: none;
-  background-color: #FA1E00;
-  color: #fff;
-  font-weight: 500;
-  border-radius: 15px;
-  padding: 7px 25px;
-  cursor: pointer;
-  margin-left: 10px;
-}
-
 .btn-disabled {
   border-radius: 15px;
   padding: 7px 25px;
   opacity: 0.5;
+}
+
+.btn-lg {
+  padding: 10px 25px;
+  border-radius: 25px;
+  font-size: 0.9rem;
+}
+
+.cancel {
+  border: none;
+  background-color: #ebebeb;
+  color: #000;
+  font-weight: 700;
+  border-radius: 25px;
+  padding: 10px 25px;
+  cursor: pointer;
 }
 
 .btn-icon {
