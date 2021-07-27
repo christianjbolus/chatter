@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { Route, Switch, useHistory } from 'react-router-dom';
-
+import { LogoutContext, UserContext } from './contexts';
 import ChatContainer from './containers/ChatContainer';
 import { Landing, Login, Profile, Register } from './screens';
 import {
@@ -11,7 +11,6 @@ import {
 } from './services/auth';
 
 import './App.css';
-import { LogoutContext, UserContext } from './contexts';
 
 function App() {
   const [currentUser, setCurrentUser] = useState(null);

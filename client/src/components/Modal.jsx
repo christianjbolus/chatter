@@ -1,6 +1,5 @@
 import React from 'react';
 import Button from './Button';
-import { IoWarningOutline } from 'react-icons/all'
 import '../assets/css/components/Modal.css';
 
 export default function Modal({ className, message, subMessage, setShow, handleDelete }) {
