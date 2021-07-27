@@ -83,7 +83,7 @@
   padding: 40px 20px;
 }
 
-.link-group {
+.popout-nav-link-group {
   color: #fff;
   text-decoration: none;
   display: flex;
@@ -91,11 +91,11 @@
   margin-bottom: 30px;
 }
 
-.nav-link-icon {
+.popout-nav-link-icon {
   font-size: 1.1rem;
   padding-right: 20px;
 }
 
-.nav-link-text {
+.popout-nav-link-text {
   font-size: 15px;
 }

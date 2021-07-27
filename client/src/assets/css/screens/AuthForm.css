@@ -54,6 +54,7 @@
   border-radius: 5px;
   font-size: 16px;
   -webkit-appearance: none;
+  resize: none;
   transition: 150ms
 }
 

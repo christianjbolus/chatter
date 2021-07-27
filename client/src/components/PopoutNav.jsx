@@ -51,28 +51,28 @@ export default function PopoutNav({ show, setShow }) {
         <div className="popout-nav-links">
           {currentUser ? (
             <>
-              <Link className="link-group" to={`/users/${currentUser?.username}`}>
-                <BsFillPersonFill className="nav-link-icon" />
-                <p className="nav-link-text">My Profile</p>
+              <Link className="popout-nav-link-group" to={`/users/${currentUser?.username}`}>
+                <BsFillPersonFill className="popout-nav-link-icon" />
+                <p className="popout-nav-link-text">My Profile</p>
               </Link>
-              <Link className="link-group" to={`/${currentUser?.username}/likes`}>
-                <FaHeart className="nav-link-icon" />
-                <p className="nav-link-text">Likes</p>
+              <Link className="popout-nav-link-group" to={`/${currentUser?.username}/likes`}>
+                <FaHeart className="popout-nav-link-icon" />
+                <p className="popout-nav-link-text">Likes</p>
               </Link>
-              <Link className="link-group" to="#" onClick={handleLogout}>
-                <FiPower className="nav-link-icon" />
-                <p className="nav-link-text">Logout</p>
+              <Link className="popout-nav-link-group" to="#" onClick={handleLogout}>
+                <FiPower className="popout-nav-link-icon" />
+                <p className="popout-nav-link-text">Logout</p>
               </Link>
             </>
           ) : (
             <>
-              <Link className="link-group" to="/login">
-                <AiOutlineLogin className="nav-link-icon" />
-                <p className="nav-link-text">Login</p>
+              <Link className="popout-nav-link-group" to="/login">
+                <AiOutlineLogin className="popout-nav-link-icon" />
+                <p className="popout-nav-link-text">Login</p>
               </Link>
-              <Link className="link-group" to="/register">
-                <FaUserPlus className="nav-link-icon" />
-                <p className="nav-link-text">Sign Up</p>
+              <Link className="popout-nav-link-group" to="/register">
+                <FaUserPlus className="popout-nav-link-icon" />
+                <p className="popout-nav-link-text">Sign Up</p>
               </Link>
             </>
           )}

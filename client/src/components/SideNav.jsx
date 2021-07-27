@@ -1,16 +1,25 @@
-import { Link } from 'react-router-dom'
-import { Button } from '../components'
-import { BiPlus, BsFillPersonFill, FaHeart, FiPower } from 'react-icons/all'
-import '../assets/css/components/SideNav.css'
+import { Link } from 'react-router-dom';
+import { Button } from '../components';
+import { BiPlus, BsFillPersonFill, FaHeart, FiPower } from 'react-icons/all';
+import '../assets/css/components/SideNav.css';
 
 export default function SideNav() {
   return (
     <div className="sidenav-container">
       <div className="sidenav">
         <div className="sidenav-links">
-          <BsFillPersonFill className="sidenav-icon" />
-          <FaHeart className="sidenav-icon" />
-          <FiPower className="sidenav-icon" />
+          <Link className="sidenav-link-group">
+            <BsFillPersonFill className="sidenav-link-icon" />
+            <p className="sidenav-link-text">My Profile</p>
+          </Link>
+          <Link className="sidenav-link-group">
+            <FaHeart className="sidenav-link-icon" />
+            <p className="sidenav-link-text">Likes</p>
+          </Link>
+          <Link className="sidenav-link-group">
+            <FiPower className="sidenav-link-icon" />
+            <p className="sidenav-link-text">Logout</p>
+          </Link>
         </div>
         <Link to="/chats/new">
           <Button className="btn btn-round-sm">
