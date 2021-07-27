@@ -33,6 +33,7 @@ export default function Chat({ chat, user, url }) {
           replies={reply_count}
           reposts={repost_count}
           likes={like_count}
+          edit={false}
         />
       </div>
     </div>

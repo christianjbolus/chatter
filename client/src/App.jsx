@@ -5,7 +5,6 @@ import ChatContainer from './containers/ChatContainer';
 import { Landing, Login, Profile, Register } from './screens';
 import {
   registerUser,
-  loginUser,
   verifyUser,
   removeToken,
 } from './services/auth';
@@ -23,16 +22,6 @@ function App() {
     };
     handleVerify();
   }, []);
-
-  // const handleLogin = async formData => {
-  //   try {
-  //     const userData = await loginUser(formData);
-  //     setCurrentUser(userData);
-  //     history.push('/chats');
-  //   } catch (error) {
-
-  //   }
-  // };
 
   const handleRegister = async formData => {
     const userData = await registerUser(formData);

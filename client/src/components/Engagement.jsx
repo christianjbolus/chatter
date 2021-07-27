@@ -16,6 +16,7 @@ export default function Engagement({
   replies,
   reposts,
   likes,
+  edit
 }) {
   const currentUser = useContext(UserContext);
   const history = useHistory();
@@ -37,7 +38,7 @@ export default function Engagement({
         <BsHeart className="engagement-icon" />
         <p className="engagement-metric">{likes}</p>
       </div>
-      {currentUser?.id === userId ? (
+      {currentUser?.id === userId && edit ? (
         <FiEdit
           className="edit-icon"
           onClick={() => history.push(`/chats/${chatId}/edit`)}

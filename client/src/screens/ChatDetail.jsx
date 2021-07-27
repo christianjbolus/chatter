@@ -56,6 +56,7 @@ export default function ChatDetail() {
           replies={chat?.reply_count}
           reposts={chat?.repost_count}
           likes={chat?.like_count}
+          edit={true}
         />
       </div>
       <div className="chat-list">

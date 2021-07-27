@@ -1,9 +1,10 @@
 import { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 import { Button, FormInput, TextArea } from '../components';
+import { registerUser } from '../services/auth'
 import '../assets/css/screens/AuthForm.css';
 
-export default function Register({ handleRegister }) {
+export default function Register({ setCurrentUser }) {
   const [formData, setFormData] = useState({
     email: '',
     username: '',
@@ -12,6 +13,14 @@ export default function Register({ handleRegister }) {
     profile_pic: '',
     bio: '',
   });
+  const [errors, setErrors] = useState({
+    email: '',
+    username: '',
+    password: ''
+  })
+
+  const history = useHistory()
+
 
   const { email, username, password, display_name, profile_pic, bio } =
     formData;
@@ -19,6 +28,16 @@ export default function Register({ handleRegister }) {
   const handleChange = e => {
     const { name, value } = e.target;
     setFormData(prevState => ({ ...prevState, [name]: value }));
+  };
+
+  const handleRegister = async () => {
+    try {
+      const userData = await registerUser(formData);
+      setCurrentUser(userData);
+      history.push('/');
+    } catch (error) {
+      
+    }
   };
 
   return (
@@ -30,7 +49,7 @@ export default function Register({ handleRegister }) {
           <form
             onSubmit={e => {
               e.preventDefault();
-              handleRegister(formData);
+              handleRegister();
             }}
           >
             <FormInput
