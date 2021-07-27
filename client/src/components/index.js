@@ -4,6 +4,7 @@ import Engagement from './Engagement';
 import FormInput from './FormInput';
 import Modal from './Modal';
 import PopoutNav from './PopoutNav';
+import SideNav from './SideNav';
 import TextArea from './TextArea';
 import TopNav from './TopNav';
 import UserMetrics from './UserMetrics';
@@ -15,6 +16,7 @@ export {
   FormInput,
   Modal,
   PopoutNav,
+  SideNav,
   TextArea,
   TopNav,
   UserMetrics,

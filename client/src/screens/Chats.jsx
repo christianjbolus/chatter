@@ -6,7 +6,7 @@ import { BiPlus } from 'react-icons/all';
 export default function Chats({ allChats }) {
   return (
     <>
-      <TopNav location="Home" />
+      {/* <TopNav location="Home" /> */}
       <div className="chat-list">
         {allChats.map(chat => (
           <Chat
@@ -18,7 +18,7 @@ export default function Chats({ allChats }) {
         ))}
       </div>
       <Link to="/chats/new">
-        <Button className="btn btn-round">
+        <Button className="btn btn-round fixed">
           <BiPlus className="btn-icon" />
         </Button>
       </Link>

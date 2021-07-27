@@ -2,12 +2,9 @@ import { useState, useEffect } from 'react';
 import { Route, Switch, useHistory } from 'react-router-dom';
 import { LogoutContext, UserContext } from './contexts';
 import ChatContainer from './containers/ChatContainer';
+import Layout from './layouts/Layout';
 import { Landing, Login, Profile, Register } from './screens';
-import {
-  registerUser,
-  verifyUser,
-  removeToken,
-} from './services/auth';
+import { registerUser, verifyUser, removeToken } from './services/auth';
 
 import './App.css';
 
@@ -53,30 +50,34 @@ function App() {
 
   return (
     <div className="App">
-      <UserContext.Provider value={currentUser}>
-        <Switch>
-          <Route path="/register">
-            <Register handleRegister={handleRegister} />
-          </Route>
-          <Route path="/login">
-            <Login setCurrentUser={setCurrentUser} />
-          </Route>
-          <Route path="/chats">
+      <Switch>
+        <Route path="/register">
+          <Register handleRegister={handleRegister} />
+        </Route>
+        <Route path="/login">
+          <Login setCurrentUser={setCurrentUser} />
+        </Route>
+        <Route path="/chats">
+          <UserContext.Provider value={currentUser}>
             <LogoutContext.Provider value={handleLogout}>
-              <ChatContainer
-                incrementChatCounter={incrementChatCounter}
-                decrementChatCounter={decrementChatCounter}
-              />
+              <Layout>
+                <ChatContainer
+                  incrementChatCounter={incrementChatCounter}
+                  decrementChatCounter={decrementChatCounter}
+                />
+              </Layout>
             </LogoutContext.Provider>
-          </Route>
-          <Route path="/users/:username">
+          </UserContext.Provider>
+        </Route>
+        <Route path="/users/:username">
+          <UserContext.Provider value={currentUser}>
             <Profile />
-          </Route>
-          <Route path="/">
-            <Landing />
-          </Route>
-        </Switch>
-      </UserContext.Provider>
+          </UserContext.Provider>
+        </Route>
+        <Route path="/">
+          <Landing />
+        </Route>
+      </Switch>
     </div>
   );
 }

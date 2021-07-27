@@ -10,6 +10,7 @@ import {
 } from '../screens';
 import { deleteChat, getAllChats, postChat, putChat } from '../services/chats';
 import { UserContext } from '../contexts';
+import '../assets/css/containers/ChatContainer.css'
 
 export default function ChatContainer({
   incrementChatCounter,
@@ -50,7 +51,7 @@ export default function ChatContainer({
   };
 
   return (
-    <div>
+    <div className="main-container">
       <Switch>
         <Route path="/chats/:id/replies/new">
           <ReplyCreate />

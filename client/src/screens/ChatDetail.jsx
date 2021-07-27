@@ -70,7 +70,7 @@ export default function ChatDetail() {
         ))}
       </div>
       <Link to={`/chats/${chat?.id}/replies/new`}>
-        <Button className="btn btn-round">
+        <Button className="btn btn-round fixed">
           <IoChatbubbleOutline className="btn-icon" />
         </Button>
       </Link>
