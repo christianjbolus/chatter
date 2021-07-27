@@ -3,11 +3,13 @@ class User < ApplicationRecord
   has_many :chats
   has_many :replies
 
-  validates :username, presence: true, uniqueness: true
+  validates :username, presence: true, uniqueness: true, length: { maximum: 15 }
   validates :email, presence: true, uniqueness: true
   validates :email, format: { with: URI::MailTo::EMAIL_REGEXP }
   validates :password, length: { minimum: 6 }, on: :create
+  validates :display_name, length: { maximum: 25 }
+  validates :bio, length: { maximum: 160 }
   def chat_total
-    chats.count 
+    chats.count
   end
 end
