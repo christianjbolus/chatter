@@ -36,7 +36,7 @@ export default function Profile() {
             {currentUser?.id === user?.id ? (
               <Button className="btn btn-lg invert" text="Edit Profile" />
             ) : (
-              <Button className="btn btn-lg" text="Follow" />
+              <Button className="btn btn-lg invert" text="Follow" />
             )}
           </div>
         </div>

@@ -69,6 +69,7 @@ export default function Register({ handleRegister }) {
               name="bio"
               value={bio}
               rows="5"
+              maxLength="160"
               handleChange={handleChange}
             />
             <div className="form-submit">

@@ -22,7 +22,7 @@ export default function Landing () {
             <Button className="btn btn-auth" text="Sign Up" />
           </Link>
           <Link to="/login">
-            <Button className="btn-auth-invert" text="Login" />
+            <Button className="btn btn-auth invert" text="Login" />
           </Link>
         </div>
       </div>
