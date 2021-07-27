@@ -18,7 +18,7 @@ export default function Chats({ allChats }) {
         ))}
       </div>
       <Link to="/chats/new">
-        <Button className="btn btn-round fixed">
+        <Button className="btn btn-round fixed new">
           <BiPlus className="btn-icon" />
         </Button>
       </Link>

@@ -3,7 +3,7 @@ import { Link, useParams, useHistory } from 'react-router-dom';
 import { getOneUser } from '../services/users';
 import { Button, Chat, UserMetrics } from '../components';
 import { UserContext } from '../contexts';
-import { IoArrowBackOutline } from 'react-icons/io5';
+import { BiPlus, IoArrowBackOutline } from 'react-icons/all';
 import '../assets/css/screens/Profile.css';
 
 export default function Profile() {
@@ -21,7 +21,7 @@ export default function Profile() {
   }, [username]);
 
   return (
-    <>
+    <div>
       <div className="profile">
         <div className="chat-nav">
           <IoArrowBackOutline
@@ -46,10 +46,6 @@ export default function Profile() {
         </div>
         <p className="profile-bio">{user?.bio}</p>
         <UserMetrics user={user} mode="light" />
-        {/* <div className="chat-categories">
-          <Link className="category active">Chats</Link>
-          <Link className="category">Likes</Link>
-        </div> */}
       </div>
       <div className="chat-list">
         {user?.chats?.map(chat => (
@@ -61,6 +57,11 @@ export default function Profile() {
           />
         ))}
       </div>
-    </>
+      <Link to="/chats/new">
+        <Button className="btn btn-round fixed new">
+          <BiPlus className="btn-icon" />
+        </Button>
+      </Link>
+    </div>
   );
 }

@@ -11,6 +11,7 @@
   height: 100vh;
   padding: 30px 10px;
   position: fixed;
+  border-right: 1px solid #f7f7f7
 }
 
 .sidenav-links {

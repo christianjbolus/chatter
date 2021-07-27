@@ -71,7 +71,9 @@ function App() {
         </Route>
         <Route path="/users/:username">
           <UserContext.Provider value={currentUser}>
-            <Profile />
+            <Layout>
+              <Profile />
+            </Layout>
           </UserContext.Provider>
         </Route>
         <Route path="/">
