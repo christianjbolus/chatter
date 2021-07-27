@@ -1,5 +1,5 @@
 import { useState, useEffect, useContext } from 'react';
-import { useParams, useHistory } from 'react-router-dom';
+import { Link, useParams, useHistory } from 'react-router-dom';
 import { getOneUser } from '../services/users';
 import { Button, Chat, UserMetrics } from '../components';
 import { UserContext } from '../contexts';
@@ -44,8 +44,12 @@ export default function Profile() {
           <p className="profile-display-name">{user?.display_name}</p>
           <p className="profile-username">@{user?.username}</p>
         </div>
-        <p className="bio">{user?.bio}</p>
+        <p className="profile-bio">{user?.bio}</p>
         <UserMetrics user={user} mode="light" />
+        {/* <div className="chat-categories">
+          <Link className="category active">Chats</Link>
+          <Link className="category">Likes</Link>
+        </div> */}
       </div>
       <div className="chat-list">
         {user?.chats?.map(chat => (

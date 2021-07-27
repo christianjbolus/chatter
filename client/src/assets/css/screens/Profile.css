@@ -33,3 +33,26 @@
   color: #9f9f9f;
   font-weight: 500;
 }
+
+.profile-bio {
+  font-size: 0.90rem;
+  line-height: 18px;
+  margin-bottom: 20px;
+}
+
+.chat-categories {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  justify-items: center;
+  margin-top: 25px;
+}
+
+.category {
+  color: #000;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.active {
+  color: #FF7F00;
+}

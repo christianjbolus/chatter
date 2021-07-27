@@ -27,6 +27,7 @@ User.destroy_all
     display_name: 'Christian Bolus',
     profile_pic:
       'https://res.cloudinary.com/ditt6ekpx/image/upload/v1626978009/GA%20Project%204/Headshot_Reduced_Cropped_sja1vr.jpg',
+    bio: 'Developer of software. Player of drums. Taker of photographs. Baker of sourdough. Lifelong learner.',
     chat_count: 2,
   )
 @naval =
