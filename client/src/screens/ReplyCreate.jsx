@@ -1,6 +1,6 @@
 import { useState, useContext } from 'react';
 import { UserContext } from '../contexts';
-import { useParams, useHistory } from 'react-router-dom';
+import { Link,useParams, useHistory } from 'react-router-dom';
 import { postReply } from '../services/replies';
 import { Button, TextArea } from '../components';
 import { IoArrowBackOutline } from 'react-icons/all';
@@ -35,13 +35,13 @@ export default function ReplyCreate() {
         />
       </div>
       <div className="chat-form-group">
-        <div className="user-img">
+        <Link className="user-img" to={`/users/${currentUser?.username}`}>
           <img
             className="user-profile-pic"
             src={currentUser?.profile_pic}
             alt={currentUser?.username}
           />
-        </div>
+        </Link>
         <form className="chat-form">
           <TextArea
             name="content"

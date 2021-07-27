@@ -1,5 +1,5 @@
 import { useState, useEffect, useContext } from 'react';
-import { useHistory, useParams } from 'react-router-dom';
+import { Link, useHistory, useParams } from 'react-router-dom';
 import { Button, Modal, TextArea } from '../components';
 import { IoArrowBackOutline, BsTrash } from 'react-icons/all';
 import { UserContext } from '../contexts';
@@ -47,17 +47,17 @@ export default function ChatEdit({ allChats, handleUpdate, handleDelete }) {
         <div className="chat-nav">
           <IoArrowBackOutline
             className="back-arrow"
-            onClick={() => history.push('/chats')}
+            onClick={() => history.goBack()}
           />
         </div>
         <div className="chat-form-group">
-          <div className="user-img">
+          <Link className="user-img" to={`/users/${currentUser?.username}`}>
             <img
               className="user-profile-pic"
               src={currentUser?.profile_pic}
               alt={currentUser?.username}
             />
-          </div>
+          </Link>
           <form className="chat-form">
             <TextArea
               name="content"

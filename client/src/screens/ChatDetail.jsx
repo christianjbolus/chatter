@@ -62,6 +62,7 @@ export default function ChatDetail() {
         {replies?.map(reply => (
           <Chat
             chat={reply}
+            user={reply.user}
             key={reply.id}
             url={`/chats/${id}/replies/${reply.id}`}
           />

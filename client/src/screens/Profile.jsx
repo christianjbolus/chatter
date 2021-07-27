@@ -1,14 +1,16 @@
 import { useState, useEffect, useContext } from 'react';
-import { useParams } from 'react-router-dom';
+import { useParams, useHistory } from 'react-router-dom';
 import { getOneUser } from '../services/users';
 import { Button, Chat, UserMetrics } from '../components';
 import { UserContext } from '../contexts';
+import { IoArrowBackOutline } from 'react-icons/io5';
 import '../assets/css/screens/Profile.css';
 
 export default function Profile() {
   const [user, setUser] = useState({});
   const currentUser = useContext(UserContext);
   const { username } = useParams();
+  const history = useHistory();
 
   useEffect(() => {
     const fetchUser = async () => {
@@ -21,6 +23,12 @@ export default function Profile() {
   return (
     <>
       <div className="profile">
+        <div className="chat-nav">
+          <IoArrowBackOutline
+            className="back-arrow"
+            onClick={() => history.push('/chats')}
+          />
+        </div>
         <div className="header-img"></div>
         <div className="profile-edit">
           <img className="profile-profile-pic" src={user?.profile_pic} />
@@ -41,7 +49,12 @@ export default function Profile() {
       </div>
       <div className="chat-list">
         {user?.chats?.map(chat => (
-          <Chat chat={chat} user={user} key={chat.id} url={`/chats/${chat.id}`} />
+          <Chat
+            chat={chat}
+            user={user}
+            key={chat.id}
+            url={`/chats/${chat.id}`}
+          />
         ))}
       </div>
     </>

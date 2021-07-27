@@ -19,19 +19,21 @@ export default function PopoutNav({show, setShow}) {
         </div>
         <div className="popout-nav-user-profile">
           <div className="popout-nav-user-container">
-            <div className="popout-nav-user">
-              <img
-                className="popout-nav-profile-pic"
-                src={currentUser?.profile_pic}
-                alt={currentUser?.username}
-              />
-              <div className="popout-nav-user-identifiers">
-                <p className="popout-nav-display-name">
-                  {currentUser?.display_name}
-                </p>
-                <p className="popout-nav-username">@{currentUser?.username}</p>
-              </div>
-            </div>
+            <Link to={`/users/${currentUser?.username}`} className="popout-nav-user">
+              
+                <img
+                  className="popout-nav-profile-pic"
+                  src={currentUser?.profile_pic}
+                  alt={currentUser?.username}
+                />
+                <div className="popout-nav-user-identifiers">
+                  <p className="popout-nav-display-name">
+                    {currentUser?.display_name}
+                  </p>
+                  <p className="popout-nav-username">@{currentUser?.username}</p>
+                </div>
+            
+            </Link>
             <Link to="/chats/new">
               <Button className="btn btn-round-sm">
                 <BiPlus className="btn-icon-sm" />

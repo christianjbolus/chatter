@@ -1,5 +1,5 @@
 import { useState, useEffect, useContext } from 'react';
-import { useHistory, useParams } from 'react-router-dom';
+import { Link, useHistory, useParams } from 'react-router-dom';
 import { Button, Modal, TextArea } from '../components';
 import { IoArrowBackOutline, BsTrash } from 'react-icons/all';
 import { UserContext } from '../contexts';
@@ -51,29 +51,36 @@ export default function ReplyEdit() {
         <div className="chat-nav">
           <IoArrowBackOutline
             className="back-arrow"
-            onClick={() => history.push(`/chats/${chat_id}`)}
+            onClick={() => history.goBack()}
           />
         </div>
         <div className="chat-form-group">
-          <div className="user-img">
-            <img className="user-profile-pic" src={currentUser?.profile_pic} alt={currentUser?.username} />
-          </div>
+          <Link className="user-img" to={`/users/${currentUser.username}`}>
+            <img
+              className="user-profile-pic"
+              src={currentUser?.profile_pic}
+              alt={currentUser?.username}
+            />
+          </Link>
           <form className="chat-form">
-          <TextArea
-            name="content"
-            value={reply.content}
-            handleChange={handleChange}
-            rows="4"
-          />
+            <TextArea
+              name="content"
+              value={reply.content}
+              handleChange={handleChange}
+              rows="4"
+            />
           </form>
         </div>
-        <div className="chat-form-submit">
-          <Button
-            className={!reply.content ? "btn btn-disabled" : "btn btn-chat"}
-            text="Update"
-            onClick={updateReply}
-            disabled={!reply.content}
-          />
+        <div className="chat-form-footer">
+          <p className="character-counter">{reply.content.length}/280</p>
+          <div className="chat-form-submit">
+            <Button
+              className={!reply.content ? 'btn btn-disabled' : 'btn btn-chat'}
+              text="Chat"
+              onClick={updateReply}
+              disabled={!reply.content}
+            />
+          </div>
           <BsTrash className="chat-delete" onClick={() => setShow(true)} />
         </div>
       </div>
