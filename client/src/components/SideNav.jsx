@@ -3,12 +3,15 @@ import { Button } from '../components';
 import { BiPlus, BsFillPersonFill, FaHeart, FiPower } from 'react-icons/all';
 import '../assets/css/components/SideNav.css';
 
-export default function SideNav() {
+export default function SideNav({ currentUser, handleLogout }) {
   return (
     <div className="sidenav-container">
       <div className="sidenav">
         <div className="sidenav-links">
-          <Link className="sidenav-link-group">
+          <Link
+            className="sidenav-link-group"
+            to={`/users/${currentUser?.username}`}
+          >
             <BsFillPersonFill className="sidenav-link-icon" />
             <p className="sidenav-link-text">My Profile</p>
           </Link>
@@ -16,7 +19,7 @@ export default function SideNav() {
             <FaHeart className="sidenav-link-icon" />
             <p className="sidenav-link-text">Likes</p>
           </Link>
-          <Link className="sidenav-link-group">
+          <Link className="sidenav-link-group" onClick={handleLogout}>
             <FiPower className="sidenav-link-icon" />
             <p className="sidenav-link-text">Logout</p>
           </Link>
