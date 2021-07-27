@@ -63,6 +63,12 @@
   font-size: 0.9rem;
 }
 
+.invert {
+  background-color: #fff;
+  border: 1px solid #FF7F00;
+  color: #FF7F00
+}
+
 .cancel {
   border: none;
   background-color: #ebebeb;

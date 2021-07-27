@@ -67,15 +67,18 @@ export default function ChatEdit({ allChats, handleUpdate, handleDelete }) {
             />
           </form>
         </div>
+        <div className="chat-form-footer">
+        <p className="character-counter">{chat.content.length}/280</p>
         <div className="chat-form-submit">
           <Button
             className={!chat.content ? 'btn btn-disabled' : 'btn btn-chat'}
-            text="Update"
+            text="Chat"
             onClick={() => handleUpdate(id, chat)}
             disabled={!chat.content}
           />
-          <BsTrash className="chat-delete" onClick={() => setShow(true)} />
         </div>
+          <BsTrash className="chat-delete" onClick={() => setShow(true)} />
+      </div>
       </div>
     </>
   );

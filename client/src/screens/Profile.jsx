@@ -26,9 +26,9 @@ export default function Profile() {
           <img className="profile-profile-pic" src={user?.profile_pic} />
           <div>
             {currentUser?.id === user?.id ? (
-              <Button className="btn btn-profile" text="Edit Profile" />
+              <Button className="btn btn-lg invert" text="Edit Profile" />
             ) : (
-              <Button className="btn btn-profile" text="Follow" />
+              <Button className="btn btn-lg" text="Follow" />
             )}
           </div>
         </div>
