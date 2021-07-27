@@ -3,11 +3,7 @@ class UsersController < ApplicationController
     @user = User.find_by(username: params[:username])
     render json: @user,
            except: :password_digest,
-           include: {
-             chats: {
-               include: :user,
-             },
-           }
+           include: :chats #order: {created_at: :desc}
   end
 
   # POST /users

@@ -3,10 +3,10 @@ import { Link, useHistory } from 'react-router-dom';
 import { Engagement } from '../components';
 import '../assets/css/components/Chat.css';
 
-export default function Chat({ chat, url }) {
+export default function Chat({ chat, user, url }) {
   const history = useHistory();
 
-  const { user, id, content, reply_count, repost_count, like_count } = chat;
+  const { id, content, reply_count, repost_count, like_count } = chat;
 
   return (
     <div className="chat-container">

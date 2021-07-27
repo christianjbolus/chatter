@@ -41,7 +41,7 @@ export default function Profile() {
       </div>
       <div className="chat-list">
         {user?.chats?.map(chat => (
-          <Chat chat={chat} key={chat.id} url={`/chats/${chat.id}`} />
+          <Chat chat={chat} user={user} key={chat.id} url={`/chats/${chat.id}`} />
         ))}
       </div>
     </>

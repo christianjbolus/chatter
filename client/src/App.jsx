@@ -61,14 +61,14 @@ function App() {
 
   return (
     <div className="App">
-      <Switch>
-        <Route path="/register">
-          <Register handleRegister={handleRegister} />
-        </Route>
-        <Route path="/login">
-          <Login handleLogin={handleLogin} />
-        </Route>
-        <UserContext.Provider value={currentUser}>
+      <UserContext.Provider value={currentUser}>
+        <Switch>
+          <Route path="/register">
+            <Register handleRegister={handleRegister} />
+          </Route>
+          <Route path="/login">
+            <Login handleLogin={handleLogin} />
+          </Route>
           <Route path="/chats">
             <LogoutContext.Provider value={handleLogout}>
               <ChatContainer
@@ -80,11 +80,11 @@ function App() {
           <Route path="/users/:username">
             <Profile />
           </Route>
-        </UserContext.Provider>
-        <Route path="/">
-          <Landing />
-        </Route>
-      </Switch>
+          <Route path="/">
+            <Landing />
+          </Route>
+        </Switch>
+      </UserContext.Provider>
     </div>
   );
 }

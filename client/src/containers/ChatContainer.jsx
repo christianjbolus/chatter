@@ -5,7 +5,6 @@ import {
   ChatDetail,
   ChatEdit,
   Chats,
-  Profile,
   ReplyCreate,
   ReplyEdit,
 } from '../screens';
