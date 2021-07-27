@@ -24,7 +24,7 @@ export default function Login({ setCurrentUser }) {
       setCurrentUser(userData);
       history.push('/chats');
     } catch (error) {
-      setErrorMessage('Invalid credentials')
+      setErrorMessage(error.message)
     }
   };
 
