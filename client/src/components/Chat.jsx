@@ -29,6 +29,7 @@ export default function Chat({ chat, user, url }) {
         </div>
         <Engagement
           chatId={id}
+          userId={user.id}
           replies={reply_count}
           reposts={repost_count}
           likes={like_count}
