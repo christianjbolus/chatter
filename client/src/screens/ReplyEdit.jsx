@@ -45,6 +45,7 @@ export default function ReplyEdit() {
         handleDelete={removeReply}
         setShow={setShow}
         message="Are you sure?"
+        subMessage="This action can't be undone."
         className={show ? 'modal-container active' : 'modal-container'}
       />
       <div className="chat-detail-container">
@@ -76,7 +77,7 @@ export default function ReplyEdit() {
           <div className="chat-form-submit">
             <Button
               className={!reply.content ? 'btn btn-disabled' : 'btn btn-chat'}
-              text="Chat"
+              text="Update"
               onClick={updateReply}
               disabled={!reply.content}
             />

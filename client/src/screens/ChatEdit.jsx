@@ -72,7 +72,7 @@ export default function ChatEdit({ allChats, handleUpdate, handleDelete }) {
         <div className="chat-form-submit">
           <Button
             className={!chat.content ? 'btn btn-disabled' : 'btn btn-chat'}
-            text="Chat"
+            text="Update"
             onClick={() => handleUpdate(id, chat)}
             disabled={!chat.content}
           />
