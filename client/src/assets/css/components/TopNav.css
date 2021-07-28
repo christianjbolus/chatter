@@ -7,7 +7,7 @@
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   padding: 10px 20px;
-  position: absolute;
+  position: fixed;
   left: 0;
   right: 0;
 }
@@ -42,9 +42,14 @@
 }
 
 @media screen and (min-width: 500px) {
+  .navbar {
+    position: absolute
+  }
+
   .navbar-pic {
     height: 30px;
   }
+
   .navbar-profile-pic {
     display: none;
   }
