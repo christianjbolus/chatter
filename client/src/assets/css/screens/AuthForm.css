@@ -13,7 +13,7 @@
 .form-container {
   background-color: #fff;
   margin: 30px auto 60px;
-  width: 85%;
+  width: 85vw;
   max-width: 500px;
   padding: 40px 0;
   border-radius: 5px;
@@ -71,6 +71,7 @@
   color: #ff0000;
   text-align: left;
   margin-top: 5px;
+  font-size: 15px;
 }
 
 .error-message {

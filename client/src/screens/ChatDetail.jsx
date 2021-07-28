@@ -37,11 +37,13 @@ export default function ChatDetail() {
           />
         </div>
         <div className="chat-detail-user">
-          <img
-            className="chat-detail-user-profile-pic"
-            src={chat?.user.profile_pic}
-            alt={chat?.user.username}
-          />
+          <Link to={`/users/${chat?.user.username}`}>
+            <img
+              className="chat-detail-user-profile-pic"
+              src={chat?.user.profile_pic}
+              alt={chat?.user.username}
+            />
+          </Link>
           <div className="chat-detail-user-indetifiers">
             <p className="chat-detail-display-name">
               {chat?.user.display_name}

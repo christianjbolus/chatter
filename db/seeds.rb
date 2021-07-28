@@ -60,7 +60,7 @@ User.destroy_all
     password: 'baldy3',
     display_name: 'James Baldwin',
     profile_pic:
-      'https://www.blackpast.org/wp-content/uploads/prodimages/files/blackpast_images/James_Baldwin_2.jpg',
+      'https://upload.wikimedia.org/wikipedia/commons/f/f3/James_Baldwin_37_Allan_Warren_%28cropped%29.jpg',
     chat_count: 4,
   )
 @mlk =
