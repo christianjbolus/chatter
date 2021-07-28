@@ -1,6 +1,13 @@
 import { Link } from 'react-router-dom';
 import { Button } from '../components';
-import { BiPlus, BsFillPersonFill, FaHeart, FiPower } from 'react-icons/all';
+import {
+  AiOutlineLogin,
+  BiPlus,
+  BsHeart,
+  FiPower,
+  IoPersonOutline,
+  IoPersonAddOutline,
+} from 'react-icons/all';
 import '../assets/css/components/SideNav.css';
 
 export default function SideNav({ currentUser, handleLogout }) {
@@ -8,21 +15,36 @@ export default function SideNav({ currentUser, handleLogout }) {
     <div className="sidenav-container">
       <div className="sidenav">
         <div className="sidenav-links">
-          <Link
-            className="sidenav-link-group"
-            to={`/users/${currentUser?.username}`}
-          >
-            <BsFillPersonFill className="sidenav-link-icon" />
-            <p className="sidenav-link-text">My Profile</p>
-          </Link>
-          <Link className="sidenav-link-group">
-            <FaHeart className="sidenav-link-icon" />
-            <p className="sidenav-link-text">Likes</p>
-          </Link>
-          <Link className="sidenav-link-group" onClick={handleLogout}>
-            <FiPower className="sidenav-link-icon" />
-            <p className="sidenav-link-text">Logout</p>
-          </Link>
+          {currentUser ? (
+            <>
+              <Link
+                className="sidenav-link-group"
+                to={`/users/${currentUser?.username}`}
+              >
+                <IoPersonOutline className="sidenav-link-icon" />
+                <p className="sidenav-link-text">My Profile</p>
+              </Link>
+              <Link className="sidenav-link-group">
+                <BsHeart className="sidenav-link-icon" />
+                <p className="sidenav-link-text">Likes</p>
+              </Link>
+              <Link className="sidenav-link-group" onClick={handleLogout}>
+                <FiPower className="sidenav-link-icon" />
+                <p className="sidenav-link-text">Logout</p>
+              </Link>
+            </>
+          ) : (
+            <>
+              <Link className="sidenav-link-group">
+                <AiOutlineLogin className="sidenav-link-icon" />
+                <p className="sidenav-link-text">Login</p>
+              </Link>
+              <Link className="sidenav-link-group" onClick={handleLogout}>
+                <IoPersonAddOutline className="sidenav-link-icon" />
+                <p className="sidenav-link-text">Sign Up</p>
+              </Link>
+            </>
+          )}
         </div>
         <Link to="/chats/new">
           <Button className="btn btn-round-sm">

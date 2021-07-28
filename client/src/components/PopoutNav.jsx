@@ -5,11 +5,11 @@ import Button from './Button';
 import {
   AiOutlineLogin,
   BiPlus,
-  BsFillPersonFill,
-  FaUserPlus,
+  BsHeart,
   FiPower,
-  FaHeart,
   IoClose,
+  IoPersonOutline,
+  IoPersonAddOutline
 } from 'react-icons/all';
 import '../assets/css/components/PopoutNav.css';
 import UserMetrics from './UserMetrics';
@@ -52,11 +52,11 @@ export default function PopoutNav({ show, setShow }) {
           {currentUser ? (
             <>
               <Link className="popout-nav-link-group" to={`/users/${currentUser?.username}`}>
-                <BsFillPersonFill className="popout-nav-link-icon" />
+                <IoPersonOutline className="popout-nav-link-icon" />
                 <p className="popout-nav-link-text">My Profile</p>
               </Link>
               <Link className="popout-nav-link-group" to={`/${currentUser?.username}/likes`}>
-                <FaHeart className="popout-nav-link-icon" />
+                <BsHeart className="popout-nav-link-icon" />
                 <p className="popout-nav-link-text">Likes</p>
               </Link>
               <Link className="popout-nav-link-group" to="#" onClick={handleLogout}>
@@ -71,7 +71,7 @@ export default function PopoutNav({ show, setShow }) {
                 <p className="popout-nav-link-text">Login</p>
               </Link>
               <Link className="popout-nav-link-group" to="/register">
-                <FaUserPlus className="popout-nav-link-icon" />
+                <IoPersonAddOutline className="popout-nav-link-icon" />
                 <p className="popout-nav-link-text">Sign Up</p>
               </Link>
             </>
