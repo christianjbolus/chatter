@@ -1,5 +1,5 @@
 .navbar-container {
-  padding-bottom: 60px;
+  padding-bottom: 52px;
 }
 
 .navbar {
@@ -39,4 +39,13 @@
 .navbar-logo {
   color: #FF7F00;
   font-size: 1.25rem;
+}
+
+@media screen and (min-width: 500px) {
+  .navbar-pic {
+    height: 30px;
+  }
+  .navbar-profile-pic {
+    display: none;
+  }
 }

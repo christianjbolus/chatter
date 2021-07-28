@@ -36,7 +36,9 @@ export default function Register({ setCurrentUser }) {
       setCurrentUser(userData);
       history.push('/');
     } catch (error) {
-      
+      // for (err in messages) {
+      //   setErrors(prevState => ({...preState, [err]: err}))
+      // }
     }
   };
 

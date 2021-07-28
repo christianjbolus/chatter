@@ -1,7 +1,6 @@
 .profile {
   background-color: #fff;
   padding: 20px;
-  margin-bottom: 10px;
 }
 
 .profile-edit {
@@ -53,6 +52,8 @@
   text-decoration: none;
 }
 
-/* .active {
-  color: #FF7F00;
-} */
+@media screen and (min-width: 800px) {
+  .profile {
+    border-bottom: 1px solid #f0f0f0
+  }
+}

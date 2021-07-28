@@ -31,7 +31,7 @@ export default function Profile() {
         </div>
         <div className="header-img"></div>
         <div className="profile-edit">
-          <img className="profile-profile-pic" src={user?.profile_pic} />
+          <img className="profile-profile-pic" src={user?.profile_pic} alt={user?.username} />
           <div>
             {currentUser?.id === user?.id ? (
               <Button className="btn btn-lg invert" text="Edit Profile" />

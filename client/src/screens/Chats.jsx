@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { Button, Chat, TopNav } from '../components';
 import { BiPlus } from 'react-icons/all';
+import '../assets/css/screens/Chats.css'
 
 export default function Chats({ allChats }) {
   return (

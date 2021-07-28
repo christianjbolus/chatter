@@ -1,0 +1,22 @@
+.chat-list {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px 0;
+  /* height: 100vh; */
+}
+
+.chat-container {
+  display: grid;
+  grid-template-columns: 1fr 5fr;
+  align-content: start;
+  width: 90%;
+  margin-top: 8px;
+  margin-bottom: 8px;
+}
+
+@media screen and (min-width: 800px) {
+  .chat-list {
+    background-color: #fff;
+  }
+}
