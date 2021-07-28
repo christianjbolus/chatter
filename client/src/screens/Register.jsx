@@ -1,7 +1,8 @@
 import { useState } from 'react';
 import { Link, useHistory } from 'react-router-dom';
 import { Button, FormInput, TextArea } from '../components';
-import { registerUser } from '../services/auth'
+import { registerUser } from '../services/auth';
+import { formatErrors } from '../utils/formatErrors'
 import '../assets/css/screens/AuthForm.css';
 
 export default function Register({ setCurrentUser }) {
@@ -16,11 +17,10 @@ export default function Register({ setCurrentUser }) {
   const [errors, setErrors] = useState({
     email: '',
     username: '',
-    password: ''
-  })
+    password: '',
+  });
 
-  const history = useHistory()
-
+  const history = useHistory();
 
   const { email, username, password, display_name, profile_pic, bio } =
     formData;
@@ -31,14 +31,12 @@ export default function Register({ setCurrentUser }) {
   };
 
   const handleRegister = async () => {
-    try {
-      const userData = await registerUser(formData);
+    const userData = await registerUser(formData);
+    if (userData.error) {
+      setErrors({...formatErrors(userData.error)})
+    } else {
       setCurrentUser(userData);
       history.push('/');
-    } catch (error) {
-      // for (err in messages) {
-      //   setErrors(prevState => ({...preState, [err]: err}))
-      // }
     }
   };
 
@@ -59,12 +57,14 @@ export default function Register({ setCurrentUser }) {
               name="email"
               value={email}
               handleChange={handleChange}
+              errMessage={errors.email}
             />
             <FormInput
               label="Username"
               name="username"
               value={username}
               handleChange={handleChange}
+              errMessage={errors.username}
             />
             <FormInput
               type="password"
@@ -72,6 +72,7 @@ export default function Register({ setCurrentUser }) {
               name="password"
               value={password}
               handleChange={handleChange}
+              errMessage={errors.password}
             />
             <FormInput
               label="Display name"

@@ -1,6 +1,6 @@
 import React from 'react';
 
-export default function FormInput({ type, label, name, value, handleChange }) {
+export default function FormInput({ type, label, name, value, handleChange, errMessage }) {
   return (
     <div className="form-field">
       <label htmlFor={name}>{label}</label>
@@ -11,6 +11,7 @@ export default function FormInput({ type, label, name, value, handleChange }) {
         value={value}
         onChange={handleChange}
       />
+      <p className="input-error-message">{errMessage}</p>
     </div>
   );
 }

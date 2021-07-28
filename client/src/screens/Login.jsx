@@ -19,13 +19,13 @@ export default function Login({ setCurrentUser }) {
   };
 
   const handleLogin = async () => {
-    try {
       const userData = await loginUser(formData);
-      setCurrentUser(userData);
-      history.push('/chats');
-    } catch (error) {
-      setErrorMessage(error.message)
-    }
+      if (userData.error) {
+        setErrorMessage(userData.error)
+      } else {
+        setCurrentUser(userData);
+        history.push('/chats');
+      }
   };
 
   return (

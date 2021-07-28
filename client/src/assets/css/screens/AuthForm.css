@@ -67,6 +67,12 @@
   border: #FF7F00;
 }
 
+.input-error-message {
+  color: #ff0000;
+  text-align: left;
+  margin-top: 5px;
+}
+
 .error-message {
   color: #ff0000
 }
