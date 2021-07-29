@@ -1,22 +1,13 @@
 import { useContext } from 'react';
 import { Link } from 'react-router-dom';
-import { LogoutContext, UserContext } from '../contexts';
-import { Button, NavLink } from './index';
-import {
-  AiOutlineLogin,
-  BiPlus,
-  BsHeart,
-  FiPower,
-  IoClose,
-  IoPersonOutline,
-  IoPersonAddOutline,
-} from 'react-icons/all';
+import { UserContext } from '../contexts';
+import { Button, NavLinks } from './index';
+import { BiPlus, IoClose } from 'react-icons/all';
 import '../assets/css/components/PopoutNav.css';
 import UserMetrics from './UserMetrics';
 
 export default function PopoutNav({ show, setShow }) {
   const currentUser = useContext(UserContext);
-  const handleLogout = useContext(LogoutContext);
 
   return (
     <div
@@ -61,53 +52,12 @@ export default function PopoutNav({ show, setShow }) {
           </div>
         )}
         <div className="popout-nav-links">
-          {currentUser ? (
-            <>
-              <NavLink
-                text="My Profile"
-                size="link-sm"
-                mode="link-dark"
-                to={`/users/${currentUser?.username}`}
-              >
-                <IoPersonOutline className="link-icon-sm" />
-              </NavLink>
-              <NavLink
-                text="Likes"
-                size="link-sm"
-                mode="link-dark"
-                to={`/${currentUser?.username}/likes`}
-              >
-                <BsHeart className="link-icon-sm" />
-              </NavLink>
-              <NavLink
-                text="Logout"
-                size="link-sm"
-                mode="link-dark"
-                onClick={handleLogout}
-              >
-                <FiPower className="link-icon-sm" />
-              </NavLink>
-            </>
-          ) : (
-            <>
-              <NavLink
-                text="Login"
-                size="link-sm"
-                mode="link-dark"
-                to="/login"
-              >
-                <AiOutlineLogin className="link-icon-sm" />
-              </NavLink>
-              <NavLink
-                text="Sign Up"
-                size="link-sm"
-                mode="link-dark"
-                to="/register"
-              >
-                <IoPersonAddOutline className="link-icon-sm" />
-              </NavLink>
-            </>
-          )}
+          <NavLinks
+            size="link-sm"
+            mode="link-dark"
+            icon="link-icon-sm"
+            collapsible={false}
+          />
         </div>
       </div>
     </div>

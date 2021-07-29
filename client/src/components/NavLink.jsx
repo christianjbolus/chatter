@@ -7,11 +7,12 @@ export default function NavLink({
   mode,
   to,
   onClick,
+  className
 }) {
   return (
     <Link className={`nav-link-group ${mode} ${size}`} to={to} onClick={onClick}>
       {children}
-      <p>{text}</p>
+      <p className={className}>{text}</p>
     </Link>
   );
 }

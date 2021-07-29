@@ -1,6 +1,5 @@
 import { useContext } from 'react';
-import { Link } from 'react-router-dom';
-import { LogoutContext } from '../contexts';
+import { LogoutContext, UserContext } from '../contexts';
 import { NavLink } from '../components';
 import {
   AiOutlineLogin,
@@ -11,44 +10,61 @@ import {
 } from 'react-icons/all';
 import '../assets/css/components/Navs.css';
 
-export default function NavLinks({ mode, size, currentUser }) {
+export default function NavLinks({size, mode, icon, collapsible}) {
+  const currentUser = useContext(UserContext);
   const handleLogout = useContext(LogoutContext);
   return (
     <>
       {currentUser ? (
         <>
-          <NavLink text="My Profile" to={`/users/${currentUser?.username}`}>
-            <IoPersonOutline className={`nav-link-icon`} />
-          </NavLink>
-          <Link
-            className={`nav-link-group ${mode}`}
+          <NavLink
+            text="My Profile"
+            size={size}
+            mode={mode}
             to={`/users/${currentUser?.username}`}
+            className={`${collapsible ? 'collapse' : ''}`}
           >
-            <IoPersonOutline className={`nav-link-icon`} />
-            <p className={`nav-link-text`}>My Profile</p>
-          </Link>
-          <Link
-            className={`nav-link-group`}
+            <IoPersonOutline className={icon} />
+          </NavLink>
+          <NavLink
+            text="Likes"
+            size={size}
+            mode={mode}
             to={`/${currentUser?.username}/likes`}
+            className={`${collapsible ? 'collapse' : ''}`}
           >
-            <BsHeart className={`nav-link-icon`} />
-            <p className={`nav-link-text`}>Likes</p>
-          </Link>
-          <Link className={`nav-link-group`} to="#" onClick={handleLogout}>
-            <FiPower className={`nav-link-icon`} />
-            <p className={`nav-link-text`}>Logout</p>
-          </Link>
+            <BsHeart className={icon} />
+          </NavLink>
+          <NavLink
+            text="Logout"
+            size={size}
+            mode={mode}
+            onClick={handleLogout}
+            className={`${collapsible ? 'collapse' : ''}`}
+          >
+            <FiPower className={icon} />
+          </NavLink>
         </>
       ) : (
         <>
-          <Link className={`nav-link-group`} to="/login">
-            <AiOutlineLogin className={`nav-link-icon`} />
-            <p className={`nav-link-text`}>Login</p>
-          </Link>
-          <Link className={`nav-link-group`} to="/register">
-            <IoPersonAddOutline className={`nav-link-icon`} />
-            <p className={`nav-link-text`}>Sign Up</p>
-          </Link>
+          <NavLink 
+            text="Login" 
+            size={size} 
+            mode={mode} 
+            to="/login"
+            className={`${collapsible ? 'collapsible' : ''}`}
+            >
+            <AiOutlineLogin className={icon} />
+          </NavLink>
+          <NavLink
+            text="Sign Up"
+            size={size}
+            mode={mode}
+            to="/register"
+            className={`${collapsible ? 'collapsible' : ''}`}
+          >
+            <IoPersonAddOutline className={icon} />
+          </NavLink>
         </>
       )}
     </>

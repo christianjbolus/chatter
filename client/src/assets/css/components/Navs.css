@@ -27,6 +27,10 @@
   font-size: 1.25rem;
 }
 
+.collapse {
+  display: none
+}
+
 .nav-link-group {
   text-decoration: none;
   display: flex;
@@ -36,6 +40,10 @@
 @media screen and (min-width: 640px) {
   .link-icon-lg {
     padding-right: 20px;
+  }
+
+  .collapse {
+    display: block;
   }
 }
 
