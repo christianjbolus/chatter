@@ -3,7 +3,6 @@ import { Link } from 'react-router-dom';
 export default function NavLink({
   children,
   text,
-  textClass,
   size,
   mode,
   to,
@@ -12,7 +11,7 @@ export default function NavLink({
   return (
     <Link className={`nav-link-group ${mode} ${size}`} to={to} onClick={onClick}>
       {children}
-      <p className={`nav-link-text ${textClass}`}>{text}</p>
+      <p>{text}</p>
     </Link>
   );
 }

@@ -69,41 +69,43 @@ export default function PopoutNav({ show, setShow }) {
                 mode="link-dark"
                 to={`/users/${currentUser?.username}`}
               >
-                <IoPersonOutline className={`link-icon-sm`} />
+                <IoPersonOutline className="link-icon-sm" />
               </NavLink>
-              <Link
-                className="popout-nav-link-group"
-                to={`/users/${currentUser?.username}`}
-              >
-                <IoPersonOutline className="popout-nav-link-icon" />
-                <p className="popout-nav-link-text">My Profile</p>
-              </Link>
-              <Link
-                className="popout-nav-link-group"
+              <NavLink
+                text="Likes"
+                size="link-sm"
+                mode="link-dark"
                 to={`/${currentUser?.username}/likes`}
               >
-                <BsHeart className="popout-nav-link-icon" />
-                <p className="popout-nav-link-text">Likes</p>
-              </Link>
-              <Link
-                className="popout-nav-link-group"
-                to="#"
+                <BsHeart className="link-icon-sm" />
+              </NavLink>
+              <NavLink
+                text="Logout"
+                size="link-sm"
+                mode="link-dark"
                 onClick={handleLogout}
               >
-                <FiPower className="popout-nav-link-icon" />
-                <p className="popout-nav-link-text">Logout</p>
-              </Link>
+                <FiPower className="link-icon-sm" />
+              </NavLink>
             </>
           ) : (
             <>
-              <Link className="popout-nav-link-group" to="/login">
-                <AiOutlineLogin className="popout-nav-link-icon" />
-                <p className="popout-nav-link-text">Login</p>
-              </Link>
-              <Link className="popout-nav-link-group" to="/register">
-                <IoPersonAddOutline className="popout-nav-link-icon" />
-                <p className="popout-nav-link-text">Sign Up</p>
-              </Link>
+              <NavLink
+                text="Login"
+                size="link-sm"
+                mode="link-dark"
+                to="/login"
+              >
+                <AiOutlineLogin className="link-icon-sm" />
+              </NavLink>
+              <NavLink
+                text="Sign Up"
+                size="link-sm"
+                mode="link-dark"
+                to="/register"
+              >
+                <IoPersonAddOutline className="link-icon-sm" />
+              </NavLink>
             </>
           )}
         </div>
