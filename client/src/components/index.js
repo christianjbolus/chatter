@@ -3,6 +3,7 @@ import Chat from './Chat';
 import Engagement from './Engagement';
 import FormInput from './FormInput';
 import Modal from './Modal';
+import NavLink from './NavLink';
 import NavLinks from './NavLinks';
 import PopoutNav from './PopoutNav';
 import SideNav from './SideNav';
@@ -16,6 +17,7 @@ export {
   Engagement,
   FormInput,
   Modal,
+  NavLink,
   NavLinks,
   PopoutNav,
   SideNav,

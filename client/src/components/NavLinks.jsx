@@ -1,21 +1,25 @@
-import { useContext } from 'react'
-import { Link } from 'react-router-dom'
+import { useContext } from 'react';
+import { Link } from 'react-router-dom';
 import { LogoutContext } from '../contexts';
+import { NavLink } from '../components';
 import {
   AiOutlineLogin,
   BsHeart,
   FiPower,
   IoPersonOutline,
-  IoPersonAddOutline
+  IoPersonAddOutline,
 } from 'react-icons/all';
-import '../assets/css/components/Navs.css'
+import '../assets/css/components/Navs.css';
 
-export default function NavLinks({mode, size, currentUser}) {
-  const handleLogout = useContext(LogoutContext)
+export default function NavLinks({ mode, size, currentUser }) {
+  const handleLogout = useContext(LogoutContext);
   return (
     <>
       {currentUser ? (
         <>
+          <NavLink text="My Profile" to={`/users/${currentUser?.username}`}>
+            <IoPersonOutline className={`nav-link-icon`} />
+          </NavLink>
           <Link
             className={`nav-link-group ${mode}`}
             to={`/users/${currentUser?.username}`}

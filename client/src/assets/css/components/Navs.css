@@ -1,18 +1,31 @@
 /* NAV LINKS */
 
-.dark {
+.link-dark {
   color: #fff
 }
 
-.light {
+.link-light {
   color: #000
 }
 
-.sm {
+.link-sm {
   font-size: 15px;
   margin-bottom: 30px;
 }
 
+.link-lg {
+  font-weight: 700;
+  margin-bottom: 50px;
+}
+
+.link-icon-sm {
+  font-size: 1.1rem;
+  padding-right: 20px;
+}
+
+.link-icon-lg {
+  font-size: 1.25rem;
+}
 
 .nav-link-group {
   text-decoration: none;
@@ -20,8 +33,10 @@
   align-items: center;
 }
 
-.nav-link-text {
-  font-weight: 700;
+@media screen and (min-width: 640px) {
+  .link-icon-lg {
+    padding-right: 20px;
+  }
 }
 
 /* TOP NAV */
@@ -118,7 +133,6 @@
 
 .sidenav-link-icon {
   font-size: 1.25rem;
-  
 }
 
 .sidenav-link-text {
