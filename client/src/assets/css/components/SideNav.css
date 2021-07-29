@@ -16,6 +16,7 @@
 }
 
 .sidenav-links {
+  color: #000;
   display: flex;
   flex-direction: column;
 }
@@ -59,10 +60,5 @@
 
   .sidenav-link-text {
     display: block;
-  }
-
-  .sidenav-link-icon {
-    font-size: 1.25rem;
-    padding-right: 20px;
   }
 }
