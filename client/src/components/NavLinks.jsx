@@ -53,7 +53,7 @@ export default function NavLinks({size, mode, icon, collapsible}) {
             size={size} 
             mode={mode} 
             to="/login"
-            className={`${collapsible ? 'collapsible' : ''}`}
+            className={`${collapsible ? 'collapse' : ''}`}
             >
             <AiOutlineLogin className={icon} />
           </NavLink>
@@ -62,7 +62,7 @@ export default function NavLinks({size, mode, icon, collapsible}) {
             size={size}
             mode={mode}
             to="/register"
-            className={`${collapsible ? 'collapsible' : ''}`}
+            className={`${collapsible ? 'collapse' : ''}`}
           >
             <IoPersonAddOutline className={icon} />
           </NavLink>
