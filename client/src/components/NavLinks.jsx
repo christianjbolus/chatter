@@ -39,6 +39,7 @@ export default function NavLinks({size, mode, icon, collapsible}) {
             text="Logout"
             size={size}
             mode={mode}
+            to="#"
             onClick={handleLogout}
             className={`${collapsible ? 'collapse' : ''}`}
           >
