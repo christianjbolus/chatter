@@ -1,7 +1,6 @@
 .chat-detail-container {
   background-color: #fff;
   padding: 20px 15px;
-  margin-bottom: 10px;
 }
 
 .chat-nav {
@@ -43,4 +42,16 @@
   font-size: 18px;
   line-height: 22px;
   margin-bottom: 25px
+}
+
+.reply-button {
+  display: none
+}
+
+@media screen and (min-width: 500px) {
+  .reply-button {
+    display: flex;
+    justify-content: center;
+    margin-top: 30px;
+  }
 }

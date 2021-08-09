@@ -60,6 +60,9 @@ export default function ChatDetail() {
           likes={chat?.like_count}
           edit={true}
         />
+        <div className="reply-button">
+          <Button className="btn btn-chat" text="Reply" />
+        </div>
       </div>
       <div className="chat-list">
         {replies?.map(reply => (
@@ -72,7 +75,7 @@ export default function ChatDetail() {
         ))}
       </div>
       <Link to={`/chats/${chat?.id}/replies/new`}>
-        <Button className="btn btn-round fixed">
+        <Button className="btn btn-round fixed reply">
           <IoChatbubbleOutline className="btn-icon" />
         </Button>
       </Link>
