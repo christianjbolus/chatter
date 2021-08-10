@@ -64,7 +64,7 @@ export default function ChatDetail() {
           <Link to={`/chats/${chat?.id}/replies/new`}>
             <Button className="btn btn-chat" text="Reply" />
           </Link>
-        </div>
+        </div> 
       </div>
       <div className="chat-list">
         {replies?.map(reply => (
