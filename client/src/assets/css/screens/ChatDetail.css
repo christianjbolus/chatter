@@ -9,6 +9,7 @@
 
 .back-arrow {
   font-size: 1.5rem;
+  cursor: pointer;
 }
 
 .chat-detail-user {
