@@ -4,7 +4,7 @@ import { getOneChat } from '../services/chats';
 import { getAllReplies } from '../services/replies';
 import { Button, Chat, Engagement } from '../components';
 import { IoArrowBackOutline, IoChatbubbleOutline } from 'react-icons/all';
-
+import defaultUser from '../assets/imgs/defaultUser.jpg'
 import '../assets/css/screens/ChatDetail.css';
 
 export default function ChatDetail() {
@@ -40,7 +40,7 @@ export default function ChatDetail() {
           <Link to={`/users/${chat?.user.username}`}>
             <img
               className="chat-detail-user-profile-pic"
-              src={chat?.user.profile_pic}
+              src={chat?.user.profile_pic ? chat?.user.profile_pic : defaultUser}
               alt={chat?.user.username}
             />
           </Link>

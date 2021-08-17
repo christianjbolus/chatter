@@ -1,8 +1,9 @@
 import { useState, useContext } from 'react';
 import { UserContext } from '../contexts';
 import { BsChatDotsFill } from 'react-icons/bs';
-import '../assets/css/components/TopNav.css';
 import PopoutNav from './PopoutNav';
+import defaultUser from '../assets/imgs/defaultUser.jpg'
+import '../assets/css/components/TopNav.css';
 
 export default function TopNav({ location }) {
   const [show, setShow] = useState(false);
@@ -15,7 +16,7 @@ export default function TopNav({ location }) {
           <div className="navbar-pic">
             <img
               className="navbar-profile-pic"
-              src={currentUser?.profile_pic}
+              src={currentUser ? currentUser?.profile_pic : defaultUser}
               onClick={() => setShow(true)}
               alt={currentUser?.username}
             />

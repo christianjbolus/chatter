@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link, useHistory } from 'react-router-dom';
 import { Engagement } from '../components';
+import defaultUser from '../assets/imgs/defaultUser.jpg'
 import '../assets/css/components/Chat.css';
 
 export default function Chat({ chat, user, url }) {
@@ -14,7 +15,7 @@ export default function Chat({ chat, user, url }) {
         <Link to={`users/${user.username}`}>
           <img
             className="user-profile-pic"
-            src={user.profile_pic}
+            src={user.profile_pic ? user.profile_pic : defaultUser}
             alt={user.username}
           />
         </Link>
