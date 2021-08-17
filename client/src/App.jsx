@@ -4,7 +4,7 @@ import { LogoutContext, UserContext } from './contexts';
 import ChatContainer from './containers/ChatContainer';
 import Layout from './layouts/Layout';
 import { Landing, Login, Profile, Register } from './screens';
-import { registerUser, verifyUser, removeToken } from './services/auth';
+import { verifyUser, removeToken } from './services/auth';
 
 import './App.css';
 
@@ -19,12 +19,6 @@ function App() {
     };
     handleVerify();
   }, []);
-
-  // const handleRegister = async formData => {
-  //   const userData = await registerUser(formData);
-  //   setCurrentUser(userData);
-  //   history.push('/');
-  // };
 
   const handleLogout = () => {
     setCurrentUser(null);
