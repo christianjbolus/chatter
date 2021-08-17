@@ -16,7 +16,7 @@ export default function TopNav({ location }) {
           <div className="navbar-pic">
             <img
               className="navbar-profile-pic"
-              src={currentUser ? currentUser?.profile_pic : defaultUser}
+              src={currentUser?.profile_pic ? currentUser?.profile_pic : defaultUser}
               onClick={() => setShow(true)}
               alt={currentUser?.username}
             />

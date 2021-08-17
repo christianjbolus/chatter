@@ -2,8 +2,9 @@ import { useContext, useState } from 'react';
 import { Link, useHistory } from 'react-router-dom';
 import { Button, TextArea } from '../components';
 import { IoArrowBackOutline } from 'react-icons/all';
-import '../assets/css/screens/ChatCreate.css';
 import { UserContext } from '../contexts';
+import defaultUser from '../assets/imgs/defaultUser.jpg'
+import '../assets/css/screens/ChatCreate.css';
 
 export default function ChatCreate({ handleCreate }) {
   const [chat, setChat] = useState({
@@ -32,7 +33,7 @@ export default function ChatCreate({ handleCreate }) {
           <Link className="user-img" to={`/users/${currentUser?.username}`}>
             <img
               className="user-profile-pic"
-              src={currentUser?.profile_pic}
+              src={currentUser?.profile_pic ? currentUser.profile_pic : defaultUser}
               alt={currentUser?.username}
             />
           </Link>

@@ -3,8 +3,9 @@ import { Link } from 'react-router-dom';
 import { UserContext } from '../contexts';
 import { Button, NavLinks } from './index';
 import { BiPlus, IoClose } from 'react-icons/all';
-import '../assets/css/components/PopoutNav.css';
 import UserMetrics from './UserMetrics';
+import defaultUser from '../assets/imgs/defaultUser.jpg'
+import '../assets/css/components/PopoutNav.css';
 
 export default function PopoutNav({ show, setShow }) {
   const currentUser = useContext(UserContext);
@@ -30,7 +31,7 @@ export default function PopoutNav({ show, setShow }) {
               >
                 <img
                   className="popout-nav-profile-pic"
-                  src={currentUser?.profile_pic}
+                  src={currentUser?.profile_pic ? currentUser?.profile_pic : defaultUser}
                   alt={currentUser?.username}
                 />
                 <div className="popout-nav-user-identifiers">

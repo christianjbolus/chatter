@@ -20,11 +20,11 @@ function App() {
     handleVerify();
   }, []);
 
-  const handleRegister = async formData => {
-    const userData = await registerUser(formData);
-    setCurrentUser(userData);
-    history.push('/');
-  };
+  // const handleRegister = async formData => {
+  //   const userData = await registerUser(formData);
+  //   setCurrentUser(userData);
+  //   history.push('/');
+  // };
 
   const handleLogout = () => {
     setCurrentUser(null);
@@ -52,7 +52,7 @@ function App() {
     <div className="App">
       <Switch>
         <Route path="/register">
-          <Register handleRegister={handleRegister} />
+          <Register setCurrentUser={setCurrentUser} />
         </Route>
         <Route path="/login">
           <Login setCurrentUser={setCurrentUser} />

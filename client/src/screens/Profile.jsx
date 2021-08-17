@@ -4,6 +4,7 @@ import { getOneUser } from '../services/users';
 import { Button, Chat, UserMetrics } from '../components';
 import { UserContext } from '../contexts';
 import { BiPlus, IoArrowBackOutline } from 'react-icons/all';
+import defaultUser from '../assets/imgs/defaultUser.jpg';
 import '../assets/css/screens/Profile.css';
 
 export default function Profile() {
@@ -21,7 +22,7 @@ export default function Profile() {
   }, [username]);
 
   return (
-    <div>
+    <div className="profile-container">
       <div className="profile">
         <div className="chat-nav">
           <IoArrowBackOutline
@@ -31,7 +32,11 @@ export default function Profile() {
         </div>
         <div className="header-img"></div>
         <div className="profile-edit">
-          <img className="profile-profile-pic" src={user?.profile_pic} alt={user?.username} />
+          <img
+            className="profile-profile-pic"
+            src={user?.profile_pic ? user?.profile_pic : defaultUser}
+            alt={user?.username}
+          />
           <div>
             {currentUser?.id === user?.id ? (
               <Button className="btn btn-lg invert" text="Edit Profile" />

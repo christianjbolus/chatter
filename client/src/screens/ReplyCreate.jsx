@@ -4,6 +4,7 @@ import { Link,useParams, useHistory } from 'react-router-dom';
 import { postReply } from '../services/replies';
 import { Button, TextArea } from '../components';
 import { IoArrowBackOutline } from 'react-icons/all';
+import defaultUser from '../assets/imgs/defaultUser.jpg'
 import '../assets/css/screens/ChatCreate.css';
 
 export default function ReplyCreate() {
@@ -38,7 +39,7 @@ export default function ReplyCreate() {
         <Link className="user-img" to={`/users/${currentUser?.username}`}>
           <img
             className="user-profile-pic"
-            src={currentUser?.profile_pic}
+            src={currentUser?.profile_pic ? currentUser?.profile_pic : defaultUser}
             alt={currentUser?.username}
           />
         </Link>

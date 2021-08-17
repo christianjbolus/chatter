@@ -3,6 +3,7 @@ import { Link, useHistory, useParams } from 'react-router-dom';
 import { Button, Modal, TextArea } from '../components';
 import { IoArrowBackOutline, BsTrash } from 'react-icons/all';
 import { UserContext } from '../contexts';
+import defaultUser from '../assets/imgs/defaultUser.jpg'
 import '../assets/css/screens/ChatEdit.css';
 
 export default function ChatEdit({ allChats, handleUpdate, handleDelete }) {
@@ -54,7 +55,7 @@ export default function ChatEdit({ allChats, handleUpdate, handleDelete }) {
           <Link className="user-img" to={`/users/${currentUser?.username}`}>
             <img
               className="user-profile-pic"
-              src={currentUser?.profile_pic}
+              src={currentUser?.profile_pic ? currentUser.profile_pic : defaultUser}
               alt={currentUser?.username}
             />
           </Link>
