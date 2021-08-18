@@ -1,0 +1,50 @@
+.container {
+  background-color: #fff;
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  text-align: center;
+  width: 80%;
+  max-width: 300px;
+  height: 450px;
+}
+
+.logo {
+  color: #FF7F00;
+  font-size: 3.5rem;
+  margin-bottom: 30px;
+}
+
+.message {
+  font-size: 1.75rem;
+  font-weight: 500;
+  line-height: 35px;
+}
+
+.tagline {
+  font-weight: 500;
+  padding: 3px;
+}
+
+.brand {
+  color: #FF7F00;
+  display: block;
+  font-weight: 700;
+}
+
+.control {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  margin-top: 20px;
+  height: 150px;
+}

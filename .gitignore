@@ -27,4 +27,5 @@
 /config/master.key
 
 # Misc.
+/node_modules
 .DS_Store

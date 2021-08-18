@@ -1,0 +1,94 @@
+.btn {
+  border: none;
+  background-color: #FF7F00;
+  color: #fff;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.auth {
+  padding: 10px;
+  border-radius: 25px;
+  font-size: 1rem;
+  width: 100%;
+}
+
+.btn-chat {
+  border-radius: 15px;
+  padding: 7px 25px;
+}
+
+.btn-round {
+  height: 60px;
+  width: 60px;
+  border-radius: 50%;
+  box-shadow: 0 3px 3px rgba(0, 0, 0, 0.1);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.btn-round-sm {
+  height: 40px;
+  width: 40px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.btn-disabled {
+  border-radius: 15px;
+  padding: 7px 25px;
+  opacity: 0.5;
+}
+
+.btn-lg {
+  padding: 10px 25px;
+  border-radius: 25px;
+  font-size: 0.9rem;
+}
+
+.invert {
+  background-color: #fff;
+  border: 1px solid #FF7F00;
+  color: #FF7F00
+}
+
+.cancel {
+  border: none;
+  background-color: #ebebeb;
+  color: #000;
+  font-weight: 700;
+  border-radius: 25px;
+  padding: 10px 25px;
+  cursor: pointer;
+}
+
+.fixed {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+}
+
+.new {
+  display: block
+}
+
+.reply {
+  display: block
+}
+
+.btn-icon {
+  font-size: 2.5rem;
+}
+
+.btn-icon-sm {
+  font-size: 1.75rem;
+}
+
+@media screen and (min-width: 500px) {
+  .new, .reply {
+    display: none;
+  }
+} 
