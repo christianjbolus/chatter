@@ -1,9 +1,15 @@
 import styles from './Button.module.css';
-import formatClasses from '../../utils/formatClasses'
+import { formatClasses } from '../../utils/helpers';
 
-export default function Button({ classList, text, children, onClick, disabled }) {
-  let classes = formatClasses(classList, styles)
-  
+export default function Button({
+  classList,
+  text,
+  children,
+  onClick,
+  disabled,
+}) {
+  let classes = formatClasses(classList, styles);
+
   return (
     <button className={classes} onClick={onClick} disabled={disabled}>
       {text}

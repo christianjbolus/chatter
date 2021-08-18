@@ -1,6 +1,6 @@
 import { useState } from 'react';
-import Link from 'next/link';
 import { useRouter } from 'next/router';
+import Link from 'next/link';
 import { Button, FormInput } from '../components';
 import { loginUser } from '../services/auth';
 import styles from '../styles/AuthForm.module.css';

@@ -11,7 +11,7 @@
   margin-bottom: 10px
 }
 
-.input {
+.textarea_auth {
   padding: 12px;
   border: 1px solid #E0E0E0;
   border-radius: 5px;
@@ -21,18 +21,11 @@
   transition: 150ms
 }
 
-.input:focus {
+.textarea_auth:focus {
   box-shadow: 2px 2px rgba(255, 127, 0, 0.8), 
   -2px -2px rgba(255, 127, 0, 0.8), 
   -2px 2px rgba(255, 127, 0, 0.8), 
   2px -2px rgba(255, 127, 0, 0.8);
   outline: none;
   border: #FF7F00;
-}
-
-.error {
-  color: #ff0000;
-  text-align: left;
-  margin-top: 5px;
-  font-size: 15px;
 }
