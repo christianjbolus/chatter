@@ -18,7 +18,10 @@
   font-size: 16px;
   -webkit-appearance: none;
   resize: none;
-  transition: 150ms
+  transition: 150ms;
+  font-family:  'Oxygen',
+  'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+  sans-serif;
 }
 
 .textarea_auth:focus {
