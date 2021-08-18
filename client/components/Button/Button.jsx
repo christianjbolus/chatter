@@ -1,5 +1,5 @@
 import styles from './Button.module.css';
-import formatClasses from '../../utils/formatClassNames'
+import formatClasses from '../../utils/formatClasses'
 
 export default function Button({ classList, text, children, onClick, disabled }) {
   let classes = formatClasses(classList, styles)

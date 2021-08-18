@@ -6,19 +6,19 @@
   cursor: pointer;
 }
 
-.auth {
+.btn_auth {
   padding: 10px;
   border-radius: 25px;
   font-size: 1rem;
   width: 100%;
 }
 
-.btn-chat {
+.btn_chat {
   border-radius: 15px;
   padding: 7px 25px;
 }
 
-.btn-round {
+.btn_round {
   height: 60px;
   width: 60px;
   border-radius: 50%;
@@ -28,7 +28,7 @@
   align-items: center;
 }
 
-.btn-round-sm {
+.btn_round_sm {
   height: 40px;
   width: 40px;
   border-radius: 50%;
@@ -37,13 +37,13 @@
   align-items: center;
 }
 
-.btn-disabled {
+.btn_disabled {
   border-radius: 15px;
   padding: 7px 25px;
   opacity: 0.5;
 }
 
-.btn-lg {
+.btn_lg {
   padding: 10px 25px;
   border-radius: 25px;
   font-size: 0.9rem;
@@ -79,11 +79,11 @@
   display: block
 }
 
-.btn-icon {
+.btn_icon {
   font-size: 2.5rem;
 }
 
-.btn-icon-sm {
+.btn_icon_sm {
   font-size: 1.75rem;
 }
 
