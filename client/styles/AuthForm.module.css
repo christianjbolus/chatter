@@ -1,14 +1,14 @@
 .stripe {
   background-color: #ff7f00;
   height: 40px;
-  width: 150%;
+  width: 100%;
   overflow: hidden;
   position: absolute;
-  top: 130px;
-  left: -10%;
-  transform: rotate(-14deg);
+  top: 170px;
+  transform: skewY(-14deg);
   z-index: -1
 }
+
 
 .container {
   background-color: #fff;
