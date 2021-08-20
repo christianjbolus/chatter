@@ -27,7 +27,7 @@ export default function Chat({ chat, user, url }) {
             <p className={styles.username}>@{user.username}</p>
           </Link>
           <Link href={url}>
-            <a className={styles.text}>{content}</a>
+            <a className={styles.content}>{content}</a>
           </Link>
         </div>
         <Engagement
