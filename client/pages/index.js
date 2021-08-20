@@ -1,6 +1,5 @@
-import Link from 'next/link';
 import { Button } from '../components';
-import { BsChatDotsFill } from 'react-icons/bs';
+import { BsChatDotsFill } from '@react-icons/all-files/bs/BsChatDotsFill'
 import styles from '../styles/Landing.module.css';
 
 export default function Landing() {

@@ -1,6 +1,6 @@
 import { Button, ChatList /*TopNav*/ } from '../../components';
 import { getAllChats } from '../../services/chats';
-import { BiPlus } from 'react-icons/bi';
+import { BiPlus } from '@react-icons/all-files/bi/BiPlus';
 import icons from '../../styles/Icon.module.css';
 
 export default function Chats({ allChats }) {

@@ -31,14 +31,14 @@ export default function Chat({ chat, user, url }) {
             <a className={styles.content}>{content}</a>
           </Link>
         </div>
-        {/* <Engagement
+        <Engagement
           chatId={id}
           userId={user.id}
           replies={reply_count}
           reposts={repost_count}
           likes={like_count}
           edit={false}
-        /> */}
+        />
       </div>
     </div>
   );
