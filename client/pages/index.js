@@ -18,11 +18,11 @@ export default function Landing () {
           <h2 className={styles.tagline}>mental landscape</h2>
         </div>
         <div className={styles.control}>
-          <Link href="/register">
-            <Button classList="btn btn_auth" text="Sign Up" />
-          </Link>
+          {/* <Link href="/register"> */}
+            <Button classList="btn btn_auth" link="/register">Sign Up</Button>
+          {/* </Link> */}
           <Link href="/login">
-            <Button classList="btn btn_auth invert" text="Login" />
+            <Button classList="btn btn_auth invert">Login</Button>
           </Link>
         </div>
       </div>

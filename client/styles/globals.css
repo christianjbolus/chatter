@@ -30,6 +30,13 @@ footer, header, hgroup, menu, nav, section {
 }
 body {
 	line-height: 1;
+	font-family:  'Oxygen',
+	'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+	sans-serif;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	background-color:#f7f7f7;
+	box-sizing: border-box;
 }
 ol, ul {
 	list-style: none;
@@ -45,16 +52,6 @@ q:before, q:after {
 table {
 	border-collapse: collapse;
 	border-spacing: 0;
-}
-
-body {
-  margin: 0;
-  font-family:  'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-	background-color:#f7f7f7;
 }
 
 ::-webkit-input-placeholder { 

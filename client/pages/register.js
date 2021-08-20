@@ -97,7 +97,7 @@ export default function Register({ setCurrentUser }) {
               handleChange={handleChange}
             />
             <div className={styles.submit}>
-              <Button classList="btn btn_auth" text="Create account" />
+              <Button classList="btn btn_auth">Create account</Button>
             </div>
           </form>
           <p className={styles.redirect}>

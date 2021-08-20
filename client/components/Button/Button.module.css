@@ -3,14 +3,16 @@
   background-color: #FF7F00;
   color: #fff;
   font-weight: 700;
+  text-decoration: none;
+  line-height: inherit;
   cursor: pointer;
 }
 
 .btn_auth {
+  border: 1px solid #FF7F00;
   padding: 10px;
   border-radius: 25px;
   font-size: 1rem;
-  width: 100%;
 }
 
 .btn_chat {
