@@ -1,0 +1,42 @@
+.container {
+  background-color: #fff;
+  padding: 20px 15px;
+}
+
+.nav {
+  margin-bottom: 30px;
+}
+
+.form_group {
+  display: grid;
+  grid-template-columns: 1fr 5fr;
+}
+
+.profile_pic {
+  height: 50px;
+  width: 50px;
+  border-radius: 50%;
+  object-fit: cover;
+  object-position: top;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+}
+
+.footer {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  align-items: center;
+}
+
+.counter {
+  color: #9f9f9f;
+  padding: 0 10px;
+}
+
+.submit {
+  display: flex;
+  justify-content: center;
+}

@@ -57,7 +57,7 @@ export default function Login({ setCurrentUser }) {
             />
             <p className={styles.error}>{errorMessage}</p>
             <div className={styles.submit}>
-              <Button classList="btn btn_auth">Sign in</Button>
+              <Button classList="btn auth">Sign in</Button>
             </div>
           </form>
           <p className={styles.redirect}>

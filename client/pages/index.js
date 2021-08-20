@@ -17,10 +17,10 @@ export default function Landing() {
           <h2 className={styles.tagline}>mental landscape</h2>
         </div>
         <div className={styles.control}>
-          <Button classList="btn btn_auth" link="/register">
+          <Button classList="btn auth" link="/register">
             Sign Up
           </Button>
-          <Button classList="btn btn_auth invert" link="/login">
+          <Button classList="btn auth invert" link="/login">
             Login
           </Button>
         </div>

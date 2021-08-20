@@ -88,7 +88,7 @@ export default function Register({ setCurrentUser }) {
               handleChange={handleChange}
             />
             <TextArea
-              className="textarea_auth"
+              className="auth"
               label="Bio"
               name="bio"
               value={bio}
@@ -97,7 +97,7 @@ export default function Register({ setCurrentUser }) {
               handleChange={handleChange}
             />
             <div className={styles.submit}>
-              <Button classList="btn btn_auth">Create account</Button>
+              <Button classList="btn auth">Create account</Button>
             </div>
           </form>
           <p className={styles.redirect}>
