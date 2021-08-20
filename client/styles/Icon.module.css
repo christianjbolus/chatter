@@ -1,7 +1,17 @@
-.btn_icon {
+.btn {
   font-size: 2.5rem;
 }
 
-.btn_icon_sm {
+.btn {
   font-size: 1.75rem;
+}
+
+.engagement {
+  cursor: pointer;
+}
+
+.edit {
+  color: #FF7F00;
+  font-size: 1.25rem;
+  cursor: pointer;
 }

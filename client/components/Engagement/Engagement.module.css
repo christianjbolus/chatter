@@ -1,0 +1,29 @@
+.container {
+  display: flex;
+  justify-content: space-around;
+}
+
+.group {
+  color: #9F9F9F;
+  display: flex;
+  align-items: center;
+}
+
+.engagement-icon {
+  cursor: pointer;
+}
+
+.edit-icon {
+  color: #FF7F00;
+  font-size: 1.25rem;
+  cursor: pointer;
+}
+
+.metric {
+  font-size: 13px;
+  padding: 0 5px;
+}
+
+.liked {
+  color: #FA1E00;
+}
