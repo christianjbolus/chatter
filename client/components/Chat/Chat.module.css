@@ -46,10 +46,12 @@
 }
 
 .content {
+  color: #000;
   text-align: left;
+  text-decoration: none;
   margin-bottom: 20px;
   font-size: 15px;
-  line-height: 18px
+  line-height: 18px;
 }
 
 @media screen and (min-width: 800px) {

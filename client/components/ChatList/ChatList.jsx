@@ -1,3 +1,4 @@
+import { Chat } from '../index'
 import styles from './ChatList.module.css'
 
 export default function ChatList({ allChats }) {

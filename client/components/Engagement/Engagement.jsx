@@ -1,5 +1,5 @@
 // import { useContext } from 'react';
-import { useHistory } from 'react-router-dom';
+// import { useHistory } from 'react-router-dom';
 // import { UserContext } from '../contexts';
 import {
   IoChatbubbleOutline,
@@ -20,14 +20,14 @@ export default function Engagement({
   edit
 }) {
   // const currentUser = useContext(UserContext);
-  const history = useHistory();
+  // const history = useHistory();
 
   return (
     <div className={styles.container}>
       <div className={styles.group}>
         <IoChatbubbleOutline
           className={icons.engagement}
-          onClick={() => history.push(`/chats/${chatId}/replies/new`)}
+          // onClick={() => history.push(`/chats/${chatId}/replies/new`)}
         />
         <p className={styles.metric}>{replies}</p>
       </div>
@@ -39,14 +39,14 @@ export default function Engagement({
         <BsHeart className={icons.engagement} />
         <p className={styles.metric}>{likes}</p>
       </div>
-      {currentUser?.id === userId && edit ? (
+      {/* {currentUser?.id === userId && edit ? (
         <FiEdit
           className={icons.edit}
-          onClick={() => history.push(`/chats/${chatId}/edit`)}
+          // onClick={() => history.push(`/chats/${chatId}/edit`)}
         />
       ) : (
         <></>
-      )}
+      )} */}
     </div>
   );
 }
