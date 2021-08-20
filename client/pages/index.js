@@ -1,9 +1,9 @@
-import Link  from 'next/link';
+import Link from 'next/link';
 import { Button } from '../components';
 import { BsChatDotsFill } from 'react-icons/bs';
-import styles from '../styles/Landing.module.css'
+import styles from '../styles/Landing.module.css';
 
-export default function Landing () {
+export default function Landing() {
   return (
     <div className={styles.container}>
       <div className={styles.content}>
@@ -18,12 +18,12 @@ export default function Landing () {
           <h2 className={styles.tagline}>mental landscape</h2>
         </div>
         <div className={styles.control}>
-          {/* <Link href="/register"> */}
-            <Button classList="btn btn_auth" link="/register">Sign Up</Button>
-          {/* </Link> */}
-          <Link href="/login">
-            <Button classList="btn btn_auth invert">Login</Button>
-          </Link>
+          <Button classList="btn btn_auth" link="/register">
+            Sign Up
+          </Button>
+          <Button classList="btn btn_auth invert" link="/login">
+            Login
+          </Button>
         </div>
       </div>
     </div>
