@@ -34,11 +34,13 @@
 }
 
 .chat{
+  font-size: 18px;
+  padding: 12px;
+  border: none;
+  resize: none;
   font-family:  'Oxygen',
   'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
   sans-serif;
-  font-size: 18px;
-  border: none;
 }
 
 .chat:focus {
