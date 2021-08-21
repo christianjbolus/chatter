@@ -1,8 +1,6 @@
 import { Link } from 'react-router-dom';
 import { Button, NavLinks } from '../components';
-import {
-  BiPlus,
-} from 'react-icons/all';
+import { BiPlus } from 'react-icons/all';
 import '../assets/css/components/Navs.css';
 
 export default function SideNav() {

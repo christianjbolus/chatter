@@ -3,7 +3,7 @@ import { UserContext } from '../contexts';
 import { BsChatDotsFill } from 'react-icons/bs';
 import PopoutNav from './PopoutNav';
 import defaultUser from '../assets/imgs/defaultUser.jpg'
-import '../assets/css/components/TopNav.css';
+import '../assets/css/components/Navs.css';
 
 export default function TopNav({ location }) {
   const [show, setShow] = useState(false);

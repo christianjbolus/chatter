@@ -5,7 +5,7 @@ import { Button, NavLinks } from './index';
 import { BiPlus, IoClose } from 'react-icons/all';
 import UserMetrics from './UserMetrics';
 import defaultUser from '../assets/imgs/defaultUser.jpg'
-import '../assets/css/components/PopoutNav.css';
+import '../assets/css/components/Navs.css';
 
 export default function PopoutNav({ show, setShow }) {
   const currentUser = useContext(UserContext);
