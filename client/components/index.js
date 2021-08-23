@@ -5,6 +5,7 @@ import Engagement from './Engagement/Engagement'
 import FormInput from './FormInput/FormInput'
 import HeadData from './HeadData/HeadData'
 import TextArea from './TextArea/TextArea'
+import UserNames from './UserNames/UserNames'
 
 export {
   Button,
@@ -14,4 +15,5 @@ export {
   FormInput,
   HeadData,
   TextArea,
+  UserNames
 }

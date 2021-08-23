@@ -1,8 +1,8 @@
 import { useState, useEffect } from 'react';
-import { useRouter } from 'router/next';
+import { useRouter } from 'next/router';
 import Link from 'next/link';
-import { getOneChat } from '../services/chats';
-import { getAllReplies } from '../services/replies';
+import { getOneChat } from '../../../services/chats';
+import { getAllReplies } from '../../../services/replies';
 import { Button, Chat, Engagement } from '../components';
 import { IoArrowBackOutline, IoChatbubbleOutline } from 'react-icons/all';
 
@@ -42,9 +42,7 @@ export default function ChatDetail({ chat }) {
             />
           </Link>
           <div className="chat-detail-user-indetifiers">
-            <p className="chat-detail-display-name">
-              {chat.user.display_name}
-            </p>
+            <p className="chat-detail-display-name">{chat.user.display_name}</p>
             <p className="chat-detail-username">@{chat.user.username}</p>
           </div>
         </div>
@@ -58,9 +56,9 @@ export default function ChatDetail({ chat }) {
           edit={true}
         />
         <div className="reply-button">
-          <Link to={`/chats/${chat.id}/replies/new`}>
-            <Button className="btn btn-chat" text="Reply" />
-          </Link>
+          <Button className="btn sm" link={`/chats/${chat.id}/replies/new`}>
+            Reply
+          </Button>
         </div>
       </div>
       <div className="chat-list">
