@@ -1,17 +1,16 @@
-import { useState } from 'react';
-import { useRouter } from 'next/router';
+import { useState, useContext } from 'react';
 import Link from 'next/link';
 import { Button, FormInput } from '../components';
-import { loginUser } from '../services/auth';
+import { UserContext } from '../contexts/UserContext';
 import styles from '../styles/AuthForm.module.css';
 
-export default function Login({ setCurrentUser }) {
+export default function Login() {
   const [formData, setFormData] = useState({
     username: '',
     password: '',
   });
   const [errorMessage, setErrorMessage] = useState('');
-  const router = useRouter();
+  const { handleLogin } = useContext(UserContext);
 
   const { username, password } = formData;
 
@@ -20,13 +19,10 @@ export default function Login({ setCurrentUser }) {
     setFormData(prevState => ({ ...prevState, [name]: value }));
   };
 
-  const handleLogin = async () => {
-    const userData = await loginUser(formData);
-    if (userData.error) {
-      setErrorMessage(userData.error);
-    } else {
-      setCurrentUser(userData);
-      router.push('/chats');
+  const login = async () => {
+    const data = await handleLogin(formData);
+    if (data) {
+      setErrorMessage(data);
     }
   };
 
@@ -39,7 +35,7 @@ export default function Login({ setCurrentUser }) {
           <form
             onSubmit={e => {
               e.preventDefault();
-              handleLogin();
+              login();
             }}
           >
             <FormInput
