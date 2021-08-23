@@ -1,12 +1,11 @@
-import { useState } from 'react';
-import { useRouter } from 'next/router';
+import { useState, useContext } from 'react';
 import Link from 'next/link';
 import { Button, FormInput, TextArea } from '../components';
-import { registerUser } from '../services/auth';
 import { formatErrors } from '../utils/helpers';
 import styles from '../styles/AuthForm.module.css';
+import { UserContext } from '../contexts/UserContext';
 
-export default function Register({ setCurrentUser }) {
+export default function Register() {
   const [formData, setFormData] = useState({
     email: '',
     username: '',
@@ -15,13 +14,14 @@ export default function Register({ setCurrentUser }) {
     profile_pic: '',
     bio: '',
   });
+
   const [errors, setErrors] = useState({
     email: '',
     username: '',
     password: '',
   });
 
-  const router = useRouter();
+  const { handleRegister } = useContext(UserContext);
 
   const { email, username, password, display_name, profile_pic, bio } =
     formData;
@@ -31,13 +31,10 @@ export default function Register({ setCurrentUser }) {
     setFormData(prevState => ({ ...prevState, [name]: value }));
   };
 
-  const handleRegister = async () => {
-    const userData = await registerUser(formData);
-    if (userData.error) {
-      setErrors({ ...formatErrors(userData.error) });
-    } else {
-      setCurrentUser(userData);
-      router.push('/');
+  const register = async () => {
+    const err = await handleRegister(formData);
+    if (err) {
+      setErrors({ ...formatErrors(err) });
     }
   };
 
@@ -50,7 +47,7 @@ export default function Register({ setCurrentUser }) {
           <form
             onSubmit={e => {
               e.preventDefault();
-              handleRegister();
+              register();
             }}
           >
             <FormInput
