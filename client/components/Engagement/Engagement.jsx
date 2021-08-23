@@ -1,6 +1,6 @@
-// import { useContext } from 'react';
-// import { useHistory } from 'react-router-dom';
-// import { UserContext } from '../contexts';
+import { useContext } from 'react';
+import { useRouter } from 'next/router'
+import { UserContext } from '../../contexts/UserContext';
 import { IoChatbubbleOutline } from '@react-icons/all-files/io5/IoChatbubbleOutline'
 import { AiOutlineRedo } from '@react-icons/all-files/ai/AiOutlineRedo'
 import { BsHeart } from '@react-icons/all-files/bs/BsHeart'
@@ -16,8 +16,8 @@ export default function Engagement({
   likes,
   edit
 }) {
-  // const currentUser = useContext(UserContext);
-  // const history = useHistory();
+  const currentUser = useContext(UserContext);
+  const router = useRouter();
 
   return (
     <div className={styles.container}>
@@ -36,14 +36,14 @@ export default function Engagement({
         <BsHeart className={icons.engagement} />
         <p className={styles.metric}>{likes}</p>
       </div>
-      {/* {currentUser?.id === userId && edit ? (
+      {currentUser?.id === userId && edit ? (
         <FiEdit
           className={icons.edit}
-          // onClick={() => history.push(`/chats/${chatId}/edit`)}
+          onClick={() => router.push(`/chats/${chatId}/edit`)}
         />
       ) : (
         <></>
-      )} */}
+      )}
     </div>
   );
 }
