@@ -6,7 +6,7 @@ class AuthenticationController < ApplicationController
     @user = User.find_by(username: login_params[:username])
 
     # authenticate method provided by Bcrypt and 'has_secure_password'
-    # Using safe navigation operator (&.) to short circuit if statement is user is nil
+    # Using safe navigation operator (&.) to short circuit if statement if user is nil
     if @user&.authenticate(login_params[:password])
       token = encode({ id: @user.id })
       render json: {
