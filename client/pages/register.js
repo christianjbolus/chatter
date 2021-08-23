@@ -21,7 +21,7 @@ export default function Register() {
     password: '',
   });
 
-  const { handleRegister } = useContext(UserContext);
+  const { register } = useContext(UserContext);
 
   const { email, username, password, display_name, profile_pic, bio } =
     formData;
@@ -31,8 +31,8 @@ export default function Register() {
     setFormData(prevState => ({ ...prevState, [name]: value }));
   };
 
-  const register = async () => {
-    const err = await handleRegister(formData);
+  const handleRegister = async () => {
+    const err = await register(formData);
     if (err) {
       setErrors({ ...formatErrors(err) });
     }
@@ -47,7 +47,7 @@ export default function Register() {
           <form
             onSubmit={e => {
               e.preventDefault();
-              register();
+              handleRegister();
             }}
           >
             <FormInput

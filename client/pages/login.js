@@ -10,7 +10,7 @@ export default function Login() {
     password: '',
   });
   const [errorMessage, setErrorMessage] = useState('');
-  const { handleLogin } = useContext(UserContext);
+  const { login } = useContext(UserContext);
 
   const { username, password } = formData;
 
@@ -19,10 +19,10 @@ export default function Login() {
     setFormData(prevState => ({ ...prevState, [name]: value }));
   };
 
-  const login = async () => {
-    const data = await handleLogin(formData);
-    if (data) {
-      setErrorMessage(data);
+  const handleLogin = async () => {
+    const err = await login(formData);
+    if (err) {
+      setErrorMessage(err);
     }
   };
 
@@ -35,7 +35,7 @@ export default function Login() {
           <form
             onSubmit={e => {
               e.preventDefault();
-              login();
+              handleLogin();
             }}
           >
             <FormInput

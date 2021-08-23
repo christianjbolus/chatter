@@ -17,7 +17,7 @@ function MyApp({ Component, pageProps }) {
     handleVerify();
   }, []);
 
-  const handleLogin = async (formData) => {
+  const login = async (formData) => {
     const userData = await loginUser(formData);
     if (userData.error) {
       return userData.error;
@@ -27,7 +27,7 @@ function MyApp({ Component, pageProps }) {
     }
   };
 
-  const handleRegister = async (formData) => {
+  const register = async (formData) => {
     const userData = await registerUser(formData);
     if (userData.error) {
       return userData.error
@@ -39,7 +39,7 @@ function MyApp({ Component, pageProps }) {
 
   return (
     <>
-      <UserContext.Provider value={{ currentUser, handleLogin, handleRegister }}>
+      <UserContext.Provider value={{ currentUser, login, register }}>
         <HeadData />
         <Component {...pageProps} />
       </UserContext.Provider>
