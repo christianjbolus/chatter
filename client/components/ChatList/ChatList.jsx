@@ -7,7 +7,6 @@ export default function ChatList({ allChats }) {
       {allChats.map(chat => (
         <Chat
           chat={chat}
-          user={chat.user}
           url={`/chats/${chat.id}`}
           key={chat.id}
         />

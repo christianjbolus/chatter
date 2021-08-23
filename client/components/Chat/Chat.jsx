@@ -3,8 +3,8 @@ import Image from 'next/image';
 import { Engagement } from '../index';
 import styles from './Chat.module.css';
 
-export default function Chat({ chat, user, url }) {
-  const { id, content, reply_count, repost_count, like_count } = chat;
+export default function Chat({ chat, url }) {
+  const { id, content, reply_count, repost_count, like_count, user } = chat;
 
   return (
     <div className={styles.container}>
