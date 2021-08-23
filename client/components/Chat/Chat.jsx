@@ -22,15 +22,10 @@ export default function Chat({ chat, url }) {
       <div className={styles.card}>
         <div className="chat-content">
           <Link href={`users/${user.username}`}>
-            <UserNames
-              display_name={user.display_name}
-              username={user.username}
-              alignment="row"
-            />
-            {/* <div className={styles.identifiers}>
+            <div className={styles.identifiers}>
               <p className={styles.display_name}>{user.display_name}</p>
               <p className={styles.username}>@{user.username}</p>
-            </div> */}
+            </div>
           </Link>
           <Link href={url}>
             <a className={styles.content}>{content}</a>
