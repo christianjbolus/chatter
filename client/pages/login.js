@@ -53,7 +53,7 @@ export default function Login() {
             />
             <p className={styles.error}>{errorMessage}</p>
             <div className={styles.submit}>
-              <Button classList="btn auth">Sign in</Button>
+              <Button className="btn auth">Sign in</Button>
             </div>
           </form>
           <p className={styles.redirect}>

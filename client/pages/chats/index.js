@@ -8,7 +8,7 @@ export default function Chats({ allChats }) {
     <>
       {/* <TopNav location="Home" /> */}
       <ChatList allChats={allChats} />
-      <Button classList="btn round fixed new" link="/chats/new">
+      <Button className="btn round fixed new" link="/chats/new">
         <BiPlus className={icons.btn} />
       </Button>
     </>

@@ -56,7 +56,7 @@ export default function ChatCreate({ handleCreate }) {
           <p className={styles.counter}>{content.length}/280</p>
           <div className={styles.submit}>
             <Button
-              classList={!content ? 'btn disabled' : 'btn sm'}
+              className={!content ? 'btn disabled' : 'btn sm'}
               // onClick={() => handleCreate(chat)}
               disabled={!content}
             >

@@ -3,13 +3,13 @@ import styles from './Button.module.css';
 import { formatClasses } from '../../utils/helpers';
 
 export default function Button({
-  classList,
+  className,
   children,
   link,
   onClick,
   disabled,
 }) {
-  let classes = formatClasses(classList, styles);
+  let classes = formatClasses(className, styles);
 
   if (link) {
     return (

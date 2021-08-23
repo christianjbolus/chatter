@@ -94,7 +94,7 @@ export default function Register() {
               handleChange={handleChange}
             />
             <div className={styles.submit}>
-              <Button classList="btn auth">Create account</Button>
+              <Button className="btn auth">Create account</Button>
             </div>
           </form>
           <p className={styles.redirect}>
