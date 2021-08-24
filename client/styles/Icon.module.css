@@ -25,3 +25,9 @@
   color: #FF7F00;
   font-size: 1.25rem;
 }
+
+.close {
+  color: #FF7F00;
+  font-size: 1.75rem;
+  margin-left: 20px;
+}
