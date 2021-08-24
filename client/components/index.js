@@ -5,6 +5,7 @@ import Engagement from './Engagement/Engagement'
 import FormInput from './FormInput/FormInput'
 import HeadData from './HeadData/HeadData'
 import TextArea from './TextArea/TextArea'
+import TopNav from './TopNav/TopNav'
 import UserNames from './UserNames/UserNames'
 
 export {
@@ -15,5 +16,6 @@ export {
   FormInput,
   HeadData,
   TextArea,
+  TopNav,
   UserNames
 }
