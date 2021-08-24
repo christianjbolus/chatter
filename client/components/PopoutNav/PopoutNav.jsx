@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { Button /*NavLinks, UserMetrics*/ } from './index';
+import { Button /*NavLinks, UserMetrics*/ } from '../index';
 import { BiPlus } from '@react-icons/all-files/bi/BiPlus'
 import { IoClose } from '@react-icons/all-files/io5/IoClose'
 import styles from './PopoutNav.module.css';
