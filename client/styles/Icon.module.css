@@ -40,3 +40,9 @@
 .link_lg {
   font-size: 1.25rem;
 }
+
+@media screen and (min-width: 640px) {
+  .link_lg {
+    padding-right: 20px;
+  }
+}
