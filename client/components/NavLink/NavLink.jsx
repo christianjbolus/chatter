@@ -1,18 +1,25 @@
 import Link from 'link/next';
+import styles from './NavLink.module.css'
 
 export default function NavLink({
   children,
   text,
   size,
   mode,
-  to,
+  href,
   onClick,
-  className
+  className,
 }) {
   return (
-    <Link className={`nav-link-group ${mode} ${size}`} to={to} onClick={onClick}>
-      {children}
-      <p className={className}>{text}</p>
+    <Link href={href} onClick={onClick}>
+      <a className={`${styles.group} ${styles[mode]} ${styles[size]}`}>
+        {children}
+        <p className={className}>{text}</p>
+      </a>
     </Link>
   );
+}
+
+NavLink.defaultProps = {
+  onClick: null
 }

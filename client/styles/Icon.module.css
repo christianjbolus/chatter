@@ -31,3 +31,12 @@
   font-size: 1.75rem;
   margin-left: 20px;
 }
+
+.link_sm {
+  font-size: 1.1rem;
+  padding-right: 20px;
+}
+
+.link_lg {
+  font-size: 1.25rem;
+}
