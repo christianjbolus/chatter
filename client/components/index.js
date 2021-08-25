@@ -5,6 +5,7 @@ import Engagement from './Engagement/Engagement'
 import FormInput from './FormInput/FormInput'
 import HeadData from './HeadData/HeadData'
 import NavLink from './NavLink/NavLink'
+import NavLinks from './NavLinks/NavLinks'
 import PopoutNav from './PopoutNav/PopoutNav'
 import TextArea from './TextArea/TextArea'
 import TopNav from './TopNav/TopNav'
@@ -19,6 +20,7 @@ export {
   FormInput,
   HeadData,
   NavLink,
+  NavLinks,
   PopoutNav,
   TextArea,
   TopNav,
