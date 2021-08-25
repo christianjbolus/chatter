@@ -37,9 +37,16 @@ function MyApp({ Component, pageProps }) {
     }
   };
 
+  const handleLogout = () => {
+    setCurrentUser(null);
+    localStorage.removeItem('authToken');
+    removeToken();
+    history.push('/');
+  };
+
   return (
     <>
-      <UserContext.Provider value={{ currentUser, login, register }}>
+      <UserContext.Provider value={{ currentUser, login, register, handleLogout }}>
         <HeadData />
         <Component {...pageProps} />
       </UserContext.Provider>
