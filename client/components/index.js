@@ -7,6 +7,7 @@ import HeadData from './HeadData/HeadData'
 import PopoutNav from './PopoutNav/PopoutNav'
 import TextArea from './TextArea/TextArea'
 import TopNav from './TopNav/TopNav'
+import UserMetrics from './UserMetrics/UserMetrics'
 import UserNames from './UserNames/UserNames'
 
 export {
@@ -19,5 +20,6 @@ export {
   PopoutNav,
   TextArea,
   TopNav,
+  UserMetrics,
   UserNames
 }

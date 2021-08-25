@@ -63,6 +63,11 @@
   margin-right: 10px
 }
 
+.identifiers {
+  display: flex;
+  flex-direction: column;
+}
+
 .display_name {
   font-size: 15px;
   font-weight: 700;

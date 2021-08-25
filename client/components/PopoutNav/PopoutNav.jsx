@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { Button /*NavLinks, UserMetrics*/ } from '../index';
+import { Button, /*NavLinks,*/ UserMetrics } from '../index';
 import { BiPlus } from '@react-icons/all-files/bi/BiPlus'
 import { IoClose } from '@react-icons/all-files/io5/IoClose'
 import styles from './PopoutNav.module.css';
@@ -25,7 +25,7 @@ export default function PopoutNav({ show, setShow, currentUser }) {
                     src={currentUser?.profile_pic}
                     alt={currentUser?.username}
                   />
-                  <div className="popout-nav-user-identifiers">
+                  <div className={styles.identifiers}>
                     <p className={styles.display_name}>
                       {currentUser?.display_name}
                     </p>
@@ -37,7 +37,7 @@ export default function PopoutNav({ show, setShow, currentUser }) {
                 <BiPlus className={icons.btn_sm} />
               </Button>
             </div>
-            {/* <UserMetrics user={currentUser} mode="dark" /> */}
+            <UserMetrics user={currentUser} mode="dark" />
           </div>
         )}
         <div className="popout-nav-links">
