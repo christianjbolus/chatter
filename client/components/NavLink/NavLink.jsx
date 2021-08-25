@@ -11,8 +11,8 @@ export default function NavLink({
   className,
 }) {
   return (
-    <Link href={href} onClick={onClick}>
-      <a className={`${styles.group} ${styles[mode]} ${styles[size]}`}>
+    <Link href={href}>
+      <a className={`${styles.group} ${styles[mode]} ${styles[size]}`} onClick={onClick}>
         {children}
         <p className={className}>{text}</p>
       </a>

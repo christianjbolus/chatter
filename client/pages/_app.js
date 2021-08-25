@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import {useRouter} from 'next/router'
 import { HeadData } from '../components';
-import { loginUser, registerUser, verifyUser } from '../services/auth';
+import { loginUser, registerUser, verifyUser, removeToken } from '../services/auth';
 import { UserContext } from '../contexts/UserContext';
 import '../styles/globals.css';
 
@@ -38,10 +38,11 @@ function MyApp({ Component, pageProps }) {
   };
 
   const handleLogout = () => {
+    console.log('logout')
     setCurrentUser(null);
     localStorage.removeItem('authToken');
     removeToken();
-    history.push('/');
+    router.push('/');
   };
 
   return (
