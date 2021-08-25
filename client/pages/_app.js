@@ -49,7 +49,9 @@ function MyApp({ Component, pageProps }) {
     <>
       <UserContext.Provider value={{ currentUser, login, register, handleLogout }}>
         <HeadData />
-        <Component {...pageProps} />
+        <div className="app">
+          <Component {...pageProps} />
+        </div>
       </UserContext.Provider>
     </>
   );

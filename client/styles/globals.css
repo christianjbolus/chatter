@@ -67,3 +67,10 @@ table {
 :-moz-placeholder {
   color: #9f9f9f;
 }
+
+.app {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100vh;
+}

@@ -3,10 +3,11 @@ import { useRouter } from 'next/router';
 import Link from 'next/link';
 import { getOneChat } from '../../../services/chats';
 import { getAllReplies } from '../../../services/replies';
-import { Button, Chat, Engagement } from '../components';
-import { IoArrowBackOutline, IoChatbubbleOutline } from 'react-icons/all';
+import { Button, Chat, Engagement } from '../../../components';
+import { IoArrowBackOutline } from '@react-icons/all-files/io5/IoArrowBackOutline'
+import { IoChatbubbleOutline  } from '@react-icons/all-files/io5/IoChatbubbleOutline'
 
-import '../assets/css/screens/ChatDetail.css';
+import styles from '../../../styles/Detail.module.css';
 //! Look at this file
 // import { icons } from '@react-icons/all-files/lib';
 

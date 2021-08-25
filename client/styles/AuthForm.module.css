@@ -3,7 +3,7 @@
   height: 40px;
   width: 100%;
   position: absolute;
-  /* left: 0; */
+  left: 0;
   top: 170px;
   transform: skewY(-14deg);
   z-index: -1

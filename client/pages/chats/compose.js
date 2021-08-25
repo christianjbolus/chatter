@@ -1,17 +1,17 @@
-import { /*useContext,*/ useState } from 'react';
+import { useContext, useState } from 'react';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 import { Button, TextArea } from '../../components';
 import { IoArrowBackOutline } from '@react-icons/all-files/io5/IoArrowBackOutline';
 import styles from '../../styles/Compose.module.css';
 import icons from '../../styles/Icon.module.css';
-// import { UserContext } from '../contexts';
+import { UserContext } from '../../contexts/UserContext';
 
 export default function ChatCreate({ handleCreate }) {
   const [chat, setChat] = useState({
     content: '',
   });
-  // const currentUser = useContext(UserContext);
+  const { currentUser } = useContext(UserContext);
   const router = useRouter();
 
   const { content } = chat;
@@ -33,13 +33,13 @@ export default function ChatCreate({ handleCreate }) {
           />
         </div>
         <div className={styles.form_group}>
-          {/* <Link href={`/users/${currentUser?.username}`}> */}
-            <img
-              className={styles.profile_pic}
-              // src={currentUser?.profile_pic}
-              // alt={currentUser?.username}
-            />
-          {/* </Link> */}
+          <Link href={`/users/${currentUser?.username}`}>
+          <img
+            className={styles.profile_pic}
+            src={currentUser?.profile_pic}
+            alt={currentUser?.username}
+          />
+          </Link>
           <form className={styles.form}>
             <TextArea
               className="chat"
