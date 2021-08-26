@@ -1,10 +1,13 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import { Engagement, UserNames } from '../index';
+import { formatUrl } from '../../utils/helpers'
 import styles from './Chat.module.css';
 
 export default function Chat({ chat, url }) {
   const { id, content, reply_count, repost_count, like_count, user } = chat;
+
+  const href = formatUrl(url, chat.id)
 
   return (
     <div className={styles.container}>
@@ -27,7 +30,7 @@ export default function Chat({ chat, url }) {
               <p className={styles.username}>@{user.username}</p>
             </div>
           </Link>
-          <Link href={url}>
+          <Link href={href}>
             <a className={styles.content}>{content}</a>
           </Link>
         </div>

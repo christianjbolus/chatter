@@ -3,7 +3,7 @@ import { useRouter } from 'next/router';
 import Link from 'next/link';
 import { getOneChat } from '../../../services/chats';
 import { getAllReplies } from '../../../services/replies';
-import { Button, Chat, Engagement } from '../../../components';
+import { Button, ChatList, Engagement } from '../../../components';
 import { IoArrowBackOutline } from '@react-icons/all-files/io5/IoArrowBackOutline'
 import { IoChatbubbleOutline  } from '@react-icons/all-files/io5/IoChatbubbleOutline'
 
@@ -62,7 +62,8 @@ export default function ChatDetail({ chat }) {
           </Button>
         </div>
       </div>
-      <div className="chat-list">
+      <ChatList />
+      {/* <div className="chat-list">
         {replies?.map(reply => (
           <Chat
             chat={reply}
@@ -71,7 +72,7 @@ export default function ChatDetail({ chat }) {
             url={`/chats/${chatId}/replies/${reply.id}`}
           />
         ))}
-      </div>
+      </div> */}
       <Button
         className="btn round fixed reply"
         link={`/chats/${chat.id}/replies/new`}
