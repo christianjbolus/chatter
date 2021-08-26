@@ -1,5 +1,5 @@
 import { useState, useContext } from 'react';
-import { UserContext } from '../../contexts/UserContext';
+import { AuthContext } from '../../contexts/AuthContext';
 import { BsChatDotsFill } from '@react-icons/all-files/bs/BsChatDotsFill';
 import { PopoutNav } from '../index';
 import styles from './TopNav.module.css';
@@ -7,7 +7,7 @@ import icons from '../../styles/Icon.module.css';
 
 export default function TopNav({ location }) {
   const [show, setShow] = useState(false);
-  const { currentUser } = useContext(UserContext);
+  const { currentUser } = useContext(AuthContext);
   return (
     <>
       <PopoutNav show={show} setShow={setShow} currentUser={currentUser}/>

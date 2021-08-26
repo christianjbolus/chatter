@@ -5,13 +5,13 @@ import { Button, TextArea } from '../../components';
 import { IoArrowBackOutline } from '@react-icons/all-files/io5/IoArrowBackOutline';
 import styles from '../../styles/Compose.module.css';
 import icons from '../../styles/Icon.module.css';
-import { UserContext } from '../../contexts/UserContext';
+import { AuthContext } from '../../contexts/AuthContext';
 
 export default function ChatCreate({ handleCreate }) {
   const [chat, setChat] = useState({
     content: '',
   });
-  const { currentUser } = useContext(UserContext);
+  const { currentUser } = useContext(AuthContext);
   const router = useRouter();
 
   const { content } = chat;

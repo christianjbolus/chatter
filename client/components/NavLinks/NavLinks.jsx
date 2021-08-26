@@ -1,5 +1,5 @@
 import { useContext } from 'react';
-import { UserContext } from '../../contexts/UserContext';
+import { AuthContext } from '../../contexts/AuthContext';
 import { NavLink } from '../index';
 import { AiOutlineLogin } from '@react-icons/all-files/ai/AiOutlineLogin';
 import { BsHeart } from '@react-icons/all-files/bs/BsHeart';
@@ -9,7 +9,7 @@ import { IoPersonAddOutline } from '@react-icons/all-files/io5/IoPersonAddOutlin
 import icons from '../../styles/Icon.module.css';
 
 export default function NavLinks({ size, mode, icon, collapsible }) {
-  const { currentUser, handleLogout } = useContext(UserContext);
+  const { currentUser, logout } = useContext(AuthContext);
 
   if (!currentUser) {
     return (
@@ -61,7 +61,7 @@ export default function NavLinks({ size, mode, icon, collapsible }) {
         size={size}
         mode={mode}
         href="#"
-        onClick={handleLogout}
+        onClick={logout}
         className={`${collapsible ? 'collapse' : ''}`}
       >
         <FiPower className={icons[icon]} />
