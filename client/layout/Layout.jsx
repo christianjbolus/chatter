@@ -1,11 +1,11 @@
 import { useContext } from 'react';
 // import { SideNav } from '../components'
-import { UserContext } from '../contexts/UserContext';
+import { AuthContext } from '../contexts/AuthContext';
 
 import styles from './Layout.module.css';
 
 export default function Layout({ children }) {
-  const { currentUser, handleLogout } = useContext(UserContext);
+  const { currentUser, handleLogout } = useContext(AuthContext);
 
   return (
     <div className={styles.layout}>
