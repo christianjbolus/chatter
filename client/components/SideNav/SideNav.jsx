@@ -16,7 +16,7 @@ export default function SideNav() {
           />
         </div>
           <Button className="btn round_sm" link="/chats/new">
-            <BiPlus className={icons.btn} />
+            <BiPlus className={icons.btn_sm} />
           </Button>
       </div>
     </div>

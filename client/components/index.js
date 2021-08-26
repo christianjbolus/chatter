@@ -7,6 +7,7 @@ import HeadData from './HeadData/HeadData'
 import NavLink from './NavLink/NavLink'
 import NavLinks from './NavLinks/NavLinks'
 import PopoutNav from './PopoutNav/PopoutNav'
+import SideNav from './SideNav/SideNav'
 import TextArea from './TextArea/TextArea'
 import TopNav from './TopNav/TopNav'
 import UserMetrics from './UserMetrics/UserMetrics'
@@ -22,6 +23,7 @@ export {
   NavLink,
   NavLinks,
   PopoutNav,
+  SideNav,
   TextArea,
   TopNav,
   UserMetrics,
