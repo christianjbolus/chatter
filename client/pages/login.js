@@ -1,7 +1,7 @@
 import { useState, useContext } from 'react';
 import Link from 'next/link';
 import { Button, FormInput } from '../components';
-import { UserContext } from '../contexts/UserContext';
+import { AuthContext } from '../contexts/AuthContext';
 import styles from '../styles/AuthForm.module.css';
 
 export default function Login() {
@@ -10,7 +10,7 @@ export default function Login() {
     password: '',
   });
   const [errorMessage, setErrorMessage] = useState('');
-  const { login } = useContext(UserContext);
+  const { login } = useContext(AuthContext);
 
   const { username, password } = formData;
 

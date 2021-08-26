@@ -3,7 +3,7 @@ import Link from 'next/link';
 import { Button, FormInput, TextArea } from '../components';
 import { formatErrors } from '../utils/helpers';
 import styles from '../styles/AuthForm.module.css';
-import { UserContext } from '../contexts/UserContext';
+import { AuthContext } from '../contexts/AuthContext';
 
 export default function Register() {
   const [formData, setFormData] = useState({
@@ -21,7 +21,7 @@ export default function Register() {
     password: '',
   });
 
-  const { register } = useContext(UserContext);
+  const { register } = useContext(AuthContext);
 
   const { email, username, password, display_name, profile_pic, bio } =
     formData;
