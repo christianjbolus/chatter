@@ -15,7 +15,7 @@ export default function SideNav() {
             collapsible={true}
           />
         </div>
-          <Button className="btn round_sm" link="/chats/new">
+          <Button className="btn round_sm" link="/chats/compose">
             <BiPlus className={icons.btn_sm} />
           </Button>
       </div>

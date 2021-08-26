@@ -1,13 +1,14 @@
 import { useContext, useState } from 'react';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
+import Layout from '../../layout/Layout'
 import { Button, TextArea } from '../../components';
 import { IoArrowBackOutline } from '@react-icons/all-files/io5/IoArrowBackOutline';
 import styles from '../../styles/Compose.module.css';
 import icons from '../../styles/Icon.module.css';
 import { AuthContext } from '../../contexts/AuthContext';
 
-export default function ChatCreate({ handleCreate }) {
+export default function ChatCreate() {
   const [chat, setChat] = useState({
     content: '',
   });
@@ -24,7 +25,7 @@ export default function ChatCreate({ handleCreate }) {
   // const handleCreate = () => {}
 
   return (
-    <>
+    <Layout>
       <div className={styles.container}>
         <div className={styles.nav}>
           <IoArrowBackOutline
@@ -65,6 +66,6 @@ export default function ChatCreate({ handleCreate }) {
           </div>
         </div>
       </div>
-    </>
+    </Layout>
   );
 }
