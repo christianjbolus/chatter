@@ -2,7 +2,7 @@ import { HeadData } from '../components';
 import AuthContextProvider from '../contexts/AuthContext'
 import '../styles/globals.css';
 
-function MyApp({ Component, pageProps }) {
+export default function MyApp({ Component, pageProps }) {
 
   return (
     <>
@@ -15,5 +15,3 @@ function MyApp({ Component, pageProps }) {
     </>
   );
 }
-
-export default MyApp;

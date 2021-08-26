@@ -10,7 +10,7 @@ export default function Layout({ children }) {
   return (
     <div className={styles.layout}>
       {/* <SideNav currentUser={currentUser} handleLogout={handleLogout} /> */}
-      {children}
+      <div className={styles.container}>{children}</div>
     </div>
   );
 }
