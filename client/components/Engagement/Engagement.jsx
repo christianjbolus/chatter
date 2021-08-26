@@ -1,6 +1,6 @@
 import { useContext } from 'react';
 import { useRouter } from 'next/router'
-import { UserContext } from '../../contexts/UserContext';
+import { AuthContext } from '../../contexts/AuthContext';
 import { IoChatbubbleOutline } from '@react-icons/all-files/io5/IoChatbubbleOutline'
 import { AiOutlineRedo } from '@react-icons/all-files/ai/AiOutlineRedo'
 import { BsHeart } from '@react-icons/all-files/bs/BsHeart'
@@ -16,7 +16,7 @@ export default function Engagement({
   likes,
   edit
 }) {
-  const currentUser = useContext(UserContext);
+  const currentUser = useContext(AuthContext);
   const router = useRouter();
 
   return (
