@@ -13,6 +13,15 @@
   margin-bottom: 20px;
 }
 
+.profile_pic {
+  height: 70px;
+  width: 70px;
+  border-radius: 50%;
+  object-fit: cover;
+  object-position: top;
+  margin-right: 10px
+}
+
 .display_name {
   font-size: 15px;
   font-weight: 700;
@@ -25,14 +34,6 @@
   font-size: 15px;
 }
 
-.profile_pic {
-  height: 70px;
-  width: 70px;
-  border-radius: 50%;
-  object-fit: cover;
-  object-position: top;
-  margin-right: 10px
-}
 
 .content {
   font-size: 18px;
@@ -40,12 +41,12 @@
   margin-bottom: 25px
 }
 
-.reply-button {
+.reply {
   display: none
 }
 
 @media screen and (min-width: 500px) {
-  .reply-button {
+  .reply {
     display: flex;
     justify-content: center;
     margin-top: 30px;

@@ -3,13 +3,13 @@ import { useRouter } from 'next/router';
 import Link from 'next/link';
 import { getOneChat } from '../../../services/chats';
 import { getAllReplies } from '../../../services/replies';
+import Layout from '../../../layout/Layout'
 import { Button, ChatList, Engagement } from '../../../components';
 import { IoArrowBackOutline } from '@react-icons/all-files/io5/IoArrowBackOutline'
 import { IoChatbubbleOutline  } from '@react-icons/all-files/io5/IoChatbubbleOutline'
-
 import styles from '../../../styles/Detail.module.css';
-//! Look at this file
-// import { icons } from '@react-icons/all-files/lib';
+import icons from '../../../styles/Icon.module.css'
+
 
 export default function ChatDetail({ chat }) {
   const [replies, setReplies] = useState(null);
@@ -26,28 +26,28 @@ export default function ChatDetail({ chat }) {
   }, []);
 
   return (
-    <>
-      <div className="chat-detail-container">
-        <div className="chat-nav">
+    <Layout>
+      <div className={styles.container}>
+        <div className={styles.nav}>
           <IoArrowBackOutline
-            className="back-arrow"
+            className={icons.back_arrow}
             onClick={() => router.push('/chats')}
           />
         </div>
-        <div className="chat-detail-user">
+        <div className={styles.user}>
           <Link href={`/users/${chat.user.username}`}>
             <img
-              className="chat-detail-user-profile-pic"
+              className={styles.profile_pic}
               src={chat.user.profile_pic}
               alt={chat.user.username}
             />
           </Link>
           <div className="chat-detail-user-indetifiers">
-            <p className="chat-detail-display-name">{chat.user.display_name}</p>
-            <p className="chat-detail-username">@{chat.user.username}</p>
+            <p className={styles.display_name}>{chat.user.display_name}</p>
+            <p className={styles.username}>@{chat.user.username}</p>
           </div>
         </div>
-        <p className="chat-detail-text">{chat.content}</p>
+        <p className={styles.content}>{chat.content}</p>
         <Engagement
           chatId={chat.id}
           userId={chat.user_id}
@@ -56,36 +56,26 @@ export default function ChatDetail({ chat }) {
           likes={chat.like_count}
           edit={true}
         />
-        <div className="reply-button">
+        <div className={styles.reply}>
           <Button className="btn sm" link={`/chats/${chat.id}/replies/new`}>
             Reply
           </Button>
         </div>
       </div>
-      <ChatList />
-      {/* <div className="chat-list">
-        {replies?.map(reply => (
-          <Chat
-            chat={reply}
-            user={reply.user}
-            key={reply.id}
-            url={`/chats/${chatId}/replies/${reply.id}`}
-          />
-        ))}
-      </div> */}
+      <ChatList items={replies} url={`/chats/${chatId}/replies/id`}/>
       <Button
         className="btn round fixed reply"
         link={`/chats/${chat.id}/replies/new`}
       >
         <IoChatbubbleOutline className={icons.btn} />
       </Button>
-    </>
+    </Layout>
   );
 }
 
 export async function getServerSideProps(context) {
-  const { id } = context.params;
-  const chat = await getOneChat(id);
+  const { chatId } = context.params;
+  const chat = await getOneChat(chatId);
   return {
     props: { chat },
   };
