@@ -62,19 +62,19 @@ export default function ChatEdit({ oneReply }) {
             <TextArea
               className="chat"
               name="content"
-              value={chat.content}
+              value={reply.content}
               handleChange={handleChange}
               rows="4"
             />
           </form>
         </div>
         <div className={styles.footer}>
-          <p className={styles.counter}>{chat.content.length}/280</p>
+          <p className={styles.counter}>{reply.content.length}/280</p>
           <div className={styles.submit}>
             <Button
-              className={!chat.content ? 'btn disabled' : 'btn sm'}
+              className={!reply.content ? 'btn disabled' : 'btn sm'}
               onClick={handleUpdate}
-              disabled={!chat.content}
+              disabled={!reply.content}
             >
               Update
             </Button>

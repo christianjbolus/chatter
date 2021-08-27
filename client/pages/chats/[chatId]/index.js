@@ -3,13 +3,12 @@ import { useRouter } from 'next/router';
 import Link from 'next/link';
 import { getOneChat } from '../../../services/chats';
 import { getAllReplies } from '../../../services/replies';
-import Layout from '../../../layout/Layout'
+import Layout from '../../../layout/Layout';
 import { Button, ChatList, Engagement } from '../../../components';
-import { IoArrowBackOutline } from '@react-icons/all-files/io5/IoArrowBackOutline'
-import { IoChatbubbleOutline  } from '@react-icons/all-files/io5/IoChatbubbleOutline'
+import { IoArrowBackOutline } from '@react-icons/all-files/io5/IoArrowBackOutline';
+import { IoChatbubbleOutline } from '@react-icons/all-files/io5/IoChatbubbleOutline';
 import styles from '../../../styles/Detail.module.css';
-import icons from '../../../styles/Icon.module.css'
-
+import icons from '../../../styles/Icon.module.css';
 
 export default function ChatDetail({ chat }) {
   const [replies, setReplies] = useState(null);
@@ -55,6 +54,7 @@ export default function ChatDetail({ chat }) {
           reposts={chat.repost_count}
           likes={chat.like_count}
           edit={true}
+          editUrl={`/chats/${chat.id}/edit`}
         />
         <div className={styles.reply}>
           <Button className="btn sm" link={`/chats/${chat.id}/replies/new`}>
@@ -62,7 +62,11 @@ export default function ChatDetail({ chat }) {
           </Button>
         </div>
       </div>
-      <ChatList items={replies} url={`/chats/${chatId}/replies/id`} edit={true}/>
+      <ChatList
+        items={replies}
+        edit={true}
+        editUrl={`/chats/${chat.id}/replies/id`}
+      />
       <Button
         className="btn round fixed reply"
         link={`/chats/${chat.id}/replies/new`}
