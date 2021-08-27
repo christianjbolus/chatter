@@ -18,7 +18,7 @@ export const getOneChat = async id => {
   }
 };
 
-export const postChat = async chatData => {
+export const createChat = async chatData => {
   try {
     const res = await api.post('/chats', { chat: chatData });
     return res.data;
@@ -27,7 +27,7 @@ export const postChat = async chatData => {
   }
 };
 
-export const putChat = async (id, chatData) => {
+export const updateChat = async (id, chatData) => {
   try {
     const res = await api.put(`/chats/${id}`, { chat: chatData });
     return res.data;
