@@ -1,12 +1,12 @@
 import { useContext } from 'react';
-import { useRouter } from 'next/router'
+import { useRouter } from 'next/router';
 import { AuthContext } from '../../contexts/AuthContext';
-import { IoChatbubbleOutline } from '@react-icons/all-files/io5/IoChatbubbleOutline'
-import { AiOutlineRedo } from '@react-icons/all-files/ai/AiOutlineRedo'
-import { BsHeart } from '@react-icons/all-files/bs/BsHeart'
-import { FiEdit } from '@react-icons/all-files/fi/FiEdit'
-import styles from './Engagement.module.css'
-import icons from '../../styles/Icon.module.css'
+import { IoChatbubbleOutline } from '@react-icons/all-files/io5/IoChatbubbleOutline';
+import { AiOutlineRedo } from '@react-icons/all-files/ai/AiOutlineRedo';
+import { BsHeart } from '@react-icons/all-files/bs/BsHeart';
+import { FiEdit } from '@react-icons/all-files/fi/FiEdit';
+import styles from './Engagement.module.css';
+import icons from '../../styles/Icon.module.css';
 
 export default function Engagement({
   chatId,
@@ -14,9 +14,9 @@ export default function Engagement({
   replies,
   reposts,
   likes,
-  edit
+  edit,
 }) {
-  const currentUser = useContext(AuthContext);
+  const { currentUser } = useContext(AuthContext);
   const router = useRouter();
 
   return (
