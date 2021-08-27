@@ -18,7 +18,7 @@ export const getOneReply = async (chatId, replyId) => {
   }
 }
 
-export const postReply = async (chatId, replyData) => {
+export const createReply = async (chatId, replyData) => {
   try {
     const res = await api.post(`/chats/${chatId}/replies`, { reply: replyData });
     return res.data;
@@ -27,7 +27,7 @@ export const postReply = async (chatId, replyData) => {
   }
 };
 
-export const putReply = async (chatId, replyId, replyData) => {
+export const updateReply = async (chatId, replyId, replyData) => {
   try {
     const res = await api.put(`/chats/${chatId}/replies/${replyId}`, { reply: replyData });
     return res.data;
