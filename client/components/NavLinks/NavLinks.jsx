@@ -42,7 +42,7 @@ export default function NavLinks({ size, mode, icon, collapsible }) {
         text="My Profile"
         size={size}
         mode={mode}
-        href={`/users/${currentUser?.username}`}
+        href={`/${currentUser?.username}`}
         className={`${collapsible ? 'collapse' : ''}`}
       >
         <IoPersonOutline className={icons[icon]} />
