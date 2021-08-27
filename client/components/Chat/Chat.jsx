@@ -4,7 +4,7 @@ import { Engagement, UserNames } from '../index';
 import { formatUrl } from '../../utils/helpers'
 import styles from './Chat.module.css';
 
-export default function Chat({ chat, url }) {
+export default function Chat({ chat, url, edit }) {
   const { id, content, reply_count, repost_count, like_count, user } = chat;
 
   const href = formatUrl(url, chat.id)
@@ -40,7 +40,7 @@ export default function Chat({ chat, url }) {
           replies={reply_count}
           reposts={repost_count}
           likes={like_count}
-          edit={false}
+          edit={edit}
         />
       </div>
     </div>

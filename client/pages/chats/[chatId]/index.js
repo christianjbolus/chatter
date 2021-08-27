@@ -62,7 +62,7 @@ export default function ChatDetail({ chat }) {
           </Button>
         </div>
       </div>
-      <ChatList items={replies} url={`/chats/${chatId}/replies/id`}/>
+      <ChatList items={replies} url={`/chats/${chatId}/replies/id`} edit={true}/>
       <Button
         className="btn round fixed reply"
         link={`/chats/${chat.id}/replies/new`}
