@@ -4,6 +4,7 @@ import { AuthContext } from '../../contexts/AuthContext';
 import { IoChatbubbleOutline } from '@react-icons/all-files/io5/IoChatbubbleOutline';
 import { AiOutlineRedo } from '@react-icons/all-files/ai/AiOutlineRedo';
 import { BsHeart } from '@react-icons/all-files/bs/BsHeart';
+import { formatUrl } from '../../utils/helpers';
 import { FiEdit } from '@react-icons/all-files/fi/FiEdit';
 import styles from './Engagement.module.css';
 import icons from '../../styles/Icon.module.css';
@@ -15,6 +16,7 @@ export default function Engagement({
   reposts,
   likes,
   edit,
+  editUrl,
 }) {
   const { currentUser } = useContext(AuthContext);
   const router = useRouter();
@@ -24,7 +26,7 @@ export default function Engagement({
       <div className={styles.group}>
         <IoChatbubbleOutline
           className={icons.engagement}
-          onClick={() => history.push(`/chats/${chatId}/replies/new`)}
+          onClick={() => router.push(`/chats/${chatId}/replies/new`)}
         />
         <p className={styles.metric}>{replies}</p>
       </div>
@@ -39,7 +41,7 @@ export default function Engagement({
       {currentUser?.id === userId && edit ? (
         <FiEdit
           className={icons.edit}
-          onClick={() => router.push(`/chats/${chatId}/edit`)}
+          onClick={() => router.push(formatUrl(editUrl, chatId))}
         />
       ) : (
         <></>
