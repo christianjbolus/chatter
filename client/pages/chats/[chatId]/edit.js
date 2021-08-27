@@ -2,7 +2,7 @@ import { useState, useContext } from 'react';
 import { useRouter } from 'next/router';
 import Link from 'next/link';
 import { getOneChat, updateChat, deleteChat } from '../../../services/chats';
-import Layout from '../../../layout/Layout'
+import Layout from '../../../layout/Layout';
 import { Button, Modal, TextArea } from '../../../components';
 import { IoArrowBackOutline } from '@react-icons/all-files/io5/IoArrowBackOutline';
 import { BsTrash } from '@react-icons/all-files/bs/BsTrash';
@@ -18,6 +18,7 @@ export default function ChatEdit({ oneChat }) {
   const { currentUser } = useContext(AuthContext);
   const router = useRouter();
   const { chatId } = router.query;
+  const { content } = chat;
 
   const handleChange = e => {
     const { value } = e.target;
@@ -62,7 +63,7 @@ export default function ChatEdit({ oneChat }) {
             <TextArea
               className="chat"
               name="content"
-              value={chat.content}
+              value={content}
               handleChange={handleChange}
               rows="4"
             />
@@ -72,9 +73,9 @@ export default function ChatEdit({ oneChat }) {
           <p className={styles.counter}>{chat.content.length}/280</p>
           <div className={styles.submit}>
             <Button
-              className={!chat.content ? 'btn disabled' : 'btn sm'}
+              className={!content ? 'btn disabled' : 'btn sm'}
               onClick={handleUpdate}
-              disabled={!chat.content}
+              disabled={!content}
             >
               Update
             </Button>

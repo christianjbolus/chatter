@@ -57,7 +57,7 @@ export default function ChatDetail({ chat }) {
           editUrl={`/chats/${chat.id}/edit`}
         />
         <div className={styles.reply}>
-          <Button className="btn sm" link={`/chats/${chat.id}/replies/new`}>
+          <Button className="btn sm" link={`/chats/${chat.id}/replies/compose`}>
             Reply
           </Button>
         </div>
@@ -69,7 +69,7 @@ export default function ChatDetail({ chat }) {
       />
       <Button
         className="btn round fixed reply"
-        link={`/chats/${chat.id}/replies/new`}
+        link={`/chats/${chat.id}/replies/compose`}
       >
         <IoChatbubbleOutline className={icons.btn} />
       </Button>
