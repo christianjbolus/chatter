@@ -1,12 +1,13 @@
 import { useContext, useState } from 'react';
-import Link from 'next/link';
 import { useRouter } from 'next/router';
+import { AuthContext } from '../../contexts/AuthContext';
+import { createChat } from '../../services/chats'
+import Link from 'next/link';
 import Layout from '../../layout/Layout';
 import { Button, TextArea } from '../../components';
 import { IoArrowBackOutline } from '@react-icons/all-files/io5/IoArrowBackOutline';
 import styles from '../../styles/Compose.module.css';
 import icons from '../../styles/Icon.module.css';
-import { AuthContext } from '../../contexts/AuthContext';
 
 export default function ChatCreate() {
   const [chat, setChat] = useState({
@@ -22,7 +23,10 @@ export default function ChatCreate() {
     setChat({ content: value });
   };
 
-  // const handleCreate = () => {}
+  const handleCreate = async () => {
+    const res = await createChat(chat)
+    router.push('/chats')
+  }
 
   return (
     <Layout>
@@ -58,7 +62,7 @@ export default function ChatCreate() {
           <div className={styles.submit}>
             <Button
               className={!content ? 'btn disabled' : 'btn sm'}
-              // onClick={() => handleCreate(chat)}
+              onClick={handleCreate}
               disabled={!content}
             >
               Chat
