@@ -1,10 +1,15 @@
-import {Button} from '../index';
-import { formatClasses } from '../../utils/helpers'
-import styles from './Modal.module.css'
+import { Button } from '../index';
+import { formatClasses } from '../../utils/helpers';
+import styles from './Modal.module.css';
 
-export default function Modal({ className, message, subMessage, setShow, handleDelete }) {
-  
-  const classes = formatClasses(className, styles)
+export default function Modal({
+  className,
+  message,
+  subMessage,
+  setShow,
+  handleDelete,
+}) {
+  const classes = formatClasses(className, styles);
 
   return (
     <div className={classes}>
@@ -12,8 +17,12 @@ export default function Modal({ className, message, subMessage, setShow, handleD
         <p className={styles.message}>{message}</p>
         <p className={styles.sub_message}>{subMessage}</p>
         <div className={styles.control}>
-          <Button className="btn lg cancel" text="Cancel" onClick={() => setShow(false)} />
-          <Button className="btn lg" text="Delete" onClick={handleDelete} />
+          <Button className="btn lg cancel" onClick={() => setShow(false)}>
+            Cancel
+          </Button>
+          <Button className="btn lg" onClick={handleDelete}>
+            Delete
+          </Button>
         </div>
       </div>
     </div>
