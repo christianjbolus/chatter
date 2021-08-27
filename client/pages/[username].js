@@ -1,6 +1,7 @@
 import { useContext } from 'react';
 import { useRouter } from 'next/router';
 import { getOneUser } from '../services/users';
+import Layout from '../layout/Layout';
 import { Button, ChatList, UserMetrics } from '../components';
 import { AuthContext } from '../contexts/AuthContext';
 import { BiPlus } from '@react-icons/all-files/bi/BiPlus';
@@ -13,40 +14,42 @@ export default function Profile({ user }) {
   const router = useRouter();
 
   return (
-    <div>
-      <div className={styles.profile}>
-        <div className={styles.nav}>
-          <IoArrowBackOutline
-            className={icons.back_arrow}
-            onClick={() => router.back()}
-          />
-        </div>
-        <div className={styles.header}>
-          <img
-            className={styles.profile_pic}
-            src={user.profile_pic}
-            alt={user.username}
-          />
-          <div>
-            {currentUser?.id === user?.id ? (
-              <Button className="btn lg invert">Edit Profile</Button>
-            ) : (
-              <Button className="btn lg invert">Follow</Button>
-            )}
+    <Layout>
+      <div>
+        <div className={styles.profile}>
+          <div className={styles.nav}>
+            <IoArrowBackOutline
+              className={icons.back_arrow}
+              onClick={() => router.back()}
+            />
           </div>
+          <div className={styles.header}>
+            <img
+              className={styles.profile_pic}
+              src={user.profile_pic}
+              alt={user.username}
+            />
+            <div>
+              {currentUser?.id === user?.id ? (
+                <Button className="btn lg invert">Edit Profile</Button>
+              ) : (
+                <Button className="btn lg invert">Follow</Button>
+              )}
+            </div>
+          </div>
+          <div className={styles.identifiers}>
+            <p className={styles.display_name}>{user.display_name}</p>
+            <p className={styles.username}>@{user.username}</p>
+          </div>
+          <p className={styles.bio}>{user.bio}</p>
+          <UserMetrics user={user} mode="light" />
         </div>
-        <div className={styles.identifiers}>
-          <p className={styles.display_name}>{user.display_name}</p>
-          <p className={styles.username}>@{user.username}</p>
-        </div>
-        <p className={styles.bio}>{user.bio}</p>
-        <UserMetrics user={user} mode="light" />
+        <ChatList items={user.chats} user={user} url="/chats/id" />
+        <Button className="btn round fixed new" link="/chats/compose">
+          <BiPlus className={icons.btn} />
+        </Button>
       </div>
-      <ChatList items={user.chats} user={user} url="/chats/id" />
-      <Button className="btn round fixed new" link="/chats/compose">
-        <BiPlus className={icons.btn} />
-      </Button>
-    </div>
+    </Layout>
   );
 }
 
