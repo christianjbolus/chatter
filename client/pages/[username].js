@@ -2,7 +2,7 @@ import { useContext } from 'react';
 import { useRouter } from 'next/router';
 import { getOneUser } from '../services/users';
 import { Button, ChatList, UserMetrics } from '../components';
-import { AuthContext } from '../contexts';
+import { AuthContext } from '../contexts/AuthContext';
 import { BiPlus } from '@react-icons/all-files/bi/BiPlus';
 import { IoArrowBackOutline } from '@react-icons/all-files/io5/IoArrowBackOutline';
 import styles from '../styles/Profile.module.css';
@@ -42,7 +42,7 @@ export default function Profile({ user }) {
         <p className={styles.bio}>{user.bio}</p>
         <UserMetrics user={user} mode="light" />
       </div>
-      <ChatList items={user.chats} url="/chats/id" />
+      <ChatList items={user.chats} user={user} url="/chats/id" />
       <Button className="btn round fixed new" link="/chats/compose">
         <BiPlus className={icons.btn} />
       </Button>
