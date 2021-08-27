@@ -32,6 +32,13 @@
   margin-left: 20px;
 }
 
+.delete {
+  color: #FF7F00;
+  font-size: 1.5rem;
+  padding: 0 20px;
+  justify-self: end;
+}
+
 .link_sm {
   font-size: 1.1rem;
   padding-right: 20px;
