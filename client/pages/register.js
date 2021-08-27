@@ -1,4 +1,4 @@
-import { useState, useContext } from 'react';
+import { useState, useEffect, useContext, useRef } from 'react';
 import Link from 'next/link';
 import { Button, FormInput, TextArea } from '../components';
 import { formatErrors } from '../utils/helpers';
@@ -22,9 +22,14 @@ export default function Register() {
   });
 
   const { register } = useContext(AuthContext);
+  const inputRef = useRef()
 
   const { email, username, password, display_name, profile_pic, bio } =
     formData;
+
+  useEffect(() => {
+    inputRef.current.focus();
+  }, []);
 
   const handleChange = e => {
     const { name, value } = e.target;
@@ -54,6 +59,7 @@ export default function Register() {
               label="Email"
               name="email"
               value={email}
+              ref={inputRef}
               handleChange={handleChange}
               errMessage={errors.email}
             />

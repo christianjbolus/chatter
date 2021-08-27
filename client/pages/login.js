@@ -1,4 +1,4 @@
-import { useState, useContext } from 'react';
+import { useState, useEffect, useContext, useRef } from 'react';
 import Link from 'next/link';
 import { Button, FormInput } from '../components';
 import { AuthContext } from '../contexts/AuthContext';
@@ -11,8 +11,12 @@ export default function Login() {
   });
   const [errorMessage, setErrorMessage] = useState('');
   const { login } = useContext(AuthContext);
-
+  const inputRef = useRef()
   const { username, password } = formData;
+
+  useEffect(() => {
+    inputRef.current.focus()
+  }, [])
 
   const handleChange = e => {
     const { name, value } = e.target;
@@ -42,6 +46,7 @@ export default function Login() {
               label="Username"
               name="username"
               value={username}
+              ref={inputRef}
               handleChange={handleChange}
             />
             <FormInput
