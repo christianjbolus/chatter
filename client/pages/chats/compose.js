@@ -1,7 +1,7 @@
 import { useContext, useState } from 'react';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
-import Layout from '../../layout/Layout'
+import Layout from '../../layout/Layout';
 import { Button, TextArea } from '../../components';
 import { IoArrowBackOutline } from '@react-icons/all-files/io5/IoArrowBackOutline';
 import styles from '../../styles/Compose.module.css';
@@ -35,11 +35,11 @@ export default function ChatCreate() {
         </div>
         <div className={styles.form_group}>
           <Link href={`/users/${currentUser?.username}`}>
-          <img
-            className={styles.profile_pic}
-            src={currentUser?.profile_pic}
-            alt={currentUser?.username}
-          />
+            <img
+              className={styles.profile_pic}
+              src={currentUser?.profile_pic}
+              alt={currentUser?.username}
+            />
           </Link>
           <form className={styles.form}>
             <TextArea

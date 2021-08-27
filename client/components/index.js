@@ -4,6 +4,7 @@ import ChatList from './ChatList/ChatList'
 import Engagement from './Engagement/Engagement'
 import FormInput from './FormInput/FormInput'
 import HeadData from './HeadData/HeadData'
+import Modal from './Modal/Modal'
 import NavLink from './NavLink/NavLink'
 import NavLinks from './NavLinks/NavLinks'
 import PopoutNav from './PopoutNav/PopoutNav'
@@ -20,6 +21,7 @@ export {
   Engagement,
   FormInput,
   HeadData,
+  Modal,
   NavLink,
   NavLinks,
   PopoutNav,
