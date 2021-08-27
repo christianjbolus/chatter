@@ -7,9 +7,13 @@ export const formatErrors = errObj => {
 };
 
 export const formatClasses = (classList, styles) => {
-  return classList.split(' ').map(name => styles[name]).join(' ')
-}
+  return classList
+    .split(' ')
+    .map(name => styles[name])
+    .join(' ');
+};
 
 export const formatUrl = (url, id) => {
-  return url.replace('id', id)
-}
+  if (!url) return '#';
+  return url.replace('id', id);
+};
