@@ -1,0 +1,63 @@
+.profile {
+  background-color: #fff;
+  padding: 20px;
+}
+
+.nav {
+  margin-bottom: 30px;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin-bottom: 20px;
+}
+
+.profile_pic {
+  height: 90px;
+  width: 90px;
+  border-radius: 50%;
+  object-fit: cover;
+  object-position: top;
+}
+
+.identifiers {
+  margin-bottom: 20px;
+}
+
+.display_name {
+  font-size: 1.1rem;
+  font-weight: 900;
+  margin-bottom: 5px;
+}
+
+.username {
+  color: #9f9f9f;
+  font-weight: 500;
+}
+
+.bio {
+  font-size: 0.90rem;
+  line-height: 18px;
+  margin-bottom: 20px;
+}
+
+/* .chat-categories {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  justify-items: center;
+  margin-top: 25px;
+}
+
+.category {
+  color: #000;
+  font-weight: 700;
+  text-decoration: none;
+} */
+
+@media screen and (min-width: 800px) {
+  .profile {
+    border-bottom: 1px solid #f0f0f0
+  }
+}

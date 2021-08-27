@@ -1,10 +1,12 @@
-import { useState, useEffect, useContext } from 'react';
-import { Link, useParams, useHistory } from 'react-router-dom';
+import { useContext } from 'react';
+import { useRouter } from 'next/router';
 import { getOneUser } from '../services/users';
-import { Button, Chat, UserMetrics } from '../components';
+import { Button, ChatList, UserMetrics } from '../components';
 import { AuthContext } from '../contexts';
-import { BiPlus, IoArrowBackOutline } from 'react-icons/all';
-import '../assets/css/screens/Profile.css';
+import { BiPlus } from '@react-icons/all-files/bi/BiPlus';
+import { IoArrowBackOutline } from '@react-icons/all-files/io5/IoArrowBackOutline';
+import styles from '../styles/Profile.module.css';
+import icons from '../styles/Icon.module.css';
 
 export default function Profile({ user }) {
   const currentUser = useContext(AuthContext);
@@ -12,18 +14,18 @@ export default function Profile({ user }) {
 
   return (
     <div>
-      <div className="profile">
-        <div className="chat-nav">
+      <div className={styles.profile}>
+        <div className={styles.nav}>
           <IoArrowBackOutline
-            className="back-arrow"
+            className={icons.back_arrow}
             onClick={() => router.back()}
           />
         </div>
-        <div className="profile-edit">
+        <div className={styles.header}>
           <img
-            className="profile-profile-pic"
-            src={user?.profile_pic}
-            alt={user?.username}
+            className={styles.profile_pic}
+            src={user.profile_pic}
+            alt={user.username}
           />
           <div>
             {currentUser?.id === user?.id ? (
@@ -33,28 +35,17 @@ export default function Profile({ user }) {
             )}
           </div>
         </div>
-        <div className="profile-user-identifiers">
-          <p className="profile-display-name">{user?.display_name}</p>
-          <p className="profile-username">@{user?.username}</p>
+        <div className={styles.identifiers}>
+          <p className={styles.display_name}>{user.display_name}</p>
+          <p className={styles.username}>@{user.username}</p>
         </div>
-        <p className="profile-bio">{user?.bio}</p>
+        <p className={styles.bio}>{user.bio}</p>
         <UserMetrics user={user} mode="light" />
       </div>
-      <div className="chat-list">
-        {user?.chats?.map(chat => (
-          <Chat
-            chat={chat}
-            user={user}
-            key={chat.id}
-            url={`/chats/${chat.id}`}
-          />
-        ))}
-      </div>
-      <Link to="/chats/new">
-        <Button className="btn btn-round fixed new">
-          <BiPlus className="btn-icon" />
-        </Button>
-      </Link>
+      <ChatList items={user.chats} url="/chats/id" />
+      <Button className="btn round fixed new" link="/chats/compose">
+        <BiPlus className={icons.btn} />
+      </Button>
     </div>
   );
 }
