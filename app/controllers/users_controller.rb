@@ -2,8 +2,7 @@ class UsersController < ApplicationController
   before_action :set_user, only: %i[show user_chats]
   def show
     render json: @user,
-           except: :password_digest,
-           include: :chats #order: {created_at: :desc}
+           except: :password_digest
   end
 
   # POST /users
