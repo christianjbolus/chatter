@@ -23,7 +23,7 @@ class UsersController < ApplicationController
   end
 
   def user_chats
-    @chats = Chat.where(user_id: @user.id)
+    @chats = Chat.where(user_id: @user.id).order(created_at: :desc)
     render json: @chats
   end
 
