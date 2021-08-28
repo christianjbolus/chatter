@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
+  before_action :set_user, only: %i[show user_chats]
   def show
-    @user = User.find_by(username: params[:username])
     render json: @user,
            except: :password_digest,
            include: :chats #order: {created_at: :desc}
@@ -22,8 +22,15 @@ class UsersController < ApplicationController
     end
   end
 
-  private
+  def user_chats
+    @chats = Chat.where(user_id: @user.id)
+    render json: @chats
+  end
 
+  private
+  def set_user
+    @user = User.find_by(username: params[:username])
+  end
   # Only allow a list of trusted parameters through.
   def user_params
     params

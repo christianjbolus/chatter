@@ -7,5 +7,6 @@ Rails.application.routes.draw do
   end
   resources :users, only: :create
   get '/users/:username', to: 'users#show'
+  get '/users/:username/chats', to: 'users#user_chats'
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
