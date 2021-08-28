@@ -1,7 +1,11 @@
-import { Chat } from '../index'
+import { Chat, Spinner } from '../index'
 import styles from './ChatList.module.css'
 
 export default function ChatList({ items, user, url, edit, editUrl }) {
+  if (!items) {
+    return <Spinner />
+  }
+  
   return (
     <div className={styles.list}>
       {items?.map(item => (
