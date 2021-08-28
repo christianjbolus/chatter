@@ -1,6 +1,6 @@
-import { useContext } from 'react';
+import { useState, useEffect, useContext } from 'react';
 import { useRouter } from 'next/router';
-import { getOneUser } from '../services/users';
+import { getOneUser, getUserChats } from '../services/users';
 import Layout from '../layout/Layout';
 import { Button, ChatList, UserMetrics } from '../components';
 import { AuthContext } from '../contexts/AuthContext';
@@ -10,8 +10,17 @@ import styles from '../styles/Profile.module.css';
 import icons from '../styles/Icon.module.css';
 
 export default function Profile({ user }) {
+  const [userChats, setUserChats] = useState([])
   const currentUser = useContext(AuthContext);
   const router = useRouter();
+
+useEffect(() => {
+  const fetchUserChats = async () => {
+    const res = await getUserChats(user.username)
+    setUserChats(res)
+  }
+  fetchUserChats()
+}, [])
 
   return (
     <Layout>
@@ -44,7 +53,7 @@ export default function Profile({ user }) {
           <p className={styles.bio}>{user.bio}</p>
           <UserMetrics user={user} mode="light" />
         </div>
-        <ChatList items={user.chats} user={user} url="/chats/id" />
+        <ChatList items={userChats} user={user} url="/chats/id" />
         <Button className="btn round fixed new" link="/chats/compose">
           <BiPlus className={icons.btn} />
         </Button>

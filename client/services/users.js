@@ -11,7 +11,7 @@ export const getOneUser = async username => {
 
 export const getUserChats = async username => {
   try {
-    const res = await api.get(`/user/${username}/chats`)
+    const res = await api.get(`/users/${username}/chats`)
     return res.data
   } catch (error) {
     throw error
