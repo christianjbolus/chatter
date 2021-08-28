@@ -8,3 +8,12 @@ export const getOneUser = async username => {
     throw error;
   }
 };
+
+export const getUserChats = async username => {
+  try {
+    const res = await api.get(`/user/${username}/chats`)
+    return res.data
+  } catch (error) {
+    throw error
+  }
+}
