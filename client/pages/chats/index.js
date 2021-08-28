@@ -1,10 +1,21 @@
+import { useState, useEffect } from 'react'
 import Layout from '../../layout/Layout'
 import { Button, ChatList, TopNav } from '../../components';
 import { getAllChats } from '../../services/chats';
 import { BiPlus } from '@react-icons/all-files/bi/BiPlus';
 import icons from '../../styles/Icon.module.css';
 
-export default function Chats({ allChats }) {
+export default function Chats() {
+  const [allChats, setAllChats] = useState([])
+
+  useEffect(() => {
+    const fetchChats = async () => {
+      const res = await getAllChats()
+      setAllChats(res)
+    }
+    fetchChats()
+  },[])
+
   return (
     <Layout>
       <TopNav location="Home" />
@@ -16,10 +27,3 @@ export default function Chats({ allChats }) {
   );
 }
 
-
-export async function getServerSideProps() {
-  const allChats = await getAllChats();
-  return {
-    props: { allChats },
-  };
-}
