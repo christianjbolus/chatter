@@ -7,7 +7,7 @@ export const loginUser = async loginData => {
     api.defaults.headers.common.authorization = `Bearer ${res.data.token}`;
     return res.data.user;
   } catch (error) {
-    return { error: error.response.data.errors };
+    return {error: error.response.data.errors}
   }
 };
 
@@ -18,7 +18,7 @@ export const registerUser = async registerData => {
     api.defaults.headers.common.authorization = `Bearer ${res.data.token}`;
     return res.data.user;
   } catch (error) {
-    return { error: error.response.data };
+    return {error: error.response.data}
   }
 };
 
@@ -31,9 +31,11 @@ export const verifyUser = async () => {
       return res.data;
     }
     return null;
+    
   } catch (error) {
-    return null;
+    return
   }
+
 };
 
 export const removeToken = () => {

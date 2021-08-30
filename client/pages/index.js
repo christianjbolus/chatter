@@ -1,16 +1,30 @@
-import { useContext } from 'react'
-import { useRouter } from 'next/router'
-import { AuthContext } from '../contexts/AuthContext';
-import { Button } from '../components';
+import { useState, useEffect } from 'react';
+import { useRouter } from 'next/router';
+import { verifyUser } from '../services/auth';
+import { Button, Spinner } from '../components';
 import { BsChatDotsFill } from '@react-icons/all-files/bs/BsChatDotsFill';
 import styles from '../styles/Landing.module.css';
 
 export default function Landing() {
-  const {currentUser} = useContext(AuthContext)
-  const router = useRouter()
-  
-  if (currentUser) {
+  const [user, setUser] = useState()
+  const [loading, setLoading] = useState(true)
+  const router = useRouter() 
+
+  useEffect(() => {
+    const fetchUser = async () => {
+      const user = await verifyUser()
+      setUser(user)
+      setLoading(false)
+    }
+    fetchUser()
+  }, [])
+
+  if (user) {
     router.push('/chats')
+  }
+  
+  if (loading) {
+    return <Spinner />
   }
 
   return (
