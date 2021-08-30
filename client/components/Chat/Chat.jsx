@@ -15,7 +15,7 @@ export default function Chat({ chat, user, url, edit, editUrl }) {
         <Link href={`/${user.username}`}>
           <img
             className={styles.profile_pic}
-            src={user?.profile_pic ? user?.profile_pic : 'defaultUser.jpg'}
+            src={user?.profile_pic ? user?.profile_pic : '/defaultUser.jpg'}
             alt={user.username}
             // width={50}
             // height={50}

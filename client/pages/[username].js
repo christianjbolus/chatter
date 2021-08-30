@@ -53,7 +53,13 @@ export default function Profile({ user }) {
           <p className={styles.bio}>{user.bio}</p>
           <UserMetrics user={user} mode="light" />
         </div>
-        <ChatList items={userChats} user={user} url="/chats/id" />
+        <ChatList
+          items={userChats}
+          user={user}
+          url="/chats/id"
+          edit={true}
+          editUrl="/chats/id/edit"
+        />
         <Button className="btn round fixed new" link="/chats/compose">
           <BiPlus className={icons.btn} />
         </Button>
