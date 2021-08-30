@@ -1,8 +1,12 @@
 import { useState, useContext } from 'react';
 import { useRouter } from 'next/router';
 import Link from 'next/link';
-import { getOneReply, updateReply, deleteReply } from '../../../../services/replies';
-import Layout from '../../../../layout/Layout'
+import {
+  getOneReply,
+  updateReply,
+  deleteReply,
+} from '../../../../services/replies';
+import Layout from '../../../../layout/Layout';
 import { Button, Modal, TextArea } from '../../../../components';
 import { IoArrowBackOutline } from '@react-icons/all-files/io5/IoArrowBackOutline';
 import { BsTrash } from '@react-icons/all-files/bs/BsTrash';
@@ -54,7 +58,11 @@ export default function ChatEdit({ oneReply }) {
           <Link href={`/users/${currentUser?.username}`}>
             <img
               className={styles.profile_pic}
-              src={currentUser?.profile_pic}
+              src={
+                currentUser?.profile_pic
+                  ? currentUser.profile_pic
+                  : '/defaultUser.jpg'
+              }
               alt={currentUser?.username}
             />
           </Link>

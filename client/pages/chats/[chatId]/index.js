@@ -37,7 +37,11 @@ export default function ChatDetail({ chat }) {
           <Link href={`/users/${chat.user.username}`}>
             <img
               className={styles.profile_pic}
-              src={chat.user.profile_pic}
+              src={
+                chat.user.profile_pic
+                  ? chat.user.profile_pic
+                  : '/defaultUser.jpg'
+              }
               alt={chat.user.username}
             />
           </Link>

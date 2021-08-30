@@ -1,7 +1,7 @@
 import { useContext, useState } from 'react';
 import { useRouter } from 'next/router';
 import { AuthContext } from '../../../../contexts/AuthContext';
-import { createReply } from '../../../../services/replies'
+import { createReply } from '../../../../services/replies';
 import Link from 'next/link';
 import Layout from '../../../../layout/Layout';
 import { Button, TextArea } from '../../../../components';
@@ -15,7 +15,7 @@ export default function ChatCreate() {
   });
   const { currentUser } = useContext(AuthContext);
   const router = useRouter();
-  const {chatId} = router.query
+  const { chatId } = router.query;
   const { content } = reply;
 
   const handleChange = e => {
@@ -24,9 +24,9 @@ export default function ChatCreate() {
   };
 
   const handleCreate = async () => {
-    const res = await createReply(chatId, reply)
-    router.push(`/chats/${chatId}`)
-  }
+    const res = await createReply(chatId, reply);
+    router.push(`/chats/${chatId}`);
+  };
 
   return (
     <Layout>
@@ -41,7 +41,11 @@ export default function ChatCreate() {
           <Link href={`/users/${currentUser?.username}`}>
             <img
               className={styles.profile_pic}
-              src={currentUser?.profile_pic}
+              src={
+                currentUser?.profile_pic
+                  ? currentUser.profile_pic
+                  : '/defaultUser.jpg'
+              }
               alt={currentUser?.username}
             />
           </Link>

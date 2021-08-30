@@ -10,17 +10,17 @@ import styles from '../styles/Profile.module.css';
 import icons from '../styles/Icon.module.css';
 
 export default function Profile({ user }) {
-  const [userChats, setUserChats] = useState([])
+  const [userChats, setUserChats] = useState([]);
   const currentUser = useContext(AuthContext);
   const router = useRouter();
 
-useEffect(() => {
-  const fetchUserChats = async () => {
-    const res = await getUserChats(user.username)
-    setUserChats(res)
-  }
-  fetchUserChats()
-}, [])
+  useEffect(() => {
+    const fetchUserChats = async () => {
+      const res = await getUserChats(user.username);
+      setUserChats(res);
+    };
+    fetchUserChats();
+  }, []);
 
   return (
     <Layout>
@@ -35,7 +35,7 @@ useEffect(() => {
           <div className={styles.header}>
             <img
               className={styles.profile_pic}
-              src={user.profile_pic}
+              src={user.profile_pic ? user.profile_pic : '/defaultUser.jpg'}
               alt={user.username}
             />
             <div>

@@ -55,7 +55,11 @@ export default function ChatEdit({ oneChat }) {
           <Link href={`/users/${currentUser?.username}`}>
             <img
               className={styles.profile_pic}
-              src={currentUser?.profile_pic}
+              src={
+                currentUser?.profile_pic
+                  ? currentUser?.profile_pic
+                  : '/defaultUser.jpg'
+              }
               alt={currentUser?.username}
             />
           </Link>
