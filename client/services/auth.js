@@ -1,4 +1,5 @@
 import api from './apiConfig';
+import axios from 'axios'
 
 export const loginUser = async loginData => {
   try {
@@ -11,14 +12,21 @@ export const loginUser = async loginData => {
   }
 };
 
+// export const registerUser = async registerData => {
+//   try {
+//     const res = await api.post('/users/', { user: registerData });
+//     localStorage.setItem('authToken', res.data.token);
+//     api.defaults.headers.common.authorization = `Bearer ${res.data.token}`;
+//     return res.data.user;
+//   } catch (error) {
+//     return {error: error.response.data}
+//   }
+// };
 export const registerUser = async registerData => {
   try {
-    const res = await api.post('/users/', { user: registerData });
-    localStorage.setItem('authToken', res.data.token);
-    api.defaults.headers.common.authorization = `Bearer ${res.data.token}`;
-    return res.data.user;
+    const res = await axios.post('/api/auth/register', registerData)
   } catch (error) {
-    return {error: error.response.data}
+    return({error: error.response.data})
   }
 };
 
