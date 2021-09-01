@@ -75,6 +75,25 @@
   right: 20px;
 }
 
+<<<<<<< HEAD:client/components/Button/Button.module.css
+=======
+.new {
+  display: block
+}
+
+.reply {
+  display: block
+}
+
+.btn-icon {
+  font-size: 2.5rem;
+}
+
+.btn-icon-sm {
+  font-size: 1.75rem;
+}
+
+>>>>>>> main:client/src/assets/css/components/Button.css
 @media screen and (min-width: 500px) {
   .new, .reply {
     display: none;
