@@ -71,7 +71,6 @@ export default function Profile({ user }) {
 export async function getServerSideProps(context) {
   const { username } = context.params;
   const user = await getOneUser(username);
-  console.log(user)
   return {
     props: {
       user,
