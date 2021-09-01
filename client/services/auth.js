@@ -31,11 +31,9 @@ export const verifyUser = async () => {
       return res.data;
     }
     return null;
-    
   } catch (error) {
-    return
+    return null
   }
-
 };
 
 export const removeToken = () => {
