@@ -1,5 +1,6 @@
 import { useState, useEffect, createContext } from 'react';
 import { useRouter } from 'next/router';
+import { signIn } from 'next-auth/client';
 import {
   loginUser,
   registerUser,
@@ -22,7 +23,12 @@ export default function AuthContextProvider({ children }) {
   }, []);
 
   const login = async formData => {
-    const userData = await loginUser(formData);
+    const { username, password } = formData;
+    const userData = await signIn('credentials', {
+      redirect: false,
+      username,
+      password,
+    });
     if (userData.error) {
       return userData.error;
     } else {
@@ -30,6 +36,15 @@ export default function AuthContextProvider({ children }) {
       router.push('/chats');
     }
   };
+  // const login = async formData => {
+  //   const userData = await loginUser(formData);
+  //   if (userData.error) {
+  //     return userData.error;
+  //   } else {
+  //     setCurrentUser(userData);
+  //     router.push('/chats');
+  //   }
+  // };
 
   const register = async formData => {
     const userData = await registerUser(formData);
