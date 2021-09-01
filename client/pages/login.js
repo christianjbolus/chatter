@@ -62,7 +62,7 @@ export default function Login() {
             </div>
           </form>
           <p className={styles.redirect}>
-            Don't have an account?{' '}
+            Don&apos;t have an account?{' '}
             <Link href="/register">
               <a className={styles.link}>Sign up</a>
             </Link>

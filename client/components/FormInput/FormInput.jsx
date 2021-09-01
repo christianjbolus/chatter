@@ -22,6 +22,8 @@ const FormInput = React.forwardRef((props, ref) => {
   );
 })
 
+FormInput.displayName = 'FormInput'
+
 FormInput.defaultProps = {
   type: 'text',
 };
