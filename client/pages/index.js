@@ -10,22 +10,22 @@ export default function Landing() {
   const [loading, setLoading] = useState(true)
   const router = useRouter() 
 
-  useEffect(() => {
-    const fetchUser = async () => {
-      const user = await verifyUser()
-      setUser(user)
-      setLoading(false)
-    }
-    fetchUser()
-  }, [])
+  // useEffect(() => {
+  //   const fetchUser = async () => {
+  //     const user = await verifyUser()
+  //     setUser(user)
+  //     setLoading(false)
+  //   }
+  //   fetchUser()
+  // }, [])
 
-  if (user) {
-    router.push('/chats')
-  }
+  // if (user) {
+  //   router.push('/chats')
+  // }
   
-  if (loading) {
-    return <Spinner />
-  }
+  // if (loading) {
+  //   return <Spinner />
+  // }
 
   return (
     <div className={styles.container}>
