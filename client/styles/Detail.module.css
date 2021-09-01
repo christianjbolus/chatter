@@ -1,0 +1,54 @@
+.container {
+  background-color: #fff;
+  padding: 20px 15px;
+}
+
+.nav {
+  margin-bottom: 30px;
+}
+
+.user {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.profile_pic {
+  height: 70px;
+  width: 70px;
+  border-radius: 50%;
+  object-fit: cover;
+  object-position: top;
+  margin-right: 10px
+}
+
+.display_name {
+  font-size: 15px;
+  font-weight: 700;
+  margin-bottom: 5px;
+}
+
+.username {
+  color: #9F9F9F;
+  font-weight: 500;
+  font-size: 15px;
+}
+
+
+.content {
+  font-size: 18px;
+  line-height: 22px;
+  margin-bottom: 25px
+}
+
+.reply {
+  display: none
+}
+
+@media screen and (min-width: 500px) {
+  .reply {
+    display: flex;
+    justify-content: center;
+    margin-top: 30px;
+  }
+}

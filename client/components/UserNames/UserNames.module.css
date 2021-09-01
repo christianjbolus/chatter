@@ -1,0 +1,66 @@
+.row {
+  display: flex
+}
+
+.disply_name {
+  color: #000;
+  font-weight: 700
+}
+
+.username {
+  color: #9f9f9f;
+  font-weight: 500;
+}
+
+.detail {
+  font-size: 15px;
+}
+
+
+.profile-user-identifiers {
+  margin-bottom: 20px;
+}
+
+.profile-display-name {
+  font-size: 1.1rem;
+  font-weight: 900;
+  margin-bottom: 5px;
+}
+
+.profile-username {
+  color: #9f9f9f;
+  font-weight: 500;
+}
+
+.chat-detail-display-name {
+  font-size: 15px;
+  font-weight: 700;
+  margin-bottom: 5px;
+}
+
+.chat-detail-username {
+  color: #9F9F9F;
+  font-weight: 500;
+  font-size: 15px;
+}
+
+
+.identifiers {
+  display: flex;
+  margin-bottom: 5px;
+  text-decoration: none;
+}
+
+.display_name {
+  color: #000;
+  font-size: 14px;
+  font-weight: 700;
+  margin-bottom: 5px;
+}
+
+.username {
+  color: #9F9F9F;
+  font-weight: 500;
+  font-size: 14px;
+  padding: 0 10px;
+}

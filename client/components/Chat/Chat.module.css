@@ -1,0 +1,63 @@
+.container {
+  display: grid;
+  grid-template-columns: 1fr 5fr;
+  align-content: start;
+  width: 90%;
+  margin-top: 8px;
+  margin-bottom: 8px;
+}
+
+.profile_pic {
+  height: 50px;
+  width: 50px;
+  border-radius: 50%;
+  object-fit: cover;
+  object-position: top;
+}
+
+.card {
+  background-color: #fff;
+  border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.08);
+  cursor: pointer;
+}
+
+.identifiers {
+  display: flex;
+  margin-bottom: 5px;
+  text-decoration: none;
+}
+
+.display_name {
+  color: #000;
+  font-size: 14px;
+  font-weight: 700;
+  margin-bottom: 5px;
+}
+
+.username {
+  color: #9F9F9F;
+  font-weight: 500;
+  font-size: 14px;
+  padding: 0 10px;
+}
+
+.content {
+  color: #000;
+  text-align: left;
+  text-decoration: none;
+  display: inline-block;
+  margin-bottom: 20px;
+  font-size: 15px;
+  line-height: 18px;
+}
+
+@media screen and (min-width: 800px) {
+  .card {
+    border: 1px solid #f0f0f0;
+    box-shadow: none;
+  }
+}

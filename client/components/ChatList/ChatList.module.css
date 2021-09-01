@@ -1,0 +1,19 @@
+.list {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px 0;
+  /* height: 100vh; */
+}
+
+@media screen and (min-width: 800px) {
+  .list {
+    background-color: #fff;
+  }
+}
+
+/* @media screen and (min-width: 500px) {
+  .chat-list {
+    overflow-y: scroll;
+  }
+} */

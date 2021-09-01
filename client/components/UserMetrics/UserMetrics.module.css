@@ -1,0 +1,28 @@
+.user_metrics {
+  display: flex;
+  justify-content: space-between;
+  padding: 0 10px;
+}
+
+.group {
+ display: flex;
+ flex-direction: column;
+}
+
+.metric {
+  font-size: 0.85rem;
+  opacity: 0.5;
+  margin-bottom: 5px;
+}
+
+.count {
+  font-weight: 500;
+}
+
+.dark {
+  color: #fff;
+}
+
+.light {
+  color: #000
+}

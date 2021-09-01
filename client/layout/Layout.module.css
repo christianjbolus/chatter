@@ -1,0 +1,10 @@
+.layout {
+  display: flex;
+  max-width: 800px;
+  width: 100%
+}
+
+.container {
+  position: relative;
+  width: 100%
+}
