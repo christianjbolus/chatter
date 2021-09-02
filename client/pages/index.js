@@ -6,25 +6,23 @@ import { BsChatDotsFill } from '@react-icons/all-files/bs/BsChatDotsFill';
 import styles from '../styles/Landing.module.css';
 
 export default function Landing() {
-  const [user, setUser] = useState()
   const [loading, setLoading] = useState(true)
   const router = useRouter() 
 
   // useEffect(() => {
   //   const fetchUser = async () => {
-  //     const user = await verifyUser()
-  //     setUser(user)
-  //     setLoading(false)
-  //   }
-  //   fetchUser()
-  // }, [])
+  //     const user = await verifyUser();
+  //     if (user) {
+  //       router.push('/chats');
+  //     } else {
+  //       setLoading(false);
+  //     }
+  //   };
+  //   fetchUser();
+  // }, []);
 
-  // if (user) {
-  //   router.push('/chats')
-  // }
-  
   // if (loading) {
-  //   return <Spinner />
+  //   return <Spinner />;
   // }
 
   return (
