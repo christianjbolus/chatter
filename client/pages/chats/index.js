@@ -18,7 +18,7 @@ export default function Chats() {
 
   return (
     <Layout>
-      <TopNav location="Home" />
+      <TopNav location="Chatter" />
       <ChatList items={allChats} url="/chats/id"/>
       <Button className="btn round fixed new" link="/chats/compose">
         <BiPlus className={icons.btn} />
