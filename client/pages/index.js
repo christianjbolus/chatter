@@ -1,29 +1,8 @@
-import { useState, useEffect } from 'react';
-import { useRouter } from 'next/router';
-import { verifyUser } from '../services/auth';
-import { Button, Spinner } from '../components';
+import { Button } from '../components';
 import { BsChatDotsFill } from '@react-icons/all-files/bs/BsChatDotsFill';
 import styles from '../styles/Landing.module.css';
 
 export default function Landing() {
-  const [loading, setLoading] = useState(true)
-  const router = useRouter() 
-
-  // useEffect(() => {
-  //   const fetchUser = async () => {
-  //     const user = await verifyUser();
-  //     if (user) {
-  //       router.push('/chats');
-  //     } else {
-  //       setLoading(false);
-  //     }
-  //   };
-  //   fetchUser();
-  // }, []);
-
-  // if (loading) {
-  //   return <Spinner />;
-  // }
 
   return (
     <div className={styles.container}>
