@@ -1,10 +1,11 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useContext } from 'react';
 import { useRouter } from 'next/router';
 import Link from 'next/link';
 import { getOneChat } from '../../../services/chats';
 import { getAllReplies } from '../../../services/replies';
+import { AuthContext } from '../../../contexts/AuthContext';
 import Layout from '../../../layout/Layout';
-import { Button, ChatList, Engagement } from '../../../components';
+import { Button, ChatList, DevModal, Engagement } from '../../../components';
 import { IoArrowBackOutline } from '@react-icons/all-files/io5/IoArrowBackOutline';
 import { IoChatbubbleOutline } from '@react-icons/all-files/io5/IoChatbubbleOutline';
 import styles from '../../../styles/Detail.module.css';
@@ -12,6 +13,8 @@ import icons from '../../../styles/Icon.module.css';
 
 export default function ChatDetail({ chat }) {
   const [replies, setReplies] = useState(null);
+  const [show, setShow] = useState(false);
+  const { currentUser } = useContext(AuthContext);
   const router = useRouter();
   const { chatId } = router.query;
 
@@ -25,7 +28,12 @@ export default function ChatDetail({ chat }) {
   }, []);
 
   return (
-    <Layout>
+    <Layout setShow={setShow}>
+      <DevModal
+        setShow={setShow}
+        message="You must be logged in to use this feature"
+        className={show ? 'container active' : 'container'}
+      />
       <div className={styles.container}>
         <div className={styles.nav}>
           <IoArrowBackOutline
@@ -61,9 +69,18 @@ export default function ChatDetail({ chat }) {
           editUrl={`/chats/${chat.id}/edit`}
         />
         <div className={styles.reply}>
-          <Button className="btn sm" link={`/chats/${chat.id}/replies/compose`}>
-            Reply
-          </Button>
+          {currentUser ? (
+            <Button
+              className="btn sm"
+              link={`/chats/${chat.id}/replies/compose`}
+            >
+              Reply
+            </Button>
+          ) : (
+            <Button className="btn sm" onClick={() => setShow(true)}>
+              Reply
+            </Button>
+          )}
         </div>
       </div>
       <ChatList
@@ -71,12 +88,18 @@ export default function ChatDetail({ chat }) {
         edit={true}
         editUrl={`/chats/${chat.id}/replies/id`}
       />
-      <Button
-        className="btn round fixed reply"
-        link={`/chats/${chat.id}/replies/compose`}
-      >
-        <IoChatbubbleOutline className={icons.btn} />
-      </Button>
+      {currentUser ? (
+        <Button
+          className="btn round fixed reply"
+          link={`/chats/${chat.id}/replies/compose`}
+        >
+          <IoChatbubbleOutline className={icons.btn} />
+        </Button>
+      ) : (
+        <Button className="btn round fixed new" onClick={() => setShow(true)}>
+          <IoChatbubbleOutline className={icons.btn} />
+        </Button>
+      )}
     </Layout>
   );
 }
