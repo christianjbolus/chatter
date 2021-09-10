@@ -37,13 +37,6 @@ export default function Chats() {
           <BiPlus className={icons.btn} />
         </Button>
       )}
-      {/* <Button
-        className="btn round fixed new"
-        link={currentUser? "/chats/compose" : ''}
-        onClick={() => setShow(true)}
-      >
-        <BiPlus className={icons.btn} />
-      </Button> */}
     </Layout>
   );
 }
