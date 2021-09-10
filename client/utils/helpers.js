@@ -9,7 +9,7 @@ export const formatErrors = errObj => {
 export const formatClasses = (classList, styles) => {
   return classList
     .split(' ')
-    .map(name => styles[name])
+    .map(className => styles[className])
     .join(' ');
 };
 
