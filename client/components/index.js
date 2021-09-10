@@ -1,6 +1,7 @@
 import Button from './Button/Button'
 import Chat from './Chat/Chat'
 import ChatList from './ChatList/ChatList'
+import DevModal from './DevModal/DevModal'
 import Engagement from './Engagement/Engagement'
 import FormInput from './FormInput/FormInput'
 import HeadData from './HeadData/HeadData'
@@ -19,6 +20,7 @@ export {
   Button,
   Chat,
   ChatList,
+  DevModal,
   Engagement,
   FormInput,
   HeadData,
