@@ -1,3 +1,4 @@
+import Link from 'next/link'
 import { Button } from '../components';
 import { BsChatDotsFill } from '@react-icons/all-files/bs/BsChatDotsFill';
 import styles from '../styles/Landing.module.css';
@@ -25,6 +26,9 @@ export default function Landing() {
             Login
           </Button>
         </div>
+        <Link href="/chats">
+          <a className={styles.link}>Look Around</a>
+        </Link>
       </div>
     </div>
   );
