@@ -15,14 +15,10 @@ export default function Register() {
     bio: '',
   });
 
-  const [errors, setErrors] = useState({
-    email: '',
-    username: '',
-    password: '',
-  });
+  const [errors, setErrors] = useState({});
 
   const { register } = useContext(AuthContext);
-  const inputRef = useRef()
+  const inputRef = useRef();
 
   const { email, username, password, display_name, profile_pic, bio } =
     formData;
