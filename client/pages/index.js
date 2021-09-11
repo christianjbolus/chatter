@@ -27,7 +27,7 @@ export default function Landing() {
           </Button>
         </div>
         <Link href="/chats">
-          <a className={styles.link}>Look Around</a>
+          <a className={styles.link}>Continue as guest</a>
         </Link>
       </div>
     </div>
