@@ -32,7 +32,8 @@
 .message {
   font-weight: 700;
   font-size: 1.25rem;
-  /* text-align: center */
+  line-height: 25px;
+  text-align: center
 }
 
 .sub_message {

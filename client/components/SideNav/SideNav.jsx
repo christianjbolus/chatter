@@ -15,11 +15,11 @@ export default function SideNav({ setShow }) {
         </div>
         {currentUser ? (
           <Button className="btn round_sm" link={'/chats/compose'}>
-            <BiPlus className={icons.btn} />
+            <BiPlus className={icons.btn_sm} />
           </Button>
         ) : (
           <Button className="btn round_sm" onClick={() => setShow(true)}>
-            <BiPlus className={icons.btn} />
+            <BiPlus className={icons.btn_sm} />
           </Button>
         )}
       </div>
