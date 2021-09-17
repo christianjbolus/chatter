@@ -5,6 +5,7 @@
 git clone https://github.com/christianjbolus/chatter.git
 cd chatter
 bundle
+rails db:create
 rails db:migrate
 rails s
 cd client
