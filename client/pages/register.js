@@ -85,6 +85,7 @@ export default function Register() {
               name="profile_pic"
               value={profile_pic}
               handleChange={handleChange}
+              placeholder="Optional"
             />
             <TextArea
               className="auth"
@@ -94,6 +95,7 @@ export default function Register() {
               rows="5"
               maxLength="160"
               handleChange={handleChange}
+              placeholder="Optional"
             />
             <div className={styles.submit}>
               <Button className="btn auth">Create account</Button>
