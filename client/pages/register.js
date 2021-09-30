@@ -79,6 +79,7 @@ export default function Register() {
               name="display_name"
               value={display_name}
               handleChange={handleChange}
+              errMessage={errors.display_name}
             />
             <FormInput
               label="Profile pic"
