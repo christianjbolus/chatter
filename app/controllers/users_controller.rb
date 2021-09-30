@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
   before_action :set_user, only: %i[show user_chats]
+  
   def show
     render json: @user,
            except: :password_digest
