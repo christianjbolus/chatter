@@ -2,7 +2,7 @@ import React from 'react';
 import styles from './FormInput.module.css';
 
 const FormInput = React.forwardRef((props, ref) => {
-  const {type, label, name, value, handleChange, errMessage} = props
+  const {type, label, name, value, placeholder, handleChange, errMessage} = props
   console.log(errMessage)
   return (
     <div className={styles.form_field}>
@@ -15,6 +15,7 @@ const FormInput = React.forwardRef((props, ref) => {
         type={type}
         name={name}
         value={value}
+        placeholder={placeholder}
         ref={ref}
         onChange={handleChange}
       />
