@@ -26,7 +26,7 @@ export default function Engagement({
       <div className={styles.group}>
         <IoChatbubbleOutline
           className={icons.engagement}
-          onClick={() => router.push(`/chats/${chatId}/replies/compose`)}
+          // onClick={() => router.push(`/chats/${chatId}/replies/compose`)}
         />
         <p className={styles.metric}>{replies}</p>
       </div>
