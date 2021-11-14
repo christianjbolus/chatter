@@ -3,12 +3,9 @@ import { useRouter } from 'next/router';
 import Link from 'next/link';
 import { getOneChat, updateChat, deleteChat } from '../../../services/chats';
 import Layout from '../../../layout/Layout';
-import { Button, Modal, TextArea } from '../../../components';
-import { IoArrowBackOutline } from '@react-icons/all-files/io5/IoArrowBackOutline';
-import { BsTrash } from '@react-icons/all-files/bs/BsTrash';
+import { Button, Icon, Modal, TextArea } from '../../../components';
 import { AuthContext } from '../../../contexts/AuthContext';
 import styles from '../../../styles/Compose.module.css';
-import icons from '../../../styles/Icon.module.css';
 
 export default function ChatEdit({ oneChat }) {
   const [chat, setChat] = useState({
@@ -46,20 +43,15 @@ export default function ChatEdit({ oneChat }) {
       />
       <div className={styles.container}>
         <div className={styles.nav}>
-          <IoArrowBackOutline
-            className={icons.back_arrow}
-            onClick={() => router.back()}
-          />
+          <Button className="back" onClick={() => router.back()}>
+            <Icon name="Back" className="back_arrow"/>
+          </Button>
         </div>
         <div className={styles.form_group}>
           <Link href={`/users/${currentUser?.username}`}>
             <img
               className={styles.profile_pic}
-              src={
-                currentUser?.profile_pic
-                  ? currentUser?.profile_pic
-                  : '/defaultUser.jpg'
-              }
+              src={currentUser?.profile_pic ? currentUser?.profile_pic : '/defaultUser.jpg'}
               alt={currentUser?.username}
             />
           </Link>
@@ -84,7 +76,9 @@ export default function ChatEdit({ oneChat }) {
               Update
             </Button>
           </div>
-          <BsTrash className={icons.delete} onClick={() => setShow(true)} />
+          <Button className="delete" onClick={() => setShow(true)}>
+            <Icon name="Delete" className="delete" />
+          </Button>
         </div>
       </div>
     </Layout>

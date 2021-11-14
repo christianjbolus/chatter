@@ -1,6 +1,5 @@
 import Link from 'next/link'
-import { Button } from '../components';
-import { BsChatDotsFill } from '@react-icons/all-files/bs/BsChatDotsFill';
+import { Button, Icon } from '../components';
 import styles from '../styles/Landing.module.css';
 
 export default function Landing() {
@@ -9,7 +8,7 @@ export default function Landing() {
     <div className={styles.container}>
       <div className={styles.content}>
         <div>
-          <BsChatDotsFill className={styles.logo} />
+          <Icon name="Logo" className="logo_landing" />
         </div>
         <h1 className={styles.message}>
           Welcome to<span className={styles.brand}>Chatter</span>

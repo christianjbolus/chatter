@@ -5,11 +5,8 @@ import { getOneChat } from '../../../services/chats';
 import { getAllReplies } from '../../../services/replies';
 import { AuthContext } from '../../../contexts/AuthContext';
 import Layout from '../../../layout/Layout';
-import { Button, ChatList, DevModal, Engagement } from '../../../components';
-import { IoArrowBackOutline } from '@react-icons/all-files/io5/IoArrowBackOutline';
-import { IoChatbubbleOutline } from '@react-icons/all-files/io5/IoChatbubbleOutline';
+import { Button, ChatList, DevModal, Engagement, Icon } from '../../../components';
 import styles from '../../../styles/Detail.module.css';
-import icons from '../../../styles/Icon.module.css';
 
 export default function ChatDetail({ chat }) {
   const [replies, setReplies] = useState(null);
@@ -36,10 +33,9 @@ export default function ChatDetail({ chat }) {
       />
       <div className={styles.container}>
         <div className={styles.nav}>
-          <IoArrowBackOutline
-            className={icons.back_arrow}
-            onClick={() => router.push('/chats')}
-          />
+        <Button className="back" onClick={() => router.back()}>
+            <Icon name="Back" className="back_arrow"/>
+          </Button>
         </div>
         <div className={styles.user}>
           <Link href={`/users/${chat.user.username}`}>
@@ -93,11 +89,11 @@ export default function ChatDetail({ chat }) {
           className="btn round fixed reply"
           link={`/chats/${chat.id}/replies/compose`}
         >
-          <IoChatbubbleOutline className={icons.btn} />
+          <Icon name="Reply" className="btn" />
         </Button>
       ) : (
         <Button className="btn round fixed new" onClick={() => setShow(true)}>
-          <IoChatbubbleOutline className={icons.btn} />
+          <Icon name="Reply" className="btn" />
         </Button>
       )}
     </Layout>

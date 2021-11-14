@@ -1,9 +1,7 @@
 import { useState, useContext } from 'react';
 import { AuthContext } from '../../contexts/AuthContext';
-import { BsChatDotsFill } from '@react-icons/all-files/bs/BsChatDotsFill';
-import { PopoutNav } from '../index';
+import { Icon, PopoutNav } from '../index';
 import styles from './TopNav.module.css';
-import icons from '../../styles/Icon.module.css';
 
 export default function TopNav({ location }) {
   const [show, setShow] = useState(false);
@@ -29,7 +27,7 @@ export default function TopNav({ location }) {
             <h2 className={styles.location_text}>{location}</h2>
           </div>
           <div className={styles.logo}>
-            <BsChatDotsFill className={icons.navbar} />
+            <Icon name="Logo" className="logo_nav" />
           </div>
         </nav>
       </div>

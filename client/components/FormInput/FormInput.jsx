@@ -1,5 +1,5 @@
 import React from 'react';
-import { IoWarning } from '@react-icons/all-files/io5/IoWarning'
+import { Icon } from '../index'
 import styles from './FormInput.module.scss';
 
 const FormInput = React.forwardRef((props, ref) => {
@@ -25,7 +25,7 @@ const FormInput = React.forwardRef((props, ref) => {
         />
         {errMessage && (
           <p className={styles.error}>
-            <IoWarning className="error_icon" />
+            <Icon name="Warning" className="error" />
             {errMessage}
           </p>
         )}

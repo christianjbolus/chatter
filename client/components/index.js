@@ -5,6 +5,7 @@ import DevModal from './DevModal/DevModal'
 import Engagement from './Engagement/Engagement'
 import FormInput from './FormInput/FormInput'
 import HeadData from './HeadData/HeadData'
+import Icon from './Icon/Icon'
 import Modal from './Modal/Modal'
 import NavLink from './NavLink/NavLink'
 import NavLinks from './NavLinks/NavLinks'
@@ -24,6 +25,7 @@ export {
   Engagement,
   FormInput,
   HeadData,
+  Icon,
   Modal,
   NavLink,
   NavLinks,

@@ -75,6 +75,25 @@
   right: 20px;
 }
 
+.back {
+  border: none;
+  background: none;
+  padding: 0;
+}
+
+.edit {
+  border: none;
+  background: none;
+  padding: 0;
+}
+
+.delete {
+  border: none;
+  background: none;
+  padding: 0 10px;
+  justify-self: flex-end
+}
+
 @media screen and (min-width: 500px) {
   .new, .reply {
     display: none;
