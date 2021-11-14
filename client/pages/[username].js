@@ -2,12 +2,9 @@ import { useState, useEffect, useContext } from 'react';
 import { useRouter } from 'next/router';
 import { getOneUser, getUserChats } from '../services/users';
 import Layout from '../layout/Layout';
-import { Button, ChatList, DevModal, UserMetrics } from '../components';
+import { Button, ChatList, DevModal, Icon, UserMetrics } from '../components';
 import { AuthContext } from '../contexts/AuthContext';
-import { BiPlus } from '@react-icons/all-files/bi/BiPlus';
-import { IoArrowBackOutline } from '@react-icons/all-files/io5/IoArrowBackOutline';
 import styles from '../styles/Profile.module.css';
-import icons from '../styles/Icon.module.css';
 
 export default function Profile({ user }) {
   const [userChats, setUserChats] = useState([]);
@@ -33,10 +30,9 @@ export default function Profile({ user }) {
       <div>
         <div className={styles.profile}>
           <div className={styles.nav}>
-            <IoArrowBackOutline
-              className={icons.back_arrow}
-              onClick={() => router.back()}
-            />
+            <Button className="back" onClick={() => router.back()}>
+              <Icon name="Back" className="back_arrow" />
+            </Button>
           </div>
           <div className={styles.header}>
             <img
@@ -68,11 +64,11 @@ export default function Profile({ user }) {
         />
         {currentUser ? (
           <Button className="btn round fixed new" link={'/chats/compose'}>
-            <BiPlus className={icons.btn} />
+            <Icon name="Plus" className="btn" />
           </Button>
         ) : (
           <Button className="btn round fixed new" onClick={() => setShow(true)}>
-            <BiPlus className={icons.btn} />
+            <Icon name="Plus" className="btn" />
           </Button>
         )}
       </div>

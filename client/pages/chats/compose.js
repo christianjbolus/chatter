@@ -4,10 +4,8 @@ import { AuthContext } from '../../contexts/AuthContext';
 import { createChat } from '../../services/chats';
 import Link from 'next/link';
 import Layout from '../../layout/Layout';
-import { Button, TextArea } from '../../components';
-import { IoArrowBackOutline } from '@react-icons/all-files/io5/IoArrowBackOutline';
+import { Button, Icon, TextArea } from '../../components';
 import styles from '../../styles/Compose.module.css';
-import icons from '../../styles/Icon.module.css';
 
 export default function ChatCreate() {
   const [chat, setChat] = useState({
@@ -32,10 +30,9 @@ export default function ChatCreate() {
     <Layout>
       <div className={styles.container}>
         <div className={styles.nav}>
-          <IoArrowBackOutline
-            className={icons.back_arrow}
-            onClick={() => router.back()}
-          />
+        <Button className="back" onClick={() => router.back()}>
+            <Icon name="Back" className="back_arrow"/>
+          </Button>
         </div>
         <div className={styles.form_group}>
           <Link href={`/users/${currentUser?.username}`}>

@@ -6,6 +6,7 @@ import { FiEdit, FiPower } from 'react-icons/fi';
 import {
   IoArrowBackOutline,
   IoChatbubbleOutline,
+  IoClose,
   IoPersonOutline,
   IoPersonAddOutline,
   IoWarning,
@@ -16,6 +17,8 @@ export default function Icon({ name, className }) {
   switch (name) {
     case 'Back':
       return <IoArrowBackOutline className={styles[className]} />;
+    case 'Close':
+      return <IoClose className={styles[className]} />;
     case 'Logo':
       return <BsChatDotsFill className={styles[className]} />;
     case 'Reply':

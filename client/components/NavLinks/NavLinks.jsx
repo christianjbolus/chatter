@@ -1,12 +1,6 @@
 import { useContext } from 'react';
 import { AuthContext } from '../../contexts/AuthContext';
-import { NavLink } from '../index';
-import { AiOutlineLogin } from '@react-icons/all-files/ai/AiOutlineLogin';
-import { BsHeart } from '@react-icons/all-files/bs/BsHeart';
-import { FiPower } from '@react-icons/all-files/fi/FiPower';
-import { IoPersonOutline } from '@react-icons/all-files/io5/IoPersonOutline';
-import { IoPersonAddOutline } from '@react-icons/all-files/io5/IoPersonAddOutline';
-import icons from '../../styles/Icon.module.css';
+import { Icon, NavLink } from '../index';
 
 export default function NavLinks({ size, mode, icon, collapsible }) {
   const { currentUser, logout } = useContext(AuthContext);
@@ -21,7 +15,7 @@ export default function NavLinks({ size, mode, icon, collapsible }) {
           href="/login"
           className={`${collapsible ? 'collapse' : ''}`}
         >
-          <AiOutlineLogin className={icons[icon]} />
+          <Icon name="Login" className={icon} />
         </NavLink>
         <NavLink
           text="Sign Up"
@@ -30,7 +24,7 @@ export default function NavLinks({ size, mode, icon, collapsible }) {
           href="/register"
           className={`${collapsible ? 'collapse' : ''}`}
         >
-          <IoPersonAddOutline className={icons[icon]} />
+          <Icon name="SignUp" className={icon} />
         </NavLink>
       </>
     );
@@ -45,7 +39,7 @@ export default function NavLinks({ size, mode, icon, collapsible }) {
         href={`/${currentUser?.username}`}
         className={`${collapsible ? 'collapse' : ''}`}
       >
-        <IoPersonOutline className={icons[icon]} />
+        <Icon name="Profile" className={icon} />
       </NavLink>
       <NavLink
         text="Likes"
@@ -54,7 +48,7 @@ export default function NavLinks({ size, mode, icon, collapsible }) {
         href={`/${currentUser?.username}/likes`}
         className={`${collapsible ? 'collapse' : ''}`}
       >
-        <BsHeart className={icons[icon]} />
+        <Icon name="Like" className={icon} />
       </NavLink>
       <NavLink
         text="Logout"
@@ -64,7 +58,7 @@ export default function NavLinks({ size, mode, icon, collapsible }) {
         onClick={logout}
         className={`${collapsible ? 'collapse' : ''}`}
       >
-        <FiPower className={icons[icon]} />
+        <Icon name="Logout" className={icon} />
       </NavLink>
     </>
   );

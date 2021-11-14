@@ -75,21 +75,18 @@
   right: 20px;
 }
 
-.back {
+.back, .edit, .close, .delete {
   border: none;
   background: none;
   padding: 0;
 }
 
-.edit {
-  border: none;
-  background: none;
-  padding: 0;
+.close {
+  justify-self: flex-start;
+  margin-left: 20px;
 }
 
 .delete {
-  border: none;
-  background: none;
   padding: 0 10px;
   justify-self: flex-end
 }
