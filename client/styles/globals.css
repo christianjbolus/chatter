@@ -61,11 +61,30 @@ table {
 ::-moz-placeholder {
   color: #9f9f9f;
 }
+
 :-ms-input-placeholder {
   color: #9f9f9f;
 }
+
 :-moz-placeholder {
   color: #9f9f9f;
+}
+
+:root {
+	--orange: #ff7f00;
+  --form-focus: 0px 0px 0px 3px rgba(255, 127, 0, 0.6);
+  --error: #d82222;
+  --success: #058505;
+
+  --fs-xxs: 12px;
+  --fs-xs: 13px;
+  --fs-sm: 14px;
+  --fs-md: 16px;
+  --fs-lg: 18px;
+  --fs-xl: 20px;
+  --fs-xxl: 22px;
+
+  --transition: all 0.25s cubic-bezier(0.645, 0.045, 0.355, 1);
 }
 
 .app {
