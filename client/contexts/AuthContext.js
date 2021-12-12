@@ -1,11 +1,6 @@
 import { useState, useEffect, createContext } from 'react';
 import { useRouter } from 'next/router';
-import {
-  loginUser,
-  registerUser,
-  verifyUser,
-  removeToken,
-} from '../services/auth';
+import { loginUser, registerUser, verifyUser, removeToken } from '../services/auth';
 
 export const AuthContext = createContext(null);
 
@@ -37,7 +32,7 @@ export default function AuthContextProvider({ children }) {
       return userData.error;
     } else {
       setCurrentUser(userData);
-      router.push('/');
+      router.push(`/${userData.username}/bio`);
     }
   };
 
@@ -51,12 +46,11 @@ export default function AuthContextProvider({ children }) {
 
   const context = {
     currentUser,
+    setCurrentUser,
     login,
     register,
     logout,
   };
 
-  return (
-    <AuthContext.Provider value={context}>{children}</AuthContext.Provider>
-  );
+  return <AuthContext.Provider value={context}>{children}</AuthContext.Provider>;
 }
