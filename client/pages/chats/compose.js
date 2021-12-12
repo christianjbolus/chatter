@@ -30,19 +30,15 @@ export default function ChatCreate() {
     <Layout>
       <div className={styles.container}>
         <div className={styles.nav}>
-        <Button className="back" onClick={() => router.back()}>
-            <Icon name="Back" className="back_arrow"/>
+          <Button className="back" onClick={() => router.back()}>
+            <Icon name="Back" className="back_arrow" />
           </Button>
         </div>
         <div className={styles.form_group}>
           <Link href={`/users/${currentUser?.username}`}>
             <img
               className={styles.profile_pic}
-              src={
-                currentUser?.profile_pic
-                  ? currentUser?.profile_pic
-                  : '/defaultUser.jpg'
-              }
+              src={currentUser?.profile_pic ? currentUser?.profile_pic : '/defaultUser.jpg'}
               alt={currentUser?.username}
             />
           </Link>

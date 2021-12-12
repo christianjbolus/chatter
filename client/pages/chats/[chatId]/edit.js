@@ -44,7 +44,7 @@ export default function ChatEdit({ oneChat }) {
       <div className={styles.container}>
         <div className={styles.nav}>
           <Button className="back" onClick={() => router.back()}>
-            <Icon name="Back" className="back_arrow"/>
+            <Icon name="Back" className="back_arrow" />
           </Button>
         </div>
         <div className={styles.form_group}>
