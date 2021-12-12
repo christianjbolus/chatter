@@ -1,22 +1,22 @@
 import { useState, useEffect, useContext, useRef } from 'react';
 import Link from 'next/link';
-import { Button, FormInput } from '../components';
+import { Button, FormInput, Icon } from '../components';
 import { AuthContext } from '../contexts/AuthContext';
-import styles from '../styles/AuthForm.module.css';
+import styles from '../styles/AuthForm.module.scss';
 
 export default function Login() {
   const [formData, setFormData] = useState({
     username: '',
     password: '',
   });
-  const [errorMessage, setErrorMessage] = useState('');
+  const [errMessage, setErrMessage] = useState('');
   const { login } = useContext(AuthContext);
-  const inputRef = useRef()
+  const inputRef = useRef();
   const { username, password } = formData;
 
   useEffect(() => {
-    inputRef.current.focus()
-  }, [])
+    inputRef.current.focus();
+  }, []);
 
   const handleChange = e => {
     const { name, value } = e.target;
@@ -26,7 +26,7 @@ export default function Login() {
   const handleLogin = async () => {
     const err = await login(formData);
     if (err) {
-      setErrorMessage(err);
+      setErrMessage(err);
     }
   };
 
@@ -56,7 +56,14 @@ export default function Login() {
               value={password}
               handleChange={handleChange}
             />
-            <p className={styles.error}>{errorMessage}</p>
+            <div className={styles.error_container}>
+              {errMessage && (
+                <p className={styles.error}>
+                  <Icon name="Warning" className="error"/>
+                  {errMessage}
+                </p>
+              )}
+            </div>
             <div className={styles.submit}>
               <Button className="btn auth">Sign in</Button>
             </div>
