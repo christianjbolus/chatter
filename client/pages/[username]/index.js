@@ -44,7 +44,7 @@ export default function Profile({ user }) {
               {currentUser?.id === user?.id ? (
                 <Button
                   className="btn lg invert"
-                  onClick={() => router.push(`/${user.username}/bio`)}
+                  onClick={() => router.push(`/${user.username}/profile`)}
                 >
                   Edit Profile
                 </Button>

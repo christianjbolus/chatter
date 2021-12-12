@@ -32,7 +32,7 @@ export default function AuthContextProvider({ children }) {
       return userData.error;
     } else {
       setCurrentUser(userData);
-      router.push(`/${userData.username}/bio`);
+      router.push(`/${userData.username}/profile`);
     }
   };
 

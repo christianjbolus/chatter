@@ -2,7 +2,7 @@ import { useState, useEffect, useContext, useRef } from 'react';
 import Link from 'next/link';
 import { Button, FormInput, TextArea } from '../components';
 import { formatErrors } from '../utils/helpers';
-import styles from '../styles/AuthForm.module.css';
+import styles from '../styles/AuthForm.module.scss';
 import { AuthContext } from '../contexts/AuthContext';
 
 export default function Register() {
@@ -74,7 +74,7 @@ export default function Register() {
               handleChange={handleChange}
               errMessage={errors.password}
             />
-            <FormInput
+            {/* <FormInput
               label="Display name"
               name="display_name"
               value={display_name}
@@ -97,7 +97,7 @@ export default function Register() {
               maxLength="160"
               handleChange={handleChange}
               placeholder="Optional"
-            />
+            /> */}
             <div className={styles.submit}>
               <Button className="btn auth">Create account</Button>
             </div>
