@@ -12,15 +12,19 @@ export default function Engagement({ chatId, userId, replies, reposts, likes, ed
   return (
     <div className={styles.container}>
       <div className={styles.group}>
-        <Icon
-          name="Reply"
-          className="engagement"
-          // onClick={() => router.push(`/chats/${chatId}/replies/compose`)}
-        />
+        <Button className="engagement">
+          <Icon
+            name="Reply"
+            className="engagement"
+            // onClick={() => router.push(`/chats/${chatId}/replies/compose`)}
+          />
+        </Button>
         <p className={styles.metric}>{replies}</p>
       </div>
       <div className={styles.group}>
-        <Icon name="Rechat" className="engagement" />
+        <Button className="engagement">
+          <Icon name="Rechat" className="engagement" />
+        </Button>
         <p className={styles.metric}>{reposts}</p>
       </div>
       <div className={styles.group}>
