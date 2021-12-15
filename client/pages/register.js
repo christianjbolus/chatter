@@ -1,6 +1,6 @@
 import { useState, useEffect, useContext, useRef } from 'react';
 import Link from 'next/link';
-import { Button, FormInput, TextArea } from '../components';
+import { Button, FormInput, Password } from '../components';
 import { formatErrors } from '../utils/helpers';
 import styles from '../styles/AuthForm.module.scss';
 import { AuthContext } from '../contexts/AuthContext';
@@ -15,13 +15,12 @@ export default function Register() {
     bio: '',
   });
 
-  const [errors, setErrors] = useState({});
+  const [formErrors, setFormErrors] = useState({});
 
   const { register } = useContext(AuthContext);
   const inputRef = useRef();
 
-  const { email, username, password, display_name, profile_pic, bio } =
-    formData;
+  const { email, username, password, display_name, profile_pic, bio } = formData;
 
   useEffect(() => {
     inputRef.current.focus();
@@ -32,10 +31,11 @@ export default function Register() {
     setFormData(prevState => ({ ...prevState, [name]: value }));
   };
 
-  const handleRegister = async () => {
+  const handleRegister = async e => {
+    e.preventDefault();
     const err = await register(formData);
     if (err) {
-      setErrors({ ...formatErrors(err) });
+      setFormErrors({ ...formatErrors(err) });
     }
   };
 
@@ -45,41 +45,36 @@ export default function Register() {
       <div className={styles.container}>
         <div className={styles.form}>
           <h2 className={styles.heading}>Create your Chatter account</h2>
-          <form
-            onSubmit={e => {
-              e.preventDefault();
-              handleRegister();
-            }}
-          >
+          <form onSubmit={handleRegister}>
             <FormInput
               label="Email"
               name="email"
               value={email}
               ref={inputRef}
               handleChange={handleChange}
-              errMessage={errors.email}
+              errMessage={formErrors.email}
             />
             <FormInput
               label="Username"
               name="username"
               value={username}
               handleChange={handleChange}
-              errMessage={errors.username}
+              errMessage={formErrors.username}
             />
-            <FormInput
-              type="password"
+            <Password
               label="Password"
               name="password"
+              data="validate"
               value={password}
               handleChange={handleChange}
-              errMessage={errors.password}
+              setFormErrors={setFormErrors}
             />
             {/* <FormInput
               label="Display name"
               name="display_name"
               value={display_name}
               handleChange={handleChange}
-              errMessage={errors.display_name}
+              errMessage={formErrors.display_name}
             />
             <FormInput
               label="Profile pic"

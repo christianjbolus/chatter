@@ -8,6 +8,7 @@ import Icon from './Icon/Icon'
 import Modal from './Modal/Modal'
 import NavLink from './NavLink/NavLink'
 import NavLinks from './NavLinks/NavLinks'
+import Password from './Password/Password'
 import PopoutNav from './PopoutNav/PopoutNav'
 import SideNav from './SideNav/SideNav'
 import Spinner from './Spinner/Spinner'
@@ -27,6 +28,7 @@ export {
   Modal,
   NavLink,
   NavLinks,
+  Password,
   PopoutNav,
   SideNav,
   Spinner,
