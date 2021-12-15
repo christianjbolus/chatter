@@ -2,7 +2,7 @@ import { useState, useEffect, useContext } from 'react';
 import { useRouter } from 'next/router';
 import { getOneUser, getUserChats } from '../../services/users';
 import Layout from '../../layout/Layout';
-import { Button, ChatList, DevModal, Icon, UserMetrics } from '../../components';
+import { Button, ChatList, Icon, Modal, UserMetrics } from '../../components';
 import { AuthContext } from '../../contexts/AuthContext';
 import styles from '../../styles/Profile.module.css';
 
@@ -22,9 +22,11 @@ export default function Profile({ user }) {
 
   return (
     <Layout setShow={setShow}>
-      <DevModal
+      <Modal 
         setShow={setShow}
         message="You must be logged in to use this feature"
+        numBtns={1}
+        btnText="Got it"
         className={show ? 'container active' : 'container'}
       />
       <div>

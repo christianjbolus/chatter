@@ -20,7 +20,7 @@ export default function Modal({
         <p className={styles.sub_message}>{subMessage}</p>
         <div className={styles.control}>
           {numBtns === 1 ? (
-            <Button className="btn lg" onClick={handleDelete}>
+            <Button className="btn lg" onClick={() => setShow(false)}>
               {btnText}
             </Button>
           ) : (

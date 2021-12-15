@@ -5,7 +5,7 @@ import { getOneChat } from '../../../services/chats';
 import { getAllReplies } from '../../../services/replies';
 import { AuthContext } from '../../../contexts/AuthContext';
 import Layout from '../../../layout/Layout';
-import { Button, ChatList, DevModal, Engagement, Icon } from '../../../components';
+import { Button, ChatList, Engagement, Icon, Modal } from '../../../components';
 import styles from '../../../styles/Detail.module.css';
 
 export default function ChatDetail({ chat }) {
@@ -26,26 +26,24 @@ export default function ChatDetail({ chat }) {
 
   return (
     <Layout setShow={setShow}>
-      <DevModal
+      <Modal
         setShow={setShow}
         message="You must be logged in to use this feature"
+        numBtns={1}
+        btnText="Got it"
         className={show ? 'container active' : 'container'}
       />
       <div className={styles.container}>
         <div className={styles.nav}>
-        <Button className="back" onClick={() => router.back()}>
-            <Icon name="Back" className="back_arrow"/>
+          <Button className="back" onClick={() => router.back()}>
+            <Icon name="Back" className="back_arrow" />
           </Button>
         </div>
         <div className={styles.user}>
           <Link href={`/users/${chat.user.username}`}>
             <img
               className={styles.profile_pic}
-              src={
-                chat.user.profile_pic
-                  ? chat.user.profile_pic
-                  : '/defaultUser.jpg'
-              }
+              src={chat.user.profile_pic ? chat.user.profile_pic : '/defaultUser.jpg'}
               alt={chat.user.username}
             />
           </Link>
@@ -66,10 +64,7 @@ export default function ChatDetail({ chat }) {
         />
         <div className={styles.reply}>
           {currentUser ? (
-            <Button
-              className="btn sm"
-              link={`/chats/${chat.id}/replies/compose`}
-            >
+            <Button className="btn sm" link={`/chats/${chat.id}/replies/compose`}>
               Reply
             </Button>
           ) : (
@@ -79,16 +74,9 @@ export default function ChatDetail({ chat }) {
           )}
         </div>
       </div>
-      <ChatList
-        items={replies}
-        edit={true}
-        editUrl={`/chats/${chat.id}/replies/id`}
-      />
+      <ChatList items={replies} edit={true} editUrl={`/chats/${chat.id}/replies/id`} />
       {currentUser ? (
-        <Button
-          className="btn round fixed reply"
-          link={`/chats/${chat.id}/replies/compose`}
-        >
+        <Button className="btn round fixed reply" link={`/chats/${chat.id}/replies/compose`}>
           <Icon name="Reply" className="btn" />
         </Button>
       ) : (

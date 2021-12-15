@@ -38,6 +38,8 @@ export default function ChatEdit({ oneReply }) {
         setShow={setShow}
         message="Are you sure?"
         subMessage="This action can't be undone."
+        numBtns={2}
+        btnText={['Delete', 'Cancel']}
         className={show ? 'container active' : 'container'}
       />
       <div className={styles.container}>

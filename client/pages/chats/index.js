@@ -1,6 +1,6 @@
 import { useState, useEffect, useContext } from 'react';
 import Layout from '../../layout/Layout';
-import { Button, ChatList, DevModal, Icon, TopNav } from '../../components';
+import { Button, ChatList, Icon, Modal, TopNav } from '../../components';
 import { getAllChats } from '../../services/chats';
 import { AuthContext } from '../../contexts/AuthContext';
 
@@ -19,9 +19,11 @@ export default function Chats() {
 
   return (
     <Layout setShow={setShow}>
-      <DevModal
+      <Modal 
         setShow={setShow}
         message="You must be logged in to use this feature"
+        numBtns={1}
+        btnText="Got it"
         className={show ? 'container active' : 'container'}
       />
       <TopNav location="Chatter" />
