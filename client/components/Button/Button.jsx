@@ -5,6 +5,7 @@ import { formatClasses } from '../../utils/helpers';
 export default function Button({
   className,
   children,
+  type,
   link,
   onClick,
   disabled,
@@ -20,7 +21,7 @@ export default function Button({
   }
 
   return (
-    <button className={classes} onClick={onClick} disabled={disabled}>
+    <button className={classes} onClick={onClick} disabled={disabled} type={type}>
       {children}
     </button>
   );
@@ -29,4 +30,5 @@ export default function Button({
 Button.defaultProps = {
   onClick: null,
   disabled: false,
+  type: 'button',
 };
