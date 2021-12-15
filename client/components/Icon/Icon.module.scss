@@ -54,9 +54,26 @@
   font-size: 1.25rem;
 }
 
+.success {
+  color: var(--success);
+  margin-right: 2px;
+}
+
 .error{
   margin-right: 2px;
   min-width: 12px;
+}
+
+.password {
+  color: var(--light-gray);
+  min-width: 16px;
+  min-height: 16px;
+  cursor: pointer;
+  transition: var(--transition);
+
+  &:hover {
+    color: var(--gray);
+  }
 }
 
 @media screen and (min-width: 640px) {
