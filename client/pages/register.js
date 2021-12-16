@@ -69,30 +69,6 @@ export default function Register() {
               handleChange={handleChange}
               setFormErrors={setFormErrors}
             />
-            {/* <FormInput
-              label="Display name"
-              name="display_name"
-              value={display_name}
-              handleChange={handleChange}
-              errMessage={formErrors.display_name}
-            />
-            <FormInput
-              label="Profile pic"
-              name="profile_pic"
-              value={profile_pic}
-              handleChange={handleChange}
-              placeholder="Optional"
-            />
-            <TextArea
-              className="auth"
-              label="Bio"
-              name="bio"
-              value={bio}
-              rows="5"
-              maxLength="160"
-              handleChange={handleChange}
-              placeholder="Optional"
-            /> */}
             <div className={styles.submit}>
               <Button className="btn auth">Create account</Button>
             </div>
