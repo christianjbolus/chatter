@@ -65,7 +65,7 @@ export default function Login() {
               )}
             </div>
             <div className={styles.submit}>
-              <Button className="btn auth">Sign in</Button>
+              <Button className="btn auth" type="submit">Sign in</Button>
             </div>
           </form>
           <p className={styles.redirect}>
