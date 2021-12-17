@@ -1,6 +1,6 @@
 import { useState, useEffect, useContext, useRef } from 'react';
 import Link from 'next/link';
-import { Button, FormInput, Icon } from '../components';
+import { Button, FormInput, Icon, Password } from '../components';
 import { AuthContext } from '../contexts/AuthContext';
 import styles from '../styles/AuthForm.module.scss';
 
@@ -49,8 +49,7 @@ export default function Login() {
               ref={inputRef}
               handleChange={handleChange}
             />
-            <FormInput
-              type="password"
+            <Password
               label="Password"
               name="password"
               value={password}
