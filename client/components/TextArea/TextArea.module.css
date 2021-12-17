@@ -15,32 +15,25 @@
   padding: 12px;
   border: 1px solid #E0E0E0;
   border-radius: 5px;
-  font-size: 16px;
-  -webkit-appearance: none;
+  font-size: var(--fs-md);
   resize: none;
   transition: 150ms;
-  font-family:  'Oxygen',
-  'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-  sans-serif;
+  font-family: var(--font-sans);
+  -webkit-appearance: none;
 }
 
 .auth:focus {
-  box-shadow: 2px 2px rgba(255, 127, 0, 0.8), 
-  -2px -2px rgba(255, 127, 0, 0.8), 
-  -2px 2px rgba(255, 127, 0, 0.8), 
-  2px -2px rgba(255, 127, 0, 0.8);
+  box-shadow: var(--form-focus);
+  border: 1px solid var(--faded-orange);
   outline: none;
-  border: #FF7F00;
 }
 
 .chat{
-  font-size: 18px;
+  font-size: var(--fs-lg);
   padding: 12px;
   border: none;
   resize: none;
-  font-family:  'Oxygen',
-  'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-  sans-serif;
+  font-family: var(--font-sans);
 }
 
 .chat:focus {
