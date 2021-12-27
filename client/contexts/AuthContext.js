@@ -7,20 +7,27 @@ import {
   verifyUser,
   removeToken,
 } from '../services/auth';
+import { useSession } from 'next-auth/client'
 
 export const AuthContext = createContext(null);
 
 export default function AuthContextProvider({ children }) {
   const [currentUser, setCurrentUser] = useState(null);
+  const [session, loading] = useSession();
   const router = useRouter();
 
+  
   useEffect(() => {
-    const handleVerify = async () => {
-      const res = await verifyUser();
-      setCurrentUser(res);
-    };
-    handleVerify();
-  }, []);
+    // const handleVerify = async () => {
+    //   const res = await verifyUser();
+    //   setCurrentUser(res);
+    // };
+    // handleVerify();
+    if (session) {
+      console.log(session)
+      setCurrentUser(session.user);
+    }
+  }, [session]);
 
   const login = async formData => {
     const { username, password } = formData;
@@ -32,7 +39,7 @@ export default function AuthContextProvider({ children }) {
     if (userData.error) {
       return userData.error;
     } else {
-      setCurrentUser(userData);
+      // setCurrentUser(userData);
       router.push('/chats');
     }
   };
