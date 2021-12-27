@@ -11,13 +11,11 @@ export default NextAuth({
       async authorize(credentials) {
         const { username, password } = credentials;
         try {
-          const res = await api.post('/auth/login', {
+          const { data: { user, token } } = await api.post('/auth/login', {
             authentication: { username, password },
           });
-          // console.log(res.data.user);
-          return {
-            user: res.data.user,
-          };
+          user.token = token
+          return user
         } catch (error) {
           throw new Error('Invalid credentials');
         }
@@ -27,16 +25,23 @@ export default NextAuth({
 
   callbacks: {
     jwt: async (token, user, account, profile, isNewUser) => {
-      console.log(user)
+      // console.log('jwt callback', user, token)
       if (user) {
-        token.user = user.user;
+        token.user = user;
       }
+      // console.log(token)
       return token;
     },
 
     session: async (session, token) => {
       session.user = token.user;
+      console.log('Session callback', session);
       return session;
     },
+
+    signIn: async (user, account) => {
+      console.log('Sign in callback', user, account);
+      return user;
+    }
   },
 });
