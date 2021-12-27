@@ -1,20 +1,22 @@
 import NextAuth from 'next-auth';
-import Providers from 'next-auth/providers';
+import CredentialsProvider from 'next-auth/providers/credentials';
 import api from '../../../services/apiConfig';
 
 export default NextAuth({
   session: {
-    jwt: true,
+    strategy: 'jwt',
   },
+  secret: process.env.NEXT_PUBLIC_SECRET,
   providers: [
-    Providers.Credentials({
+    CredentialsProvider({
       async authorize(credentials) {
         const { username, password } = credentials;
         try {
           const { data: { user, token } } = await api.post('/auth/login', {
             authentication: { username, password },
           });
-          user.token = token
+            // console.log(token)
+            user.token = token
           return user
         } catch (error) {
           throw new Error('Invalid credentials');
@@ -24,23 +26,21 @@ export default NextAuth({
   ],
 
   callbacks: {
-    jwt: async (token, user, account, profile, isNewUser) => {
+    jwt: async ({token, user}) => {
       // console.log('jwt callback', user, token)
       if (user) {
         token.user = user;
       }
-      // console.log(token)
       return token;
     },
 
-    session: async (session, token) => {
+    session: async ({session, token}) => {
+      // console.log('session callback', session, token)
       session.user = token.user;
-      console.log('Session callback', session);
       return session;
     },
 
-    signIn: async (user, account) => {
-      console.log('Sign in callback', user, account);
+    signIn: async ({user, account}) => {
       return user;
     }
   },

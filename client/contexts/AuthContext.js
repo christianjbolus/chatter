@@ -1,22 +1,15 @@
 import { useState, useEffect, createContext } from 'react';
 import { useRouter } from 'next/router';
-import { signIn } from 'next-auth/client';
-import {
-  loginUser,
-  registerUser,
-  verifyUser,
-  removeToken,
-} from '../services/auth';
-import { useSession } from 'next-auth/client'
+import { signIn, useSession } from 'next-auth/react';
+import { loginUser, registerUser, verifyUser, removeToken } from '../services/auth';
 
 export const AuthContext = createContext(null);
 
 export default function AuthContextProvider({ children }) {
   const [currentUser, setCurrentUser] = useState(null);
-  const [session, loading] = useSession();
+  const { data: session, status } = useSession();
   const router = useRouter();
 
-  
   useEffect(() => {
     // const handleVerify = async () => {
     //   const res = await verifyUser();
@@ -24,7 +17,7 @@ export default function AuthContextProvider({ children }) {
     // };
     // handleVerify();
     if (session) {
-      console.log(session)
+      // console.log(session);
       setCurrentUser(session.user);
     }
   }, [session]);
@@ -78,7 +71,5 @@ export default function AuthContextProvider({ children }) {
     logout,
   };
 
-  return (
-    <AuthContext.Provider value={context}>{children}</AuthContext.Provider>
-  );
+  return <AuthContext.Provider value={context}>{children}</AuthContext.Provider>;
 }
