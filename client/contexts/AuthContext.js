@@ -1,7 +1,7 @@
 import { useState, useEffect, createContext } from 'react';
 import { useRouter } from 'next/router';
 import { signIn, useSession } from 'next-auth/react';
-import { loginUser, registerUser, verifyUser, removeToken } from '../services/auth';
+import {  registerUser, removeToken } from '../services/auth';
 
 export const AuthContext = createContext(null);
 
@@ -9,7 +9,6 @@ export default function AuthContextProvider({ children }) {
   const [currentUser, setCurrentUser] = useState(null);
   const { data: session, status } = useSession();
   const router = useRouter();
-
   useEffect(() => {
     // const handleVerify = async () => {
     //   const res = await verifyUser();
@@ -17,8 +16,7 @@ export default function AuthContextProvider({ children }) {
     // };
     // handleVerify();
     if (session) {
-      // console.log(session);
-      setCurrentUser(session.user);
+      setCurrentUser(session.currentUser);
     }
   }, [session]);
 
@@ -29,13 +27,14 @@ export default function AuthContextProvider({ children }) {
       username,
       password,
     });
+    console.log(userData)
     if (userData.error) {
       return userData.error;
     } else {
-      // setCurrentUser(userData);
       router.push('/chats');
     }
   };
+
   // const login = async formData => {
   //   const userData = await loginUser(formData);
   //   if (userData.error) {
@@ -48,11 +47,16 @@ export default function AuthContextProvider({ children }) {
 
   const register = async formData => {
     const userData = await registerUser(formData);
+    console.log(userData);
     if (userData.error) {
       return userData.error;
     } else {
-      setCurrentUser(userData);
-      router.push('/');
+      await signIn('credentials', {
+        redirect: false,
+        username: formData.username,
+        password: formData.password,
+      });
+      router.push('/chats');
     }
   };
 

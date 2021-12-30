@@ -10,7 +10,7 @@ const api = axios.create({
 
 api.interceptors.request.use(async config => {
   const session = await getSession();
-  config.headers.authorization = `Bearer ${session?.user.token}`;
+  config.headers.authorization = `Bearer ${session?.accessToken}`;
   return config;
 });
 

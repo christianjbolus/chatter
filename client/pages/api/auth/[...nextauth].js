@@ -5,19 +5,21 @@ import api from '../../../services/apiConfig';
 export default NextAuth({
   session: {
     strategy: 'jwt',
+    maxAge: 24 * 30 * 60 * 60,
   },
   secret: process.env.NEXT_PUBLIC_SECRET,
   providers: [
     CredentialsProvider({
       async authorize(credentials) {
+        console.log('authorize', credentials);
         const { username, password } = credentials;
         try {
-          const { data: { user, token } } = await api.post('/auth/login', {
+          const {
+            data: { userData, accessToken },
+          } = await api.post('/auth/login', {
             authentication: { username, password },
           });
-            // console.log(token)
-            user.token = token
-          return user
+          return { userData, accessToken };
         } catch (error) {
           throw new Error('Invalid credentials');
         }
@@ -26,22 +28,26 @@ export default NextAuth({
   ],
 
   callbacks: {
-    jwt: async ({token, user}) => {
-      // console.log('jwt callback', user, token)
+    jwt: async ({ token, user }) => {
       if (user) {
-        token.user = user;
+        token.currentUser = user.userData;
+        token.accessToken = user.accessToken;
+      } else {
+        token.accessToken = await refreshToken(token)
       }
       return token;
     },
 
-    session: async ({session, token}) => {
-      // console.log('session callback', session, token)
-      session.user = token.user;
+    session: async ({ session, token }) => {
+      session.currentUser = token.currentUser;
+      session.accessToken = token.accessToken;
       return session;
     },
-
-    signIn: async ({user, account}) => {
-      return user;
-    }
   },
 });
+
+
+async function refreshToken(token) {
+  const res = await api.post('/auth/refresh', { authentication: { id: token.currentUser.id } });
+  return res.data.accessToken;
+}

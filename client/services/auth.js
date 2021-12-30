@@ -1,35 +1,35 @@
 import api from './apiConfig';
-import axios from 'axios'
 
-export const loginUser = async loginData => {
-  try {
-    const res = await api.post('/auth/login', { authentication: loginData });
-    localStorage.setItem('authToken', res.data.token);
-    api.defaults.headers.common.authorization = `Bearer ${res.data.token}`;
-    return res.data.user;
-  } catch (error) {
-    return {error: error.response.data.errors}
-  }
-};
-
-// export const registerUser = async registerData => {
+// export const loginUser = async loginData => {
 //   try {
-//     const res = await api.post('/users/', { user: registerData });
+//     const res = await api.post('/auth/login', { authentication: loginData });
 //     localStorage.setItem('authToken', res.data.token);
 //     api.defaults.headers.common.authorization = `Bearer ${res.data.token}`;
 //     return res.data.user;
 //   } catch (error) {
-//     return {error: error.response.data}
+//     return {error: error.response.data.errors}
 //   }
 // };
 
 export const registerUser = async registerData => {
   try {
-    const res = await axios.post('/api/auth/register', registerData)
+    const res = await api.post('/users/', { user: registerData });
+    return res.data.user;
   } catch (error) {
-    return({error: error.response.data})
+    return {error: error.response.data}
   }
 };
+
+// export const registerUser = async registerData => {
+//   try {
+//     const res = await axios.post('/api/auth/register', registerData);
+//     console.log(res)
+//     return res;
+//   } catch (error) {
+//     console.log(error)
+//     return { error: error.response.data };
+//   }
+// };
 
 export const verifyUser = async () => {
   try {
@@ -40,11 +40,9 @@ export const verifyUser = async () => {
       return res.data;
     }
     return null;
-    
   } catch (error) {
-    return
+    return;
   }
-
 };
 
 export const removeToken = () => {

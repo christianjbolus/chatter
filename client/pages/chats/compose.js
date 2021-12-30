@@ -8,12 +8,12 @@ import { Button, TextArea } from '../../components';
 import { IoArrowBackOutline } from '@react-icons/all-files/io5/IoArrowBackOutline';
 import styles from '../../styles/Compose.module.css';
 import icons from '../../styles/Icon.module.css';
+import { getSession } from 'next-auth/react';
 
-export default function ChatCreate() {
+export default function ChatCreate({ currentUser }) {
   const [chat, setChat] = useState({
     content: '',
   });
-  const { currentUser } = useContext(AuthContext);
   const router = useRouter();
 
   const { content } = chat;
@@ -32,20 +32,13 @@ export default function ChatCreate() {
     <Layout>
       <div className={styles.container}>
         <div className={styles.nav}>
-          <IoArrowBackOutline
-            className={icons.back_arrow}
-            onClick={() => router.back()}
-          />
+          <IoArrowBackOutline className={icons.back_arrow} onClick={() => router.back()} />
         </div>
         <div className={styles.form_group}>
           <Link href={`/users/${currentUser?.username}`}>
             <img
               className={styles.profile_pic}
-              src={
-                currentUser?.profile_pic
-                  ? currentUser?.profile_pic
-                  : '/defaultUser.jpg'
-              }
+              src={currentUser?.profile_pic ? currentUser?.profile_pic : '/defaultUser.jpg'}
               alt={currentUser?.username}
             />
           </Link>
@@ -76,4 +69,20 @@ export default function ChatCreate() {
       </div>
     </Layout>
   );
+}
+
+export async function getServerSideProps(context) {
+  const session = await getSession({ req: context.req });
+  console.log(session);
+  if (!session) {
+    return {
+      redirect: {
+        destination: '/login',
+        permanent: false,
+      },
+    };
+  }
+  return {
+    props: session,
+  };
 }
