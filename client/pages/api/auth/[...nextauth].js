@@ -28,6 +28,10 @@ export default NextAuth({
   ],
 
   callbacks: {
+    redirect: async ({url, baseUrl}) => {
+      return baseUrl;
+    },
+
     jwt: async ({ token, user }) => {
       if (user) {
         token.currentUser = user.userData;
