@@ -39,12 +39,11 @@ export default function AuthContextProvider({ children }) {
         username: formData.username,
         password: formData.password,
       });
-      router.push('/chats');
+      router.push(`/${formData.username}/profile`);
     }
   };
 
   const logout = () => {
-    console.log('logout');
     setCurrentUser(null);
     signOut({ callbackUrl: 'http://localhost:3001/' });
     router.push('/');
@@ -52,6 +51,7 @@ export default function AuthContextProvider({ children }) {
 
   const context = {
     currentUser,
+    setCurrentUser,
     login,
     register,
     logout,
