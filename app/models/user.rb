@@ -9,7 +9,7 @@ class User < ApplicationRecord
   validates :password, length: { minimum: 6 }, on: :create
   validates :display_name, length: { maximum: 25 }
   validates :bio, length: { maximum: 160 }
-  # def chat_total
-  #   chats.count
-  # end
+  def chat_total
+    chats.count
+  end
 end
