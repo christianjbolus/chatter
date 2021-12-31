@@ -1,5 +1,5 @@
 class AuthenticationController < ApplicationController
-  before_action :authorize_request, only: :verify
+  before_action :authorize_request, except: :login
 
   # POST /auth/login
   def login
@@ -19,11 +19,15 @@ class AuthenticationController < ApplicationController
     end
   end
 
-  # POST /auth/refresh  # Refresh token
+  # GET /auth/refresh  # Refresh token
   def refresh
-    token = encode({ id: login_params[:id] })
-    render json: { accessToken: token }, status: :ok
-  end 
+    token = encode({ id: @current_user.id })
+    render json: {
+             userData: @current_user.attributes.except('password_digest'),
+             accessToken: token,
+           },
+           status: :ok
+  end
 
   # GET /auth/verify
   def verify
@@ -33,7 +37,6 @@ class AuthenticationController < ApplicationController
   private
 
   def login_params
-    params.require(:authentication).permit(:username, :password, :id)
+    params.require(:authentication).permit(:username, :password)
   end
 end
-
