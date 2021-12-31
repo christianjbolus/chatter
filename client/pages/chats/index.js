@@ -33,7 +33,7 @@ export default function Chats() {
           <Icon name="Plus" className="btn" />
         </Button>
       ) : (
-        <Button className="btn round fixed new" onClick={() => setShow(true)}>
+        <Button className="btn round fixed new" type="button" onClick={() => setShow(true)}>
           <Icon name="Plus" className="btn" />
         </Button>
       )}

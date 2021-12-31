@@ -29,7 +29,7 @@ export default function ChatCreate({ currentUser }) {
     <Layout>
       <div className={styles.container}>
         <div className={styles.nav}>
-          <Button className="back" onClick={() => router.back()}>
+          <Button className="back" type="button" onClick={() => router.back()}>
             <Icon name="Back" className="back_arrow" />
           </Button>
         </div>

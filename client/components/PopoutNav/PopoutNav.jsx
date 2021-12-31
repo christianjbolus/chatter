@@ -7,7 +7,7 @@ export default function PopoutNav({ show, setShow, currentUser }) {
     <div className={show ? `${styles.container} ${styles.show}` : styles.container}>
       <div className={styles.nav}>
         <div className={styles.header}>
-          <Button className="close" onClick={() => setShow(false)}>
+          <Button className="close" type="button" onClick={() => setShow(false)}>
             <Icon name="Close" className="close" />
           </Button>
           <h2 className={styles.header_text}>Chatter</h2>

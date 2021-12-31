@@ -33,7 +33,7 @@ export default function Profile({ user }) {
       <div>
         <div className={styles.profile}>
           <div className={styles.nav}>
-            <Button className="back" onClick={() => router.back()}>
+            <Button className="back" type="button" onClick={() => router.back()}>
               <Icon name="Back" className="back_arrow" />
             </Button>
           </div>
@@ -47,12 +47,15 @@ export default function Profile({ user }) {
               {session?.currentUser.id === user?.id ? (
                 <Button
                   className="btn lg invert"
+                  type="button"
                   onClick={() => router.push(`/${user.username}/profile`)}
                 >
                   Edit Profile
                 </Button>
               ) : (
-                <Button className="btn lg invert">Follow</Button>
+                <Button className="btn lg invert" type="button">
+                  Follow
+                </Button>
               )}
             </div>
           </div>
@@ -75,7 +78,7 @@ export default function Profile({ user }) {
             <Icon name="Plus" className="btn" />
           </Button>
         ) : (
-          <Button className="btn round fixed new" onClick={() => setShow(true)}>
+          <Button className="btn round fixed new" type="button" onClick={() => setShow(true)}>
             <Icon name="Plus" className="btn" />
           </Button>
         )}

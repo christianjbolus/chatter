@@ -11,11 +11,11 @@ export default function SideNav({ setShow }) {
           <NavLinks size="lg" mode="light" icon="link_lg" collapsible={true} />
         </div>
         {session?.currentUser ? (
-          <Button className="btn round_sm" link={'/chats/compose'}>
+          <Button className="btn round_sm" type="button" link={'/chats/compose'}>
             <Icon name="Plus" className="btn_sm" />
           </Button>
         ) : (
-          <Button className="btn round_sm" onClick={() => setShow(true)}>
+          <Button className="btn round_sm" type="button" onClick={() => setShow(true)}>
             <Icon name="Plus" className="btn_sm" />
           </Button>
         )}

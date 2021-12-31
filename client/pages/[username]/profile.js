@@ -63,7 +63,7 @@ export default function Bio(user) {
               handleChange={handleChange}
             />
             <div className={styles.submit}>
-              <Button className="btn auth" type="submit">
+              <Button className="btn auth">
                 Submit
               </Button>
             </div>

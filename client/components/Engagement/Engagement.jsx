@@ -5,13 +5,13 @@ import { formatUrl } from '../../utils/helpers';
 import styles from './Engagement.module.css';
 
 export default function Engagement({ chatId, userId, replies, reposts, likes, edit, editUrl }) {
-  const {data: session} = useSession();
+  const { data: session } = useSession();
   const router = useRouter();
 
   return (
     <div className={styles.container}>
       <div className={styles.group}>
-        <Button className="engagement">
+        <Button className="engagement" type="button">
           <Icon
             name="Reply"
             className="engagement"
@@ -21,7 +21,7 @@ export default function Engagement({ chatId, userId, replies, reposts, likes, ed
         <p className={styles.metric}>{replies}</p>
       </div>
       <div className={styles.group}>
-        <Button className="engagement">
+        <Button className="engagement" type="button">
           <Icon name="Rechat" className="engagement" />
         </Button>
         <p className={styles.metric}>{reposts}</p>
@@ -31,7 +31,11 @@ export default function Engagement({ chatId, userId, replies, reposts, likes, ed
         <p className={styles.metric}>{likes}</p>
       </div>
       {session?.currentUser.id === userId && edit ? (
-        <Button className="edit" onClick={() => router.push(formatUrl(editUrl, chatId))}>
+        <Button
+          className="edit"
+          type="button"
+          onClick={() => router.push(formatUrl(editUrl, chatId))}
+        >
           <Icon name="Edit" className="edit" />
         </Button>
       ) : (

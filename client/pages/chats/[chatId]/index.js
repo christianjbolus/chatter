@@ -35,7 +35,7 @@ export default function ChatDetail({ chat }) {
       />
       <div className={styles.container}>
         <div className={styles.nav}>
-          <Button className="back" onClick={() => router.back()}>
+          <Button className="back" type="button" onClick={() => router.back()}>
             <Icon name="Back" className="back_arrow" />
           </Button>
         </div>
@@ -68,7 +68,7 @@ export default function ChatDetail({ chat }) {
               Reply
             </Button>
           ) : (
-            <Button className="btn sm" onClick={() => setShow(true)}>
+            <Button className="btn sm" type="button" onClick={() => setShow(true)}>
               Reply
             </Button>
           )}
@@ -80,7 +80,7 @@ export default function ChatDetail({ chat }) {
           <Icon name="Reply" className="btn" />
         </Button>
       ) : (
-        <Button className="btn round fixed new" onClick={() => setShow(true)}>
+        <Button className="btn round fixed new" type="button" onClick={() => setShow(true)}>
           <Icon name="Reply" className="btn" />
         </Button>
       )}

@@ -12,7 +12,7 @@ export default function ChatEdit(oneChat) {
     content: oneChat.content,
   });
   const [show, setShow] = useState(false);
-  const {data: session} = useSession();
+  const { data: session } = useSession();
   const router = useRouter();
   const { chatId } = router.query;
   const { content } = chat;
@@ -45,7 +45,7 @@ export default function ChatEdit(oneChat) {
       />
       <div className={styles.container}>
         <div className={styles.nav}>
-          <Button className="back" onClick={() => router.back()}>
+          <Button className="back" type="button" onClick={() => router.back()}>
             <Icon name="Back" className="back_arrow" />
           </Button>
         </div>
@@ -53,7 +53,11 @@ export default function ChatEdit(oneChat) {
           <Link href={`/users/${session?.currentUser.username}`}>
             <img
               className={styles.profile_pic}
-              src={session?.currentUser.profile_pic ? session?.currentUser.profile_pic : '/defaultUser.jpg'}
+              src={
+                session?.currentUser.profile_pic
+                  ? session?.currentUser.profile_pic
+                  : '/defaultUser.jpg'
+              }
               alt={session?.currentUser.username}
             />
           </Link>
@@ -78,7 +82,7 @@ export default function ChatEdit(oneChat) {
               Update
             </Button>
           </div>
-          <Button className="delete" onClick={() => setShow(true)}>
+          <Button className="delete" type="button" onClick={() => setShow(true)}>
             <Icon name="Delete" className="delete" />
           </Button>
         </div>
@@ -86,7 +90,6 @@ export default function ChatEdit(oneChat) {
     </Layout>
   );
 }
-
 
 export async function getServerSideProps(context) {
   const { chatId } = context.params;
