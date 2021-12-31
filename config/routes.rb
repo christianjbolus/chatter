@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   post '/auth/login', to: 'authentication#login'
-  post '/auth/refresh', to: 'authentication#refresh'
+  get '/auth/refresh', to: 'authentication#refresh'
   get '/auth/verify', to: 'authentication#verify'
 
   resources :chats do
