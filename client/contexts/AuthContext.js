@@ -7,8 +7,10 @@ export const AuthContext = createContext(null);
 
 export default function AuthContextProvider({ children }) {
   const [currentUser, setCurrentUser] = useState(null);
-  const { data: session, status } = useSession();
+  const { data: session } = useSession();
+  
   const router = useRouter();
+
   useEffect(() => {
     if (session) {
       setCurrentUser(session.currentUser);
@@ -51,7 +53,6 @@ export default function AuthContextProvider({ children }) {
 
   const context = {
     currentUser,
-    setCurrentUser,
     login,
     register,
     logout,
