@@ -16,7 +16,6 @@ export default NextAuth({
   providers: [
     CredentialsProvider({
       async authorize(credentials) {
-        console.log('authorize', credentials);
         const { username, password } = credentials;
         try {
           const {
