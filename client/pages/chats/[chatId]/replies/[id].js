@@ -1,18 +1,19 @@
-import { useState, useContext } from 'react';
+import { useState } from 'react';
 import { useRouter } from 'next/router';
+import { useSession, getSession } from 'next-auth/react';
 import Link from 'next/link';
 import { getOneReply, updateReply, deleteReply } from '../../../../services/replies';
 import Layout from '../../../../layout/Layout';
 import { Button, Modal, Icon, TextArea } from '../../../../components';
-import { AuthContext } from '../../../../contexts/AuthContext';
 import styles from '../../../../styles/Compose.module.css';
 
-export default function ChatEdit({ oneReply }) {
+export default function ChatEdit(oneReply) {
   const [reply, setReply] = useState({
     content: oneReply.content,
   });
   const [show, setShow] = useState(false);
-  const { currentUser } = useContext(AuthContext);
+  const {data: session} = useSession();
+  const { currentUser } = session;
   const router = useRouter();
   const { chatId, id } = router.query;
 
@@ -44,7 +45,7 @@ export default function ChatEdit({ oneReply }) {
       />
       <div className={styles.container}>
         <div className={styles.nav}>
-          <Button className="back" onClick={() => router.back()}>
+          <Button className="back" type="button" onClick={() => router.back()}>
             <Icon name="Back" className="back_arrow" />
           </Button>
         </div>
@@ -89,9 +90,16 @@ export default function ChatEdit({ oneReply }) {
 export async function getServerSideProps(context) {
   const { chatId, id } = context.params;
   const oneReply = await getOneReply(chatId, id);
+  const session = await getSession({ req: context.req });
+  if (!session || session.currentUser.id !== oneReply.user_id) {
+    return {
+      redirect: {
+        destination: '/chats',
+        permanent: false,
+      },
+    };
+  }
   return {
-    props: {
-      oneReply,
-    },
+    props: oneReply,
   };
 }

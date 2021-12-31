@@ -1,5 +1,6 @@
 import { useState, useContext } from 'react';
 import { useRouter } from 'next/router';
+import { getSession } from 'next-auth/react';
 import Link from 'next/link';
 import { getOneChat, updateChat, deleteChat } from '../../../services/chats';
 import Layout from '../../../layout/Layout';
@@ -7,7 +8,7 @@ import { Button, Icon, Modal, TextArea } from '../../../components';
 import { AuthContext } from '../../../contexts/AuthContext';
 import styles from '../../../styles/Compose.module.css';
 
-export default function ChatEdit({ oneChat }) {
+export default function ChatEdit(oneChat) {
   const [chat, setChat] = useState({
     content: oneChat.content,
   });
@@ -87,12 +88,20 @@ export default function ChatEdit({ oneChat }) {
   );
 }
 
+
 export async function getServerSideProps(context) {
   const { chatId } = context.params;
   const oneChat = await getOneChat(chatId);
+  const session = await getSession({ req: context.req });
+  if (!session || session.currentUser.id !== oneChat.user.id) {
+    return {
+      redirect: {
+        destination: '/chats',
+        permanent: false,
+      },
+    };
+  }
   return {
-    props: {
-      oneChat,
-    },
+    props: oneChat,
   };
 }
