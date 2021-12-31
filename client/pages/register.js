@@ -20,7 +20,7 @@ export default function Register() {
   const { register } = useContext(AuthContext);
   const inputRef = useRef();
 
-  const { email, username, password, display_name, profile_pic, bio } = formData;
+  const { email, username, password } = formData;
 
   useEffect(() => {
     inputRef.current.focus();

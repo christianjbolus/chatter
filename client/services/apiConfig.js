@@ -8,6 +8,7 @@ const api = axios.create({
       : 'http://localhost:3000',
 });
 
+// Get access token from session for client-side requests
 api.interceptors.request.use(async config => {
   const session = await getSession();
   config.headers.authorization = `Bearer ${session?.accessToken}`;
