@@ -1,6 +1,11 @@
 import NextAuth from 'next-auth';
 import CredentialsProvider from 'next-auth/providers/credentials';
-import api from '../../../services/apiConfig';
+import axios from 'axios';
+
+const URL =
+  process.env.NODE_ENV === 'production'
+    ? 'https://chatter-app-server.herokuapp.com/'
+    : 'http://localhost:3000';
 
 export default NextAuth({
   session: {
@@ -16,7 +21,7 @@ export default NextAuth({
         try {
           const {
             data: { userData, accessToken },
-          } = await api.post('/auth/login', {
+          } = await axios.post(`${URL}/auth/login`, {
             authentication: { username, password },
           });
           return { userData, accessToken };
@@ -28,7 +33,7 @@ export default NextAuth({
   ],
 
   callbacks: {
-    redirect: async ({url, baseUrl}) => {
+    redirect: async ({ baseUrl }) => {
       return baseUrl;
     },
 
@@ -37,7 +42,9 @@ export default NextAuth({
         token.currentUser = user.userData;
         token.accessToken = user.accessToken;
       } else {
-        token.accessToken = await refreshToken(token)
+        const { userData, accessToken } = await refreshToken(token);
+        token.currentUser = userData;
+        token.accessToken = accessToken;
       }
       return token;
     },
@@ -50,8 +57,9 @@ export default NextAuth({
   },
 });
 
-
 async function refreshToken(token) {
-  const res = await api.post('/auth/refresh', { authentication: { id: token.currentUser.id } });
-  return res.data.accessToken;
+  const res = await axios.get(`${URL}/auth/refresh`, {
+    headers: { authorization: `Bearer ${token.accessToken}` },
+  });
+  return res.data;
 }
