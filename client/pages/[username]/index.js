@@ -1,15 +1,17 @@
-import { useState, useEffect, useContext } from 'react';
+import { useState, useEffect } from 'react';
 import { useRouter } from 'next/router';
+import { useSession } from 'next-auth/react';
 import { getOneUser, getUserChats } from '../../services/users';
 import Layout from '../../layout/Layout';
 import { Button, ChatList, Icon, Modal, UserMetrics } from '../../components';
-import { AuthContext } from '../../contexts/AuthContext';
 import styles from '../../styles/Profile.module.css';
 
 export default function Profile({ user }) {
   const [userChats, setUserChats] = useState([]);
   const [show, setShow] = useState(false);
-  const { currentUser } = useContext(AuthContext);
+  const { data: session } = useSession();
+  const { currentUser } = session;
+  
   const router = useRouter();
 
   useEffect(() => {
@@ -22,7 +24,7 @@ export default function Profile({ user }) {
 
   return (
     <Layout setShow={setShow}>
-      <Modal 
+      <Modal
         setShow={setShow}
         message="You must be logged in to use this feature"
         numBtns={1}
