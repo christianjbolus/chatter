@@ -1,16 +1,15 @@
-import { useState, useContext } from 'react';
+import { useState } from 'react';
 import { useRouter } from 'next/router';
+import { getSession } from 'next-auth/react';
 import Link from 'next/link';
-import { AuthContext } from '../../contexts/AuthContext';
 import { Button, FormInput, TextArea } from '../../components';
 import { getOneUser, updateUser } from '../../services/users';
 import styles from '../../styles/AuthForm.module.scss';
 
-export default function Bio({ user }) {
+export default function Bio(user) {
   const [formData, setFormData] = useState(user);
   const [errMessage, setErrMessage] = useState('');
 
-  const { currentUser, setCurrentUser } = useContext(AuthContext);
 
   const router = useRouter();
 
@@ -22,11 +21,10 @@ export default function Bio({ user }) {
   };
 
   const handleUpdate = async () => {
-    const userData = await updateUser(currentUser.username, formData);
+    const userData = await updateUser(user.username, formData);
     if (userData.error) {
       setErrMessage(userData.error);
     } else {
-      setCurrentUser(userData);
       router.push('/chats');
     }
   };
@@ -65,7 +63,9 @@ export default function Bio({ user }) {
               handleChange={handleChange}
             />
             <div className={styles.submit}>
-              <Button className="btn auth" type="submit">Submit</Button>
+              <Button className="btn auth" type="submit">
+                Submit
+              </Button>
             </div>
           </form>
           <p className={styles.redirect}>
@@ -82,9 +82,16 @@ export default function Bio({ user }) {
 export async function getServerSideProps(context) {
   const { username } = context.params;
   const user = await getOneUser(username);
+  const session = await getSession({ req: context.req });
+  if (!session || session.currentUser.id !== user.id) {
+    return {
+      redirect: {
+        destination: '/login',
+        permanent: false,
+      },
+    };
+  }
   return {
-    props: {
-      user,
-    },
+    props: user,
   };
 }
