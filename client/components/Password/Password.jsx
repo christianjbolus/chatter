@@ -120,7 +120,7 @@ export default function Password(props) {
             onChange={handlePasswordChange}
           />
           {value && (
-            <Button className="password_show" onClick={handleShowPassword}>
+            <Button className="password_show" type="button" onClick={handleShowPassword}>
               {passwordIcon}
             </Button>
           )}

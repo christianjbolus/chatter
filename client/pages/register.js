@@ -70,7 +70,7 @@ export default function Register() {
               setFormErrors={setFormErrors}
             />
             <div className={styles.submit}>
-              <Button className="btn auth" type="submit">Create account</Button>
+              <Button className="btn auth">Create account</Button>
             </div>
           </form>
           <p className={styles.redirect}>

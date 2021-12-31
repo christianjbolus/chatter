@@ -30,5 +30,5 @@ export default function Button({
 Button.defaultProps = {
   onClick: null,
   disabled: false,
-  type: 'button',
+  type: 'submit',
 };
