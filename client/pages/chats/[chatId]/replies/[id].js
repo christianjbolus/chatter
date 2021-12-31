@@ -13,7 +13,6 @@ export default function ChatEdit(oneReply) {
   });
   const [show, setShow] = useState(false);
   const {data: session} = useSession();
-  const { currentUser } = session;
   const router = useRouter();
   const { chatId, id } = router.query;
 
@@ -50,11 +49,11 @@ export default function ChatEdit(oneReply) {
           </Button>
         </div>
         <div className={styles.form_group}>
-          <Link href={`/users/${currentUser?.username}`}>
+          <Link href={`/users/${session?.currentUser.username}`}>
             <img
               className={styles.profile_pic}
-              src={currentUser?.profile_pic ? currentUser.profile_pic : '/defaultUser.jpg'}
-              alt={currentUser?.username}
+              src={session?.currentUser.profile_pic ? session?.currentUser.profile_pic : '/defaultUser.jpg'}
+              alt={session?.currentUser.username}
             />
           </Link>
           <form className={styles.form}>

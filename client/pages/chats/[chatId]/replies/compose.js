@@ -1,6 +1,6 @@
-import { useContext, useState } from 'react';
+import { useState } from 'react';
 import { useRouter } from 'next/router';
-import { AuthContext } from '../../../../contexts/AuthContext';
+import { useSession } from 'next-auth/react';
 import { createReply } from '../../../../services/replies';
 import Link from 'next/link';
 import Layout from '../../../../layout/Layout';
@@ -11,7 +11,7 @@ export default function ChatCreate() {
   const [reply, setReply] = useState({
     content: '',
   });
-  const { currentUser } = useContext(AuthContext);
+  const { data: session } = useSession();
   const router = useRouter();
   const { chatId } = router.query;
   const { content } = reply;
@@ -30,20 +30,20 @@ export default function ChatCreate() {
     <Layout>
       <div className={styles.container}>
         <div className={styles.nav}>
-        <Button className="back" onClick={() => router.back()}>
+          <Button className="back" onClick={() => router.back()}>
             <Icon name="Back" className="back_arrow" />
           </Button>
         </div>
         <div className={styles.form_group}>
-          <Link href={`/users/${currentUser?.username}`}>
+          <Link href={`/users/${session?.currentUser.username}`}>
             <img
               className={styles.profile_pic}
               src={
-                currentUser?.profile_pic
-                  ? currentUser.profile_pic
+                session?.currentUser.profile_pic
+                  ? session?.currentUser.profile_pic
                   : '/defaultUser.jpg'
               }
-              alt={currentUser?.username}
+              alt={session?.currentUser.username}
             />
           </Link>
           <form className={styles.form}>

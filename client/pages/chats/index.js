@@ -1,13 +1,13 @@
-import { useState, useEffect, useContext } from 'react';
+import { useState, useEffect } from 'react';
+import { useSession } from 'next-auth/react';
 import Layout from '../../layout/Layout';
 import { Button, ChatList, Icon, Modal, TopNav } from '../../components';
 import { getAllChats } from '../../services/chats';
-import { AuthContext } from '../../contexts/AuthContext';
 
 export default function Chats() {
   const [allChats, setAllChats] = useState([]);
   const [show, setShow] = useState(false);
-  const { currentUser } = useContext(AuthContext);
+  const {data: session} = useSession();
 
   useEffect(() => {
     const fetchChats = async () => {
@@ -28,7 +28,7 @@ export default function Chats() {
       />
       <TopNav location="Chatter" />
       <ChatList items={allChats} url="/chats/id" />
-      {currentUser ? (
+      {session?.currentUser ? (
         <Button className="btn round fixed new" link={'/chats/compose'}>
           <Icon name="Plus" className="btn" />
         </Button>

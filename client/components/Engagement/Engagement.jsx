@@ -1,12 +1,11 @@
-import { useContext } from 'react';
+import { useSession } from 'next-auth/react';
 import { useRouter } from 'next/router';
-import { AuthContext } from '../../contexts/AuthContext';
 import { Button, Icon } from '../index';
 import { formatUrl } from '../../utils/helpers';
 import styles from './Engagement.module.css';
 
 export default function Engagement({ chatId, userId, replies, reposts, likes, edit, editUrl }) {
-  const { currentUser } = useContext(AuthContext);
+  const {data: session} = useSession();
   const router = useRouter();
 
   return (
@@ -31,7 +30,7 @@ export default function Engagement({ chatId, userId, replies, reposts, likes, ed
         <Icon name="Like" className="engagement" />
         <p className={styles.metric}>{likes}</p>
       </div>
-      {currentUser?.id === userId && edit ? (
+      {session?.currentUser.id === userId && edit ? (
         <Button className="edit" onClick={() => router.push(formatUrl(editUrl, chatId))}>
           <Icon name="Edit" className="edit" />
         </Button>

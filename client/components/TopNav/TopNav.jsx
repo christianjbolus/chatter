@@ -1,26 +1,26 @@
-import { useState, useContext } from 'react';
-import { AuthContext } from '../../contexts/AuthContext';
+import { useState } from 'react';
+import { useSession } from 'next-auth/react';
 import { Icon, PopoutNav } from '../index';
 import styles from './TopNav.module.css';
 
 export default function TopNav({ location }) {
   const [show, setShow] = useState(false);
-  const { currentUser } = useContext(AuthContext);
+  const { data: session } = useSession();
   return (
     <>
-      <PopoutNav show={show} setShow={setShow} currentUser={currentUser} />
+      <PopoutNav show={show} setShow={setShow} currentUser={session?.currentUser} />
       <div className={styles.container}>
         <nav className={styles.navbar}>
           <div className={styles.pic_container}>
             <img
               className={styles.profile_pic}
               src={
-                currentUser?.profile_pic
-                  ? currentUser?.profile_pic
+                session?.currentUser.profile_pic
+                  ? session?.currentUser.profile_pic
                   : '/defaultUser.jpg'
               }
               onClick={() => setShow(true)}
-              alt={currentUser?.username}
+              alt={session?.currentUser.username}
             />
           </div>
           <div className={styles.location}>

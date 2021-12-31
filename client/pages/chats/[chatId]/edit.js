@@ -1,11 +1,10 @@
-import { useState, useContext } from 'react';
+import { useState } from 'react';
 import { useRouter } from 'next/router';
-import { getSession } from 'next-auth/react';
+import { useSession, getSession } from 'next-auth/react';
 import Link from 'next/link';
 import { getOneChat, updateChat, deleteChat } from '../../../services/chats';
 import Layout from '../../../layout/Layout';
 import { Button, Icon, Modal, TextArea } from '../../../components';
-import { AuthContext } from '../../../contexts/AuthContext';
 import styles from '../../../styles/Compose.module.css';
 
 export default function ChatEdit(oneChat) {
@@ -13,7 +12,7 @@ export default function ChatEdit(oneChat) {
     content: oneChat.content,
   });
   const [show, setShow] = useState(false);
-  const { currentUser } = useContext(AuthContext);
+  const {data: session} = useSession();
   const router = useRouter();
   const { chatId } = router.query;
   const { content } = chat;
@@ -51,11 +50,11 @@ export default function ChatEdit(oneChat) {
           </Button>
         </div>
         <div className={styles.form_group}>
-          <Link href={`/users/${currentUser?.username}`}>
+          <Link href={`/users/${session?.currentUser.username}`}>
             <img
               className={styles.profile_pic}
-              src={currentUser?.profile_pic ? currentUser?.profile_pic : '/defaultUser.jpg'}
-              alt={currentUser?.username}
+              src={session?.currentUser.profile_pic ? session?.currentUser.profile_pic : '/defaultUser.jpg'}
+              alt={session?.currentUser.username}
             />
           </Link>
           <form className={styles.form}>

@@ -1,11 +1,13 @@
 import { useContext } from 'react';
+import { useSession } from 'next-auth/react';
 import { AuthContext } from '../../contexts/AuthContext';
 import { Icon, NavLink } from '../index';
 
 export default function NavLinks({ size, mode, icon, collapsible }) {
-  const { currentUser, logout } = useContext(AuthContext);
+  const { data: session } = useSession();
+  const { logout } = useContext(AuthContext);
 
-  if (!currentUser) {
+  if (!session?.currentUser) {
     return (
       <>
         <NavLink
@@ -36,7 +38,7 @@ export default function NavLinks({ size, mode, icon, collapsible }) {
         text="My Profile"
         size={size}
         mode={mode}
-        href={`/${currentUser?.username}`}
+        href={`/${session?.currentUser.username}`}
         className={`${collapsible ? 'collapse' : ''}`}
       >
         <Icon name="Profile" className={icon} />
@@ -45,7 +47,7 @@ export default function NavLinks({ size, mode, icon, collapsible }) {
         text="Likes"
         size={size}
         mode={mode}
-        href={`/${currentUser?.username}/likes`}
+        href={`/${session?.currentUser.username}/likes`}
         className={`${collapsible ? 'collapse' : ''}`}
       >
         <Icon name="Like" className={icon} />

@@ -10,8 +10,7 @@ export default function Profile({ user }) {
   const [userChats, setUserChats] = useState([]);
   const [show, setShow] = useState(false);
   const { data: session } = useSession();
-  const { currentUser } = session;
-  
+
   const router = useRouter();
 
   useEffect(() => {
@@ -45,7 +44,7 @@ export default function Profile({ user }) {
               alt={user.username}
             />
             <div>
-              {currentUser?.id === user?.id ? (
+              {session?.currentUser.id === user?.id ? (
                 <Button
                   className="btn lg invert"
                   onClick={() => router.push(`/${user.username}/profile`)}
@@ -71,7 +70,7 @@ export default function Profile({ user }) {
           edit={true}
           editUrl="/chats/id/edit"
         />
-        {currentUser ? (
+        {session?.currentUser ? (
           <Button className="btn round fixed new" link={'/chats/compose'}>
             <Icon name="Plus" className="btn" />
           </Button>
