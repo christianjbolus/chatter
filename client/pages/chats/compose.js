@@ -7,11 +7,10 @@ import Layout from '../../layout/Layout';
 import { Button, Icon, TextArea } from '../../components';
 import styles from '../../styles/Compose.module.css';
 
-export default function ChatCreate({currentUser}) {
+export default function ChatCreate({ currentUser }) {
   const [chat, setChat] = useState({
     content: '',
   });
-
   const router = useRouter();
 
   const { content } = chat;
