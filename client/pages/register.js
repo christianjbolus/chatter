@@ -1,5 +1,7 @@
-import { useState, useEffect, useContext, useRef } from 'react';
-import { AuthContext } from '../contexts/AuthContext';
+import { useState, useEffect, useRef } from 'react';
+import { registerUser } from '../services/auth';
+import { signIn } from 'next-auth/react';
+import { useRouter } from 'next/router';
 import Link from 'next/link';
 import { Button, FormInput, Password } from '../components';
 import validations from '../utils/validation';
@@ -15,8 +17,9 @@ export default function Register() {
   const [formErrors, setFormErrors] = useState({});
   const [isCompleted, setIsCompleted] = useState(false);
 
-  const { register } = useContext(AuthContext);
   const inputRef = useRef();
+
+  const router = useRouter();
 
   const { email, username, password } = formData;
 
@@ -50,9 +53,16 @@ export default function Register() {
 
   const handleRegister = async e => {
     e.preventDefault();
-    const err = await register(formData);
-    if (err) {
-      setFormErrors({ ...formatErrors(err) });
+    const userData = await registerUser(formData);
+    if (userData.error) {
+      setFormErrors({ ...formatErrors(userData.error) });
+    } else {
+      await signIn('credentials', {
+        redirect: false,
+        username: formData.username,
+        password: formData.password,
+      });
+      router.push(`/${formData.username}/profile`);
     }
   };
 

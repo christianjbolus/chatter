@@ -23,7 +23,7 @@ export default function ProfileEdit(user) {
     if (userData.error) {
       setErrMessage(userData.error);
     } else {
-      router.push('/chats');
+      router.push(`/${user.username}`);
     }
   };
 

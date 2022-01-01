@@ -6,14 +6,13 @@ import { Button, FormInput, TextArea } from '../../components';
 import { getOneUser, updateUser } from '../../services/users';
 import styles from '../../styles/AuthForm.module.scss';
 
-export default function Profile() {
+export default function Profile(user) {
   const [formData, setFormData] = useState({
     display_name: '',
     profile_pic: '',
     bio: '',
   });
   const [errMessage, setErrMessage] = useState('');
-
 
   const router = useRouter();
 

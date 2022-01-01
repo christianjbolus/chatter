@@ -1,8 +1,9 @@
-import { useState, useEffect, useContext, useRef } from 'react';
+import { useState, useEffect, useRef } from 'react';
+import { signIn } from 'next-auth/react';
 import Link from 'next/link';
 import { Button, FormInput, Icon, Password } from '../components';
-import { AuthContext } from '../contexts/AuthContext';
 import styles from '../styles/AuthForm.module.scss';
+import router from 'next/router';
 
 export default function Login() {
   const [formData, setFormData] = useState({
@@ -10,7 +11,6 @@ export default function Login() {
     password: '',
   });
   const [errMessage, setErrMessage] = useState('');
-  const { login } = useContext(AuthContext);
   const inputRef = useRef();
   const { username, password } = formData;
 
@@ -24,10 +24,18 @@ export default function Login() {
     setErrMessage('');
   };
 
-  const handleLogin = async () => {
-    const err = await login(formData);
-    if (err) {
-      setErrMessage(err);
+  const handleLogin = async e => {
+    e.preventDefault();
+    const { username, password } = formData;
+    const userData = await signIn('credentials', {
+      redirect: false,
+      username,
+      password,
+    });
+    if (userData.error) {
+      setErrMessage(userData.error);
+    } else {
+      router.push('/chats');
     }
   };
 
@@ -37,12 +45,7 @@ export default function Login() {
       <div className={styles.container}>
         <div className={styles.form}>
           <h2 className={styles.heading}>Sign in to your account</h2>
-          <form
-            onSubmit={e => {
-              e.preventDefault();
-              handleLogin();
-            }}
-          >
+          <form onSubmit={handleLogin}>
             <FormInput
               label="Username"
               name="username"
@@ -59,7 +62,7 @@ export default function Login() {
             <div className={styles.error_container}>
               {errMessage && (
                 <p className={styles.error}>
-                  <Icon name="Warning" className="error"/>
+                  <Icon name="Warning" className="error" />
                   {errMessage}
                 </p>
               )}
