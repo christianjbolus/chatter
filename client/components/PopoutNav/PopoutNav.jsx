@@ -15,7 +15,7 @@ export default function PopoutNav({ show, setShow, currentUser }) {
         {currentUser && (
           <div className={styles.profile}>
             <div className={styles.user_container}>
-              <Link href={`/users/${currentUser?.username}`}>
+              <Link href={`/${currentUser?.username}`}>
                 <div className={styles.user}>
                   <img
                     className={styles.profile_pic}
