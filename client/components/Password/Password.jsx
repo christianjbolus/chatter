@@ -20,7 +20,7 @@ export default function Password(props) {
   }, []);
 
   const defaultMessage =
-    'Your password needs to be at least 8 characters, at least one letter and one number';
+    'Your password must contain at least 8 characters and at least one letter and one number';
   const successMessage = 'Looks good!';
 
   const isValidPassword = password => {
