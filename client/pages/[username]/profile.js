@@ -6,8 +6,12 @@ import { Button, FormInput, TextArea } from '../../components';
 import { getOneUser, updateUser } from '../../services/users';
 import styles from '../../styles/AuthForm.module.scss';
 
-export default function Bio(user) {
-  const [formData, setFormData] = useState(user);
+export default function Profile() {
+  const [formData, setFormData] = useState({
+    display_name: '',
+    profile_pic: '',
+    bio: '',
+  });
   const [errMessage, setErrMessage] = useState('');
 
 
@@ -34,7 +38,7 @@ export default function Bio(user) {
       <div className={styles.stripe}></div>
       <div className={styles.container}>
         <div className={styles.form}>
-          <h2 className={styles.heading}>Your profile</h2>
+          <h2 className={styles.heading}>Create your profile</h2>
           <form
             onSubmit={e => {
               e.preventDefault();

@@ -48,7 +48,7 @@ export default function Profile({ user }) {
                 <Button
                   className="btn lg invert"
                   type="button"
-                  onClick={() => router.push(`/${user.username}/profile`)}
+                  onClick={() => router.push(`/${user.username}/edit`)}
                 >
                   Edit Profile
                 </Button>
