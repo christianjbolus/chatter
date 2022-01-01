@@ -53,7 +53,7 @@ export default function Profile({ user }) {
                   Edit Profile
                 </Button>
               ) : (
-                <Button className="btn lg invert" type="button">
+                <Button className="btn lg invert disabled" type="button" disabled={true}>
                   Follow
                 </Button>
               )}
