@@ -55,22 +55,25 @@ table {
 }
 
 ::-webkit-input-placeholder { 
-  color: #9f9f9f
+  color: var(--light-grey)
 }
 
 ::-moz-placeholder {
-  color: #9f9f9f;
+  color: var(--light-grey);
 }
 
 :-ms-input-placeholder {
-  color: #9f9f9f;
+  color: var(--light-grey);
 }
 
 :-moz-placeholder {
-  color: #9f9f9f;
+  color: var(--light-grey);
 }
 
 :root {
+	--black: #000;
+	--white: #fff;
+	--light-grey: #9f9f9f;
 	--orange: #ff7f00;
 	--faded-orange: rgba(255, 127, 0, 0.6);
   --form-focus: 0px 0px 0px 2px var(--faded-orange);
