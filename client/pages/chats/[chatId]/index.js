@@ -1,20 +1,17 @@
-import { useState, useEffect, useContext } from 'react';
+import { useState, useEffect } from 'react';
 import { useRouter } from 'next/router';
+import { useSession } from 'next-auth/react';
 import Link from 'next/link';
 import { getOneChat } from '../../../services/chats';
 import { getAllReplies } from '../../../services/replies';
-import { AuthContext } from '../../../contexts/AuthContext';
 import Layout from '../../../layout/Layout';
-import { Button, ChatList, DevModal, Engagement } from '../../../components';
-import { IoArrowBackOutline } from '@react-icons/all-files/io5/IoArrowBackOutline';
-import { IoChatbubbleOutline } from '@react-icons/all-files/io5/IoChatbubbleOutline';
+import { Button, ChatList, Engagement, Icon, Modal } from '../../../components';
 import styles from '../../../styles/Detail.module.css';
-import icons from '../../../styles/Icon.module.css';
 
 export default function ChatDetail({ chat }) {
   const [replies, setReplies] = useState(null);
   const [show, setShow] = useState(false);
-  const { currentUser } = useContext(AuthContext);
+  const { data: session } = useSession();
   const router = useRouter();
   const { chatId } = router.query;
 
@@ -29,27 +26,24 @@ export default function ChatDetail({ chat }) {
 
   return (
     <Layout setShow={setShow}>
-      <DevModal
+      <Modal
         setShow={setShow}
         message="You must be logged in to use this feature"
+        numBtns={1}
+        btnText="Got it"
         className={show ? 'container active' : 'container'}
       />
       <div className={styles.container}>
         <div className={styles.nav}>
-          <IoArrowBackOutline
-            className={icons.back_arrow}
-            onClick={() => router.push('/chats')}
-          />
+          <Button className="back" type="button" onClick={() => router.back()}>
+            <Icon name="Back" className="back_arrow" />
+          </Button>
         </div>
         <div className={styles.user}>
           <Link href={`/users/${chat.user.username}`}>
             <img
               className={styles.profile_pic}
-              src={
-                chat.user.profile_pic
-                  ? chat.user.profile_pic
-                  : '/defaultUser.jpg'
-              }
+              src={chat.user.profile_pic ? chat.user.profile_pic : '/defaultUser.jpg'}
               alt={chat.user.username}
             />
           </Link>
@@ -69,35 +63,25 @@ export default function ChatDetail({ chat }) {
           editUrl={`/chats/${chat.id}/edit`}
         />
         <div className={styles.reply}>
-          {currentUser ? (
-            <Button
-              className="btn sm"
-              link={`/chats/${chat.id}/replies/compose`}
-            >
+          {session?.currentUser ? (
+            <Button className="btn sm" link={`/chats/${chat.id}/replies/compose`}>
               Reply
             </Button>
           ) : (
-            <Button className="btn sm" onClick={() => setShow(true)}>
+            <Button className="btn sm" type="button" onClick={() => setShow(true)}>
               Reply
             </Button>
           )}
         </div>
       </div>
-      <ChatList
-        items={replies}
-        edit={true}
-        editUrl={`/chats/${chat.id}/replies/id`}
-      />
-      {currentUser ? (
-        <Button
-          className="btn round fixed reply"
-          link={`/chats/${chat.id}/replies/compose`}
-        >
-          <IoChatbubbleOutline className={icons.btn} />
+      <ChatList items={replies} edit={true} editUrl={`/chats/${chat.id}/replies/id`} />
+      {session?.currentUser ? (
+        <Button className="btn round fixed reply" link={`/chats/${chat.id}/replies/compose`}>
+          <Icon name="Reply" className="btn" />
         </Button>
       ) : (
-        <Button className="btn round fixed new" onClick={() => setShow(true)}>
-          <IoChatbubbleOutline className={icons.btn} />
+        <Button className="btn round fixed new" type="button" onClick={() => setShow(true)}>
+          <Icon name="Reply" className="btn" />
         </Button>
       )}
     </Layout>

@@ -10,13 +10,23 @@ class AuthenticationController < ApplicationController
     if @user&.authenticate(login_params[:password])
       token = encode({ id: @user.id })
       render json: {
-               user: @user.attributes.except('password_digest'),
-               token: token,
+               userData: @user.attributes.except('password_digest'),
+               accessToken: token,
              },
              status: :ok
     else
       render json: { errors: 'Invalid credentials' }, status: :unauthorized
     end
+  end
+
+  # GET /auth/refresh  # Refresh token
+  def refresh
+    token = encode({ id: @current_user.id })
+    render json: {
+             userData: @current_user.attributes.except('password_digest'),
+             accessToken: token,
+           },
+           status: :ok
   end
 
   # GET /auth/verify

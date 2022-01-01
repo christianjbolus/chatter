@@ -55,24 +55,28 @@ table {
 }
 
 ::-webkit-input-placeholder { 
-  color: #9f9f9f
+  color: var(--light-grey)
 }
 
 ::-moz-placeholder {
-  color: #9f9f9f;
+  color: var(--light-grey);
 }
 
 :-ms-input-placeholder {
-  color: #9f9f9f;
+  color: var(--light-grey);
 }
 
 :-moz-placeholder {
-  color: #9f9f9f;
+  color: var(--light-grey);
 }
 
 :root {
+	--black: #000;
+	--white: #fff;
+	--light-grey: #9f9f9f;
 	--orange: #ff7f00;
-  --form-focus: 0px 0px 0px 3px rgba(255, 127, 0, 0.6);
+	--faded-orange: rgba(255, 127, 0, 0.6);
+  --form-focus: 0px 0px 0px 2px var(--faded-orange);
   --error: #d82222;
   --success: #058505;
 
@@ -83,6 +87,10 @@ table {
   --fs-lg: 18px;
   --fs-xl: 20px;
   --fs-xxl: 22px;
+
+	--font-sans: 'Oxygen',
+  'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+  sans-serif;
 
   --transition: all 0.25s cubic-bezier(0.645, 0.045, 0.355, 1);
 }

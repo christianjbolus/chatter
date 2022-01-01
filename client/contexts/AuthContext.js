@@ -1,32 +1,32 @@
 import { useState, useEffect, createContext } from 'react';
 import { useRouter } from 'next/router';
-import {
-  loginUser,
-  registerUser,
-  verifyUser,
-  removeToken,
-} from '../services/auth';
+import { signIn, signOut, useSession } from 'next-auth/react';
+import { registerUser } from '../services/auth';
 
 export const AuthContext = createContext(null);
 
 export default function AuthContextProvider({ children }) {
   const [currentUser, setCurrentUser] = useState(null);
+  const { data: session } = useSession();
+  
   const router = useRouter();
 
   useEffect(() => {
-    const handleVerify = async () => {
-      const res = await verifyUser();
-      setCurrentUser(res);
-    };
-    handleVerify();
-  }, []);
+    if (session) {
+      setCurrentUser(session.currentUser);
+    }
+  }, [session]);
 
   const login = async formData => {
-    const userData = await loginUser(formData);
+    const { username, password } = formData;
+    const userData = await signIn('credentials', {
+      redirect: false,
+      username,
+      password,
+    });
     if (userData.error) {
       return userData.error;
     } else {
-      setCurrentUser(userData);
       router.push('/chats');
     }
   };
@@ -36,16 +36,18 @@ export default function AuthContextProvider({ children }) {
     if (userData.error) {
       return userData.error;
     } else {
-      setCurrentUser(userData);
-      router.push('/');
+      await signIn('credentials', {
+        redirect: false,
+        username: formData.username,
+        password: formData.password,
+      });
+      router.push(`/${formData.username}/profile`);
     }
   };
 
   const logout = () => {
-    console.log('logout');
     setCurrentUser(null);
-    localStorage.removeItem('authToken');
-    removeToken();
+    signOut({ callbackUrl: 'http://localhost:3001/' });
     router.push('/');
   };
 
@@ -56,7 +58,5 @@ export default function AuthContextProvider({ children }) {
     logout,
   };
 
-  return (
-    <AuthContext.Provider value={context}>{children}</AuthContext.Provider>
-  );
+  return <AuthContext.Provider value={context}>{children}</AuthContext.Provider>;
 }

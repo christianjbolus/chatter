@@ -20,11 +20,14 @@
   box-shadow: 0 3px 6px rgba(0, 0, 0, 0.10)
 }
 
+.nav {
+  margin-bottom: 30px;
+}
+
 .form {
   margin: 0 auto;
   display: flex;
   flex-direction: column;
-  text-align: center;
   width: 80%
 }
 
@@ -35,8 +38,17 @@
   margin-bottom: 40px;
 }
 
-.error {
-  color: #ff0000
+.error_container {
+  height: 14px;
+  margin: -6px 0;
+
+  .error {
+    display: flex;
+    justify-content: center;
+    color: var(--error);
+    font-size: var(--fs-xs);
+    animation: error_shake 0.25s ease-in-out;
+  }
 }
 
 .submit {
@@ -48,9 +60,28 @@
 .redirect {
   font-weight: 500;
   margin-top: 20px;
+  text-align: center;
 }
 
 .link {
   text-decoration: none;
   color: #FF7F00
+}
+
+@keyframes error_shake {
+  0% {
+    transform: translateX(0px);
+  }
+  25% {
+    transform: translateX(5px);
+  }
+  50% {
+    transform: translateX(-5px);
+  }
+  75% {
+    transform: translateX(5px);
+  }
+  100% {
+    transform: translateX(0px);
+  }
 }

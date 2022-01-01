@@ -1,35 +1,56 @@
-import { BsChatDotsFill } from '@react-icons/all-files/bs/BsChatDotsFill';
-import { BiPlus } from '@react-icons/all-files/bi/BiPlus';
-import { IoChatbubbleOutline } from '@react-icons/all-files/io5/IoChatbubbleOutline';
-import { AiOutlineRedo } from '@react-icons/all-files/ai/AiOutlineRedo';
-import { BsHeart } from '@react-icons/all-files/bs/BsHeart';
-import { FiEdit } from '@react-icons/all-files/fi/FiEdit';
-import { AiOutlineLogin } from '@react-icons/all-files/ai/AiOutlineLogin';
-import { FiPower } from '@react-icons/all-files/fi/FiPower';
-import { IoPersonOutline } from '@react-icons/all-files/io5/IoPersonOutline';
-import { IoPersonAddOutline } from '@react-icons/all-files/io5/IoPersonAddOutline';
+import { BsChatDotsFill, BsTrash } from 'react-icons/bs';
+import { BiPlus } from 'react-icons/bi';
+import { AiOutlineRedo, AiOutlineLogin } from 'react-icons/ai';
+import { BsHeart } from 'react-icons/bs';
+import { FiEdit, FiPower } from 'react-icons/fi';
+import {
+  IoArrowBackOutline,
+  IoChatbubbleOutline,
+  IoCheckmarkCircle,
+  IoClose,
+  IoEye,
+  IoEyeOff,
+  IoPersonOutline,
+  IoPersonAddOutline,
+  IoWarning,
+} from 'react-icons/io5';
+import styles from './Icon.module.scss';
 
-export default function Icon({name, className}) {
+export default function Icon({ name, className }) {
   switch (name) {
+    case 'Back':
+      return <IoArrowBackOutline className={styles[className]} />;
+    case 'CheckMark':
+      return <IoCheckmarkCircle className={styles[className]} />;
+    case 'Close':
+      return <IoClose className={styles[className]} />;
+    case 'Eye':
+      return <IoEye className={styles[className]} />;
+    case 'EyeOff':
+      return <IoEyeOff className={styles[className]} />;
     case 'Logo':
-      return <BsChatDotsFill className={className}/>;
+      return <BsChatDotsFill className={styles[className]} />;
     case 'Reply':
-      return <IoChatbubbleOutline className={className}/>;
+      return <IoChatbubbleOutline className={styles[className]} />;
     case 'Rechat':
-      return <AiOutlineRedo className={className}/>;
+      return <AiOutlineRedo className={styles[className]} />;
     case 'Like':
-      return <BsHeart className={className}/>;
+      return <BsHeart className={styles[className]} />;
     case 'Edit':
-      return <FiEdit className={className}/>;
+      return <FiEdit className={styles[className]} />;
+    case 'Delete':
+      return <BsTrash className={styles[className]} />;
     case 'Login':
-      return <AiOutlineLogin className={className}/>;
+      return <AiOutlineLogin className={styles[className]} />;
     case 'Logout':
-      return <FiPower className={className}/>;
+      return <FiPower className={styles[className]} />;
     case 'Profile':
-      return <IoPersonOutline className={className}/>;
+      return <IoPersonOutline className={styles[className]} />;
     case 'SignUp':
-      return <IoPersonAddOutline className={className}/>;
+      return <IoPersonAddOutline className={styles[className]} />;
     case 'Plus':
-      return <BiPlus className={className}/>;
+      return <BiPlus className={styles[className]} />;
+    case 'Warning':
+      return <IoWarning className={styles[className]} />;
   }
 }

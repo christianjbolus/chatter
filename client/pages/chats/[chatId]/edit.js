@@ -1,21 +1,18 @@
-import { useState, useContext } from 'react';
+import { useState } from 'react';
 import { useRouter } from 'next/router';
+import { useSession, getSession } from 'next-auth/react';
 import Link from 'next/link';
 import { getOneChat, updateChat, deleteChat } from '../../../services/chats';
 import Layout from '../../../layout/Layout';
-import { Button, Modal, TextArea } from '../../../components';
-import { IoArrowBackOutline } from '@react-icons/all-files/io5/IoArrowBackOutline';
-import { BsTrash } from '@react-icons/all-files/bs/BsTrash';
-import { AuthContext } from '../../../contexts/AuthContext';
+import { Button, Icon, Modal, TextArea } from '../../../components';
 import styles from '../../../styles/Compose.module.css';
-import icons from '../../../styles/Icon.module.css';
 
-export default function ChatEdit({ oneChat }) {
+export default function ChatEdit(oneChat) {
   const [chat, setChat] = useState({
     content: oneChat.content,
   });
   const [show, setShow] = useState(false);
-  const { currentUser } = useContext(AuthContext);
+  const { data: session } = useSession();
   const router = useRouter();
   const { chatId } = router.query;
   const { content } = chat;
@@ -42,25 +39,26 @@ export default function ChatEdit({ oneChat }) {
         setShow={setShow}
         message="Are you sure?"
         subMessage="This action can't be undone."
+        numBtns={2}
+        btnText={['Delete', 'Cancel']}
         className={show ? 'container active' : 'container'}
       />
       <div className={styles.container}>
         <div className={styles.nav}>
-          <IoArrowBackOutline
-            className={icons.back_arrow}
-            onClick={() => router.back()}
-          />
+          <Button className="back" type="button" onClick={() => router.back()}>
+            <Icon name="Back" className="back_arrow" />
+          </Button>
         </div>
         <div className={styles.form_group}>
-          <Link href={`/users/${currentUser?.username}`}>
+          <Link href={`/users/${session?.currentUser.username}`}>
             <img
               className={styles.profile_pic}
               src={
-                currentUser?.profile_pic
-                  ? currentUser?.profile_pic
+                session?.currentUser.profile_pic
+                  ? session?.currentUser.profile_pic
                   : '/defaultUser.jpg'
               }
-              alt={currentUser?.username}
+              alt={session?.currentUser.username}
             />
           </Link>
           <form className={styles.form}>
@@ -84,7 +82,9 @@ export default function ChatEdit({ oneChat }) {
               Update
             </Button>
           </div>
-          <BsTrash className={icons.delete} onClick={() => setShow(true)} />
+          <Button className="delete" type="button" onClick={() => setShow(true)}>
+            <Icon name="Delete" className="delete" />
+          </Button>
         </div>
       </div>
     </Layout>
@@ -94,9 +94,16 @@ export default function ChatEdit({ oneChat }) {
 export async function getServerSideProps(context) {
   const { chatId } = context.params;
   const oneChat = await getOneChat(chatId);
+  const session = await getSession({ req: context.req });
+  if (!session || session.currentUser.id !== oneChat.user.id) {
+    return {
+      redirect: {
+        destination: '/chats',
+        permanent: false,
+      },
+    };
+  }
   return {
-    props: {
-      oneChat,
-    },
+    props: oneChat,
   };
 }

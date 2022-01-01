@@ -1,15 +1,13 @@
-import { useState, useEffect, useContext } from 'react';
+import { useState, useEffect } from 'react';
+import { useSession } from 'next-auth/react';
 import Layout from '../../layout/Layout';
-import { Button, ChatList, DevModal, TopNav } from '../../components';
+import { Button, ChatList, Icon, Modal, TopNav } from '../../components';
 import { getAllChats } from '../../services/chats';
-import { AuthContext } from '../../contexts/AuthContext';
-import { BiPlus } from '@react-icons/all-files/bi/BiPlus';
-import icons from '../../styles/Icon.module.css';
 
 export default function Chats() {
   const [allChats, setAllChats] = useState([]);
   const [show, setShow] = useState(false);
-  const { currentUser } = useContext(AuthContext);
+  const {data: session} = useSession();
 
   useEffect(() => {
     const fetchChats = async () => {
@@ -21,20 +19,22 @@ export default function Chats() {
 
   return (
     <Layout setShow={setShow}>
-      <DevModal
+      <Modal 
         setShow={setShow}
         message="You must be logged in to use this feature"
+        numBtns={1}
+        btnText="Got it"
         className={show ? 'container active' : 'container'}
       />
       <TopNav location="Chatter" />
       <ChatList items={allChats} url="/chats/id" />
-      {currentUser ? (
+      {session?.currentUser ? (
         <Button className="btn round fixed new" link={'/chats/compose'}>
-          <BiPlus className={icons.btn} />
+          <Icon name="Plus" className="btn" />
         </Button>
       ) : (
-        <Button className="btn round fixed new" onClick={() => setShow(true)}>
-          <BiPlus className={icons.btn} />
+        <Button className="btn round fixed new" type="button" onClick={() => setShow(true)}>
+          <Icon name="Plus" className="btn" />
         </Button>
       )}
     </Layout>

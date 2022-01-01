@@ -1,13 +1,14 @@
 import Button from './Button/Button'
 import Chat from './Chat/Chat'
 import ChatList from './ChatList/ChatList'
-import DevModal from './DevModal/DevModal'
 import Engagement from './Engagement/Engagement'
 import FormInput from './FormInput/FormInput'
 import HeadData from './HeadData/HeadData'
+import Icon from './Icon/Icon'
 import Modal from './Modal/Modal'
 import NavLink from './NavLink/NavLink'
 import NavLinks from './NavLinks/NavLinks'
+import Password from './Password/Password'
 import PopoutNav from './PopoutNav/PopoutNav'
 import SideNav from './SideNav/SideNav'
 import Spinner from './Spinner/Spinner'
@@ -20,13 +21,14 @@ export {
   Button,
   Chat,
   ChatList,
-  DevModal,
   Engagement,
   FormInput,
   HeadData,
+  Icon,
   Modal,
   NavLink,
   NavLinks,
+  Password,
   PopoutNav,
   SideNav,
   Spinner,
