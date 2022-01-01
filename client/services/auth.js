@@ -8,21 +8,3 @@ export const registerUser = async registerData => {
     return {error: error.response.data}
   }
 };
-
-export const verifyUser = async () => {
-  try {
-    const token = localStorage.getItem('authToken');
-    if (token) {
-      api.defaults.headers.common.authorization = `Bearer ${token}`;
-      const res = await api.get('/auth/verify');
-      return res.data;
-    }
-    return null;
-  } catch (error) {
-    return null
-  }
-};
-
-export const removeToken = () => {
-  api.defaults.headers.common.authorization = null;
-};
