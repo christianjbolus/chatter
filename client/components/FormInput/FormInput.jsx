@@ -22,7 +22,7 @@ const FormInput = React.forwardRef((props, ref) => {
           ref={ref}
           onChange={handleChange}
           onBlur={validation}
-          autocapitalize="off"
+          autoCapitalize="off"
         />
         {errMessage && (
           <p className={styles.error}>
