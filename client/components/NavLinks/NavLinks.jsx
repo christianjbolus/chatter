@@ -1,11 +1,8 @@
-import { useContext } from 'react';
-import { useSession } from 'next-auth/react';
-import { AuthContext } from '../../contexts/AuthContext';
+import { useSession, signOut } from 'next-auth/react';
 import { Icon, NavLink } from '../index';
 
 export default function NavLinks({ size, mode, icon, collapsible }) {
   const { data: session } = useSession();
-  const { logout } = useContext(AuthContext);
 
   if (!session?.currentUser) {
     return (
@@ -57,7 +54,7 @@ export default function NavLinks({ size, mode, icon, collapsible }) {
         size={size}
         mode={mode}
         href="#"
-        onClick={logout}
+        onClick={() => signOut({ callbackUrl: 'http://localhost:3001/' })}
         className={`${collapsible ? 'collapse' : ''}`}
       >
         <Icon name="Logout" className={icon} />
