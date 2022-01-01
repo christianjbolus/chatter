@@ -7,7 +7,7 @@ import { getAllChats } from '../../services/chats';
 export default function Chats() {
   const [allChats, setAllChats] = useState([]);
   const [show, setShow] = useState(false);
-  const {data: session} = useSession();
+  const { data: session } = useSession();
 
   useEffect(() => {
     const fetchChats = async () => {
@@ -19,7 +19,7 @@ export default function Chats() {
 
   return (
     <Layout setShow={setShow}>
-      <Modal 
+      <Modal
         setShow={setShow}
         message="You must be logged in to use this feature"
         numBtns={1}

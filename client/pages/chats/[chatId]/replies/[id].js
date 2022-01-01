@@ -12,7 +12,7 @@ export default function ChatEdit(oneReply) {
     content: oneReply.content,
   });
   const [show, setShow] = useState(false);
-  const {data: session} = useSession();
+  const { data: session } = useSession();
   const router = useRouter();
   const { chatId, id } = router.query;
 
@@ -52,7 +52,11 @@ export default function ChatEdit(oneReply) {
           <Link href={`/users/${session?.currentUser.username}`}>
             <img
               className={styles.profile_pic}
-              src={session?.currentUser.profile_pic ? session?.currentUser.profile_pic : '/defaultUser.jpg'}
+              src={
+                session?.currentUser.profile_pic
+                  ? session?.currentUser.profile_pic
+                  : '/defaultUser.jpg'
+              }
               alt={session?.currentUser.username}
             />
           </Link>
