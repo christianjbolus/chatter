@@ -9,6 +9,7 @@ import styles from '../../styles/Profile.module.css';
 export default function Profile({ user }) {
   const [userChats, setUserChats] = useState([]);
   const [show, setShow] = useState(false);
+  const [modalMsg, setModalMsg] = useState('');
   const { data: session } = useSession();
 
   const router = useRouter();
@@ -21,11 +22,21 @@ export default function Profile({ user }) {
     fetchUserChats();
   }, []);
 
+  const handleModal = e => {
+    if (e.currentTarget.id === 'follow') {
+      setModalMsg('This feature is still in development');
+      setShow(true);
+    } else {
+      setModalMsg('You must be logged in to use this feature');
+      setShow(true);
+    }
+  };
+
   return (
     <Layout setShow={setShow}>
       <Modal
         setShow={setShow}
-        message="You must be logged in to use this feature"
+        message={modalMsg}
         numBtns={1}
         btnText="Got it"
         className={show ? 'container active' : 'container'}
@@ -53,7 +64,12 @@ export default function Profile({ user }) {
                   Edit Profile
                 </Button>
               ) : (
-                <Button className="btn lg invert disabled" type="button" disabled={true}>
+                <Button
+                  className="btn lg invert"
+                  type="button"
+                  onClick={handleModal}
+                  id="follow"
+                >
                   Follow
                 </Button>
               )}
@@ -78,7 +94,7 @@ export default function Profile({ user }) {
             <Icon name="Plus" className="btn" />
           </Button>
         ) : (
-          <Button className="btn round fixed new" type="button" onClick={() => setShow(true)}>
+          <Button className="btn round fixed new" type="button" onClick={handleModal}>
             <Icon name="Plus" className="btn" />
           </Button>
         )}
