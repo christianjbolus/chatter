@@ -55,7 +55,7 @@ export default function Profile({ user }) {
               alt={user.username}
             />
             <div>
-              {session?.currentUser.id === user?.id ? (
+              {session?.currentUser.id === user.id ? (
                 <Button
                   className="btn lg invert"
                   type="button"
