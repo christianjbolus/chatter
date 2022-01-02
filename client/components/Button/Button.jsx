@@ -4,6 +4,7 @@ import { formatClasses } from '../../utils/helpers';
 
 export default function Button({
   className,
+  id,
   children,
   type,
   link,
@@ -21,7 +22,7 @@ export default function Button({
   }
 
   return (
-    <button className={classes} onClick={onClick} disabled={disabled} type={type}>
+    <button className={classes} onClick={onClick} disabled={disabled} type={type} id={id}>
       {children}
     </button>
   );
