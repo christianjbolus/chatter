@@ -23,17 +23,17 @@ export default function Profile({ user }) {
   }, []);
 
   const handleModal = e => {
-    if (e.currentTarget.id === 'follow') {
-      setModalMsg('This feature is still in development');
+    if (e.currentTarget.id === 'new') {
+      setModalMsg('You must be logged in to use this feature');
       setShow(true);
     } else {
-      setModalMsg('You must be logged in to use this feature');
+      setModalMsg('This feature is still in development');
       setShow(true);
     }
   };
 
   return (
-    <Layout setShow={setShow}>
+    <Layout handleModal={handleModal}>
       <Modal
         setShow={setShow}
         message={modalMsg}
@@ -94,7 +94,7 @@ export default function Profile({ user }) {
             <Icon name="Plus" className="btn" />
           </Button>
         ) : (
-          <Button className="btn round fixed new" type="button" onClick={handleModal}>
+          <Button className="btn round fixed new" type="button" onClick={handleModal} id="new">
             <Icon name="Plus" className="btn" />
           </Button>
         )}
