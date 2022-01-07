@@ -2,8 +2,6 @@
 
 # Chatter
 
-[![Netlify Status](https://api.netlify.com/api/v1/badges/83868fa1-7a53-4176-b818-982ab14164fb/deploy-status)](https://app.netlify.com/sites/chatter-social/deploys)
-
 </div>
 
 ## Installation
