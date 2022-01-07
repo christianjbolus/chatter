@@ -7,6 +7,7 @@ import { getAllChats } from '../../services/chats';
 export default function Chats() {
   const [allChats, setAllChats] = useState([]);
   const [show, setShow] = useState(false);
+  const [modalMsg, setModalMsg] = useState('');
   const { data: session } = useSession();
 
   useEffect(() => {
@@ -17,11 +18,21 @@ export default function Chats() {
     fetchChats();
   }, []);
 
+  const handleModal = e => {
+    if (e.currentTarget.id === 'likes') {
+      setModalMsg('This feature is still in development');
+      setShow(true);
+    } else {
+      setModalMsg('You must be logged in to use this feature');
+      setShow(true);
+    }
+  };
+
   return (
-    <Layout setShow={setShow}>
+    <Layout handleModal={handleModal}>
       <Modal
         setShow={setShow}
-        message="You must be logged in to use this feature"
+        message={modalMsg}
         numBtns={1}
         btnText="Got it"
         className={show ? 'container active' : 'container'}
@@ -33,7 +44,7 @@ export default function Chats() {
           <Icon name="Plus" className="btn" />
         </Button>
       ) : (
-        <Button className="btn round fixed new" type="button" onClick={() => setShow(true)}>
+        <Button className="btn round fixed new" type="button" onClick={handleModal}>
           <Icon name="Plus" className="btn" />
         </Button>
       )}
