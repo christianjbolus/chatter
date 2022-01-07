@@ -28,7 +28,7 @@ yarn dev
 
 ## MVP
 
-**Chatter's** MVP is an application that allows users to register an account, login and logout. A logged in user will then have the ability to view all Chats, view the details of a particular Chat and all of its associated replys, create new Chats, edit or delete Chats that they created, reply to other user's Chats and edit or delete those replys.
+**Chatter's** MVP is an application that allows users to register an account, login and logout. A logged in user will then have the ability to view all Chats, view the details of a particular Chat and all of its associated replys, create new Chats, edit or delete Chats that they created, reply to other user's Chats, edit or delete those replys and view and edit their profile.
 
 <br>
 
@@ -62,7 +62,6 @@ yarn dev
 ## Post-MVP
 - A user can like another user's Chat
 - A user has the ability to follow another user
-- A user has the can view and edit their profile
 - A user can repost another user's Chat
 - A user has the ability to include an image in their Chat
 - Implement file uploading for profile and Chat images
