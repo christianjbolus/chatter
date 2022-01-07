@@ -1,10 +1,9 @@
-import Link from 'next/link'
+import Link from 'next/link';
 import { getSession } from 'next-auth/react';
 import { Button, Icon } from '../components';
 import styles from '../styles/Landing.module.css';
 
 export default function Landing() {
-
   return (
     <div className={styles.container}>
       <div className={styles.content}>
@@ -45,6 +44,6 @@ export async function getServerSideProps(context) {
     };
   }
   return {
-    props: {}
+    props: {},
   };
 }

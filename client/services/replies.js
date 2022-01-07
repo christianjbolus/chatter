@@ -1,22 +1,22 @@
 import api from './apiConfig';
 
-export const getAllReplies = async (chatId) => {
+export const getAllReplies = async chatId => {
   try {
-    const res = await api.get(`/chats/${chatId}/replies`)
-    return res.data
+    const res = await api.get(`/chats/${chatId}/replies`);
+    return res.data;
   } catch (error) {
     throw error;
   }
-}
+};
 
 export const getOneReply = async (chatId, replyId) => {
   try {
-    const res = await api.get(`/chats/${chatId}/replies/${replyId}`)
-    return res.data
+    const res = await api.get(`/chats/${chatId}/replies/${replyId}`);
+    return res.data;
   } catch (error) {
-    throw error
+    throw error;
   }
-}
+};
 
 export const createReply = async (chatId, replyData) => {
   try {
