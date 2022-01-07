@@ -1,7 +1,7 @@
 import { useSession, signOut } from 'next-auth/react';
 import { Icon, NavLink } from '../index';
 
-export default function NavLinks({ size, mode, icon, collapsible }) {
+export default function NavLinks({ size, mode, icon, collapsible, handleModal }) {
   const { data: session } = useSession();
 
   if (!session?.currentUser) {
@@ -44,7 +44,8 @@ export default function NavLinks({ size, mode, icon, collapsible }) {
         text="Likes"
         size={size}
         mode={mode}
-        href={`/${session?.currentUser.username}/likes`}
+        id="likes"
+        onClick={handleModal}
         className={`${collapsible ? 'collapse' : ''}`}
       >
         <Icon name="Like" className={icon} />
