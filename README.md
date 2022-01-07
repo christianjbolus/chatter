@@ -72,7 +72,7 @@ The following function takes the error object returned from the server and refor
 const formatErrors = errObj => {
   let errors = {};
   for (let key in errObj) {
-    errors[key] = `${key[0].toUpperCase() + key.slice(1)} ${errObj[key][0]}`;
+    errors[key] = `${key.charAt(0).toUpperCase() + key.slice(1)} ${errObj[key][0]}`;
   }
   return errors;
 };
