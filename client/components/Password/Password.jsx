@@ -79,9 +79,9 @@ export default function Password(props) {
 
   let passwordIcon;
   if (showPassword) {
-    passwordIcon = <Icon name="EyeOff" className="password" />;
+    passwordIcon = <Icon name="Hide" className="password" />;
   } else {
-    passwordIcon = <Icon name="Eye" className="password" />;
+    passwordIcon = <Icon name="Show" className="password" />;
   }
 
   let inputClass;

@@ -24,9 +24,9 @@ export default function Icon({ name, className }) {
       return <IoCheckmarkCircle className={styles[className]} />;
     case 'Close':
       return <IoClose className={styles[className]} />;
-    case 'Eye':
+    case 'Show':
       return <IoEye className={styles[className]} />;
-    case 'EyeOff':
+    case 'Hide':
       return <IoEyeOff className={styles[className]} />;
     case 'Logo':
       return <BsChatDotsFill className={styles[className]} />;
