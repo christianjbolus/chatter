@@ -35,7 +35,7 @@ export default function Register() {
     } else {
       setIsCompleted(false);
     }
-  }, [formData, formErrors]);
+  }, [formData]);
 
   const handleChange = e => {
     const { name, value } = e.target;
