@@ -109,7 +109,7 @@ export default function Password(props) {
         <label className={styles.label} htmlFor={name}>
           {passwordLabel}
         </label>
-        <div className={inputClass} tabIndex={-1} onFocus={handleFocus} onBlur={handleBlur}>
+        <div className={inputClass} onFocus={handleFocus} onBlur={handleBlur}>
           <input
             className={styles.input}
             id={name}
