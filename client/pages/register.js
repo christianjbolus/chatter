@@ -87,6 +87,7 @@ export default function Register() {
               name="username"
               value={username}
               handleChange={handleChange}
+              validation={handleValidation}
               errMessage={formErrors.username}
             />
             <Password

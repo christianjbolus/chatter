@@ -7,6 +7,13 @@ const validations = {
     }
   },
 
+  username: function(username) {
+    const regex = /^[a-zA-Z0-9-_]+$/
+    if (username.length && !regex.test(username)) {
+      return 'Username can only contain alphanumeric characters, underscores, and dashes'
+    }
+  },
+
   password: function (password) {
     const regex = /^(?=.*[A-Za-z])(?=.*\d)[a-zA-Z\d\w\W]{8,}$/;
     if (password.length && !regex.test(password)) {
