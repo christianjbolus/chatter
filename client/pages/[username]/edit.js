@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { useRouter } from 'next/router';
 import { getSession } from 'next-auth/react';
-import { Button, FormInput, Icon, TextArea } from '../../components';
+import { Button, FormInput, Icon, ImageUpload, TextArea } from '../../components';
 import { getOneUser, updateUser } from '../../services/users';
 import styles from '../../styles/AuthForm.module.scss';
 
@@ -44,18 +44,19 @@ export default function ProfileEdit(user) {
               handleUpdate();
             }}
           >
+            <ImageUpload value={profile_pic}/>
             <FormInput
               label="Display name"
               name="display_name"
               value={display_name}
               handleChange={handleChange}
             />
-            <FormInput
+            {/* <FormInput
               label="Profile pic"
               name="profile_pic"
               value={profile_pic}
               handleChange={handleChange}
-            />
+            /> */}
             <TextArea
               className="auth"
               label="Bio"
