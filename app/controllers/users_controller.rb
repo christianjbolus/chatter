@@ -13,7 +13,7 @@ class UsersController < ApplicationController
       @token = encode({ id: @user.id })
       render json: {
                user: @user.attributes.except('password_digest'),
-               token: @token,
+               token: @token
              },
              status: :created
     else
@@ -23,7 +23,8 @@ class UsersController < ApplicationController
 
   # PUT /users/:username
   def update
-    if @user.update(user_params)
+    params = construct_user_params
+    if @user.update(params)
       render json: @user.attributes.except('password_digest')
     else
       render json: @user.errors, status: :unprocessable_entity
@@ -40,6 +41,19 @@ class UsersController < ApplicationController
 
   def set_user
     @user = User.find_by(username: params[:username])
+  end
+
+  def upload_image
+    img = Cloudinary::Uploader.upload(user_params[:profile_pic], folder: 'chatter')
+    img['secure_url']
+  end
+
+  def construct_user_params
+    {
+      display_name: user_params[:display_name],
+      bio: user_params[:bio],
+      profile_pic: upload_image
+    }
   end
 
   # Only allow a list of trusted parameters through.
