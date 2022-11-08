@@ -1,22 +1,14 @@
 import { useState } from 'react';
 import styles from './ImageUpload.module.scss';
 
-export default function ImageUpload({ value }) {
 
-  const [imgUrl, setImgUrl] = useState(value)
+export default function ImageUpload({ value, handleChange }) {
 
-  const handleImgChange = e => {
-    const fileReader = new FileReader()
-    fileReader.readAsDataURL(e.target.files[0]);
-    fileReader.onload = e => {
-      setImgUrl(e.target.result)
-    }
-  }
   return (
     <div className={styles.container}>
       <img
         className={styles.profile_pic}
-        src={imgUrl}
+        src={value}
       />
       <label className={styles.label} htmlFor="img_upload">
         Choose file
@@ -26,7 +18,7 @@ export default function ImageUpload({ value }) {
         type="file"
         accept="image/jpeg, image/png, image/webp"
         id="img_upload"
-        onChange={handleImgChange}
+        onChange={handleChange}
       />
     </div>
   );
