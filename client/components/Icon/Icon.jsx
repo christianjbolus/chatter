@@ -1,6 +1,6 @@
 import { BsChatDotsFill, BsTrash } from 'react-icons/bs';
 import { BiPlus } from 'react-icons/bi';
-import { AiOutlineRedo, AiOutlineLogin } from 'react-icons/ai';
+import { AiOutlineCamera, AiOutlineRedo, AiOutlineLogin } from 'react-icons/ai';
 import { BsHeart } from 'react-icons/bs';
 import { FiEdit, FiPower } from 'react-icons/fi';
 import {
@@ -44,6 +44,8 @@ export default function Icon({ name, className }) {
       return <AiOutlineLogin className={styles[className]} />;
     case 'Logout':
       return <FiPower className={styles[className]} />;
+    case 'Photo':
+      return <AiOutlineCamera className={styles[className]} />;
     case 'Profile':
       return <IoPersonOutline className={styles[className]} />;
     case 'SignUp':
