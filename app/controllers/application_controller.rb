@@ -1,6 +1,11 @@
 class ApplicationController < ActionController::API
   SECRET_KEY = Rails.application.secrets.secret_key_base.to_s
 
+  Cloudinary.config_from_url(ENV['CLOUDINARY_URL'])
+  Cloudinary.config do |config|
+    config.secure = true
+  end
+
   def encode(payload, exp = 30.days.from_now)
     payload[:exp] = exp.to_i
     JWT.encode(payload, SECRET_KEY)
