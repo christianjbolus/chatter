@@ -11,7 +11,7 @@ export const getOneUser = async username => {
 
 export const updateUser = async (username, userData) => {
   try {
-    const res = await api.put(`/users/${username}`, { user: userData });
+    const res = await api.put(`/users/${username}`, userData);
     return res.data;
   } catch (error) {
     throw error;
